@@ -37,22 +37,22 @@ Additional features
 
 # Technicalities
 
-## Ruby version
+### Ruby version
 
 2.50
 
-## Rails version
+### Rails version
 
 5.1.4
 
-## System dependencies
+### System dependencies
 
 Developed on Ubuntu 16.04 LTS
 
-## Database 
+### Database 
 
 Postgre SQL
 
-## Deployment Platform
+### Deployment Platform
 
 Heroku
