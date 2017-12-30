@@ -33,6 +33,7 @@ Additional features
 After user create a profile they may search companies, jobs, program clustersd, and or other people
 
 Additional features
+- Instant refresh, suggestions
 - Chance of getting the job calculator: crunches data in database to give a rough probability of getting the job
 
 # Technicalities
