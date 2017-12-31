@@ -12,3 +12,31 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 118ms (Views: 3.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-30 22:37:13 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kevin/.rvm/gems/ruby-2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kevin/.rvm/gems/ruby-2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 120ms (Views: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-31 15:42:26 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 1674ms (Views: 1564.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-31 15:45:45 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 226ms (Views: 113.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-31 15:52:05 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 234ms (Views: 115.7ms)
+
+
