@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 ruby "2.5.0"
+
+# Using Devise gem for authentication and user accounts
+gem 'devise'
 # Boostrap
 gem 'bootstrap-sass', '~> 3.3.7'
 # jQuery
