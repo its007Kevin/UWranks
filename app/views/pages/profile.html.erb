@@ -7,10 +7,12 @@
 		</div>
 	</div>
 	<div class="col-xs-8">
+		<% for @p in @posts %>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<p>My Rankings</p>
+				<p><%= @p.content %></p>
 			</div>
 		</div>
+		<% end %>
 	</div>
 </div>
