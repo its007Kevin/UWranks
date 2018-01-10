@@ -1,2 +1,54 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if !user_signed_in? %>
+	<style>
+		body {
+			background: url("/bg.jpg") no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o -background-size: cover;
+			background-size: cover;
+		}
+		.container-index {
+			margin-right: 15%;
+			margin-left: 15%;
+		}
+		h1 {
+			font-weight: bold;
+			color: white;
+		}
+		.text {
+			font-size: 200%;
+			font-weight: bold;
+			color: white;
+		}
+		.log-in {
+			float: right;
+			width: 300px;
+			height: 150px;
+		}
+		.sign-up {
+			float: right;
+			width: 300px;
+			height: 250px;
+		}
+	</style>
+
+	<div class="container-index row">
+		<div class="col-sm-6">
+			<p class="text">
+				Only got a rank for the job you wanted?<br>
+				Check your chances of getting the job.<br>
+			</p>
+			<h1>UWranks</h1>
+		</div>
+		<div class="col-sm-6">
+			<div class="log-in panel">
+				Log in placeholder
+			</div>
+		</div>
+	</div>
+
+<% else %>
+
+	<script>document.location = "/home"</script>
+
+<% end %>
