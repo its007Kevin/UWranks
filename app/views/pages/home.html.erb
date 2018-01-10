@@ -1,10 +1,23 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h2>Home Feeds</h2>
+		<h2>Home Feed</h2>
+		<h6>Followers: <%= current_user.followers.count %></h6>
 		<% for @p in @posts %>
-		<div class="panel panel-default">
+		<div class="panel panel-default post-panel">
 			<div class="panel-body">
-				<p><%= @p.content %></p>
+				<div class="col-sm-1">
+					<img src="avatar.png" class="rounded-corners" height="50px" width="50px"></img>
+				</div>
+				<div class="col-sm-11">
+					<p><span class="post-owner"><%= User.find(@p.user_id).username%></span> - <span class="post-created"><%= @p.created_at.to_formatted_s(:short)%></span> </p>
+					<p class="post-content"><%= @p.content %></p>
+				</div>
+				<div class="col-sm-12">
+					<p class="post-links">
+						<span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
+					</p>
+				</div>
 			</div>
 		</div>
 		<% end %>
