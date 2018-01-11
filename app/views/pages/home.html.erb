@@ -1,24 +1,37 @@
 <div class="row">
-	<div class="col-xs-12">
+	<div class="columns">
 		<h2>Home Feed</h2>
 		<% for @p in @posts %>
-		<div class="panel panel-default post-panel">
-			<div class="panel-body">
-				<div class="col-sm-1">
-					<img src="avatar.png" class="rounded-corners" height="50px" width="50px"></img>
-				</div>
-				<div class="col-sm-11">
-					<p><span class="post-owner"><%= User.find(@p.user_id).username%></span> - <span class="post-created"><%= @p.created_at.to_formatted_s(:short)%></span> </p>
-					<p class="post-content"><%= @p.content %></p>
-				</div>
-				<div class="col-sm-12">
-					<p class="post-links">
-						<span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
-						<span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
-					</p>
-				</div>
+			<div class="box">
+				<article class="media">
+					<div class="media-left">
+						<figure class="image is-64x64">
+							<img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+						</figure>
+					</div>
+					<div class="media-content">
+						<div class="content">
+							<p>
+								<strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+								<br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+							</p>
+						</div>
+						<nav class="level is-mobile">
+							<div class="level-left">
+								<a class="level-item">
+            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+          </a>
+								<a class="level-item">
+            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+          </a>
+								<a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+							</div>
+						</nav>
+					</div>
+				</article>
 			</div>
-		</div>
 		<% end %>
 	</div>
 </div>
