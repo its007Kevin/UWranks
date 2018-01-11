@@ -10,7 +10,9 @@ ruby "2.5.0"
 # Using Devise gem for authentication and user accounts
 gem 'devise'
 # Boostrap
-gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'bootstrap-sass', '~> 3.3.7'
+# Bulma
+gem 'bulma-rails', '~> 0.6.2'
 # jQuery
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
