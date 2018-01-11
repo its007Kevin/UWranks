@@ -17,6 +17,8 @@ gem 'jquery-rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
+# Heroku Requirements
+gem 'rails_12factor', group: :production # only use on heroku production environment
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

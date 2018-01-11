@@ -3,6 +3,8 @@
 		<img src="/avatar.png" height="200px" width="200px"></img>
 		<h3 style="font-weight: bold"><%= @username %></h3>
 		<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
+		<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
+		<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
 	</div>
 	<div class="col-xs-9">
 		<%= render '/components/post_form' %>
