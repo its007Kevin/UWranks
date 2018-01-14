@@ -1,19 +1,19 @@
-<div class="row">
-	<div class="col-xs-3">
-		<img src="/avatar.png" height="200px" width="200px"></img>
-		<h3 style="font-weight: bold"><%= @username %></h3>
-		<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
-		<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
-		<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
-	</div>
-	<div class="col-xs-9">
-		<%= render '/components/post_form' %>
-		<% for @p in @posts %>
-		<div class="panel panel-default">
-			<div class="panel-body">
+<div class="container is-fluid profile">
+	<div class="columns is-3">
+		<div class="column">
+			<img src="/avatar.png" height="200px" width="200px"></img>
+			<h3 style="font-weight: bold"><%= @username %></h3>
+			<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
+			<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
+			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
+		</div>
+		<div class="column is-9">
+			<%= render '/components/post_form' %>
+			<% for @p in @posts %>
+			<div class="box">
 				<p><%= @p.content %></p>
 			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 </div>
