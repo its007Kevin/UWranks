@@ -1,19 +1,19 @@
-<div class="panel panel-default post-panel">
-	<div class="panel-body">
-		<div class="col-sm-1">
+<div class="box">
+	<div class="columns">
+		<div class="column is-1">
 			<img src="/avatar.png" class="rounded-corners" height="50px" width="50px"></img>
 		</div>
-		<div class="col-sm-11">
+		<div class="column is-11">
 			<%= form_for(@newPosts) do |f| %>
-			  <center>
-			    <div class="field">
-			      <%= f.text_field :content, autofocus: true, class: "form-control" %>
+			  <div class="field">
+			    <div class="control">
+			      <%= f.text_field :content, autofocus: true %>
 			    </div>
-
-			    <div class="actions">
-			      <span style="float: right; margin-top: 10px"><%= f.submit "Add Post", class: "btn btn-primary" %></span>
+			    <br>
+			    <div class="control">
+			      <%= f.submit "Add Post", class: "button is-link" %>
 			    </div>
-			  </center>
+			  </div>
 			<% end %>
 		</div>
 	</div>
