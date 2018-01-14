@@ -39,12 +39,6 @@ h1 {
 	border-radius: 10%;
 }
 
-.g-links {
-	opacity: 0.40;
-	font-size: 120%;
-	margin-right: 25px;
-}
-
 .sign-in-panel {
 	margin-top: 15%;
 	margin-left: 60%;
@@ -60,7 +54,15 @@ h1 {
 	width: 300px;
 }
 
-.sign-in-text {
+.password-reset-panel {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 150px;
+	width: 300px;
+}
+
+.header-text {
 	margin-top: 50px;
 	text-align: center;
 	font-weight: bold;
@@ -73,14 +75,8 @@ h1 {
 	padding-bottom: 5%;
 }
 
-.home {
+.side-margins {
 	margin-top: 40px;
-	padding-left: 20%;
-	padding-right: 20%;
-}
-
-.profile {
-	margin-top: 40px;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 18%;
+	padding-right: 18%;
 }
