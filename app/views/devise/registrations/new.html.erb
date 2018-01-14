@@ -1,35 +1,53 @@
-<h2>Sign up</h2>
+<div class="container is-fluid side-margins">
+
+<h1>Sign up</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, class: "form-control" %>
+    <label class="label">Username</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :username, autofocus: true, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-user"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class: "form-control" %>
+    <label class="label">Email</label>
+    <div class="control has-icons-left">
+      <%= f.email_field :email, class: "input", :type => "email1" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-envelope"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    <label class="label">Password<% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    </label>
+    <div class="control has-icons-left">
+      <%= f.password_field :password, autocomplete: "off", class: "input", :type => "password" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-lock"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    <label class="label">Password Confirmation</label>
+    <div class="control">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", :type => "password" %>
+    </div>
   </div>
 
-  <div class="actions">
-    </br>
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
+  <div class="field">
+    <%= f.submit "Sign up", class: "button is-primary" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>

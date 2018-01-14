@@ -1,23 +1,23 @@
-<h1 class="sign-in-text">Sign in to UWranks</h1>
+<h1 class="header-text">Sign in to UWranks</h1>
 <div class="sign-in-panel2 box">
   <%= form_for(:user, :url => session_path(:user)) do |f| %>
     <div class="field">
       <label class="label">Email</label>
-      <p class="control has-icons-left has-icons-right">
+      <div class="control has-icons-left has-icons-right">
         <%= f.text_field :email, :class => "input", :type => "email", :placeholder => "Email" %>
         <span class="icon is-small is-left">
           <i class="fa fa-envelope"></i>
         </span>
-      </p>
+      </div>
     </div>
     <div class="field">
       <label class="label">Password</label>
-      <p class="control has-icons-left">
+      <div class="control has-icons-left">
         <%= f.password_field :password, :class => "input", :type => "password", :placeholder => "Password" %>
         <span class="icon is-small is-left">
-        <i class="fa fa-lock"></i>
-      </span>
-      </p>
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
     </div>
     <div class="field">
       <div class="control">
