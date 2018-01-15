@@ -1,4 +1,4 @@
-<nav class="navbar is-transparent">
+<nav class="navbar is-transparent is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="/index">
@@ -13,12 +13,24 @@
 
     <div id="navbarBurger" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="/home">Home</a>
-        <a class="navbar-item" href="#">Explore</a>
-        <a class="navbar-item" href="#">Notifications</a>
+        <div class="navbar-item">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="Search companies, jobs, profiles">
+            </div>
+            <div class="control">
+              <a class="button is-info">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="navbar-end">
+        <a class="navbar-item" href="/home">Home</a>
+        <a class="navbar-item" href="#">Explore</a>
+        <a class="navbar-item" href="#">Notifications</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">
             My Profile
