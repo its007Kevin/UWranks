@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117024920) do
+ActiveRecord::Schema.define(version: 20180117154430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180117024920) do
     t.string "My_ranking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "job_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -65,10 +67,13 @@ ActiveRecord::Schema.define(version: 20180117024920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "program"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "rankings", "jobs"
+  add_foreign_key "rankings", "users"
 end
