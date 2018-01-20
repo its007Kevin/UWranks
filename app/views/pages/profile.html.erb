@@ -8,11 +8,13 @@
 			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
 		</div>
 		<div class="column is-9">
-			<%= render '/components/post_form' %>
-			<% for @p in @posts %>
-			<div class="box">
-				<p><%= @p.content %></p>
-			</div>
+      <% if current_user.username == @username %>
+			 <%= render '/components/post_form' %>
+      <% end %>
+			<% @posts.each do |p| %>
+  			<div class="box">
+  				<p><%= p.content %></p>
+  			</div>
 			<% end %>
 		</div>
 	</div>
