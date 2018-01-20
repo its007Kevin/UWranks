@@ -1,32 +1,33 @@
 <div class="container is-fluid margins">
-    <h1>Home Feed</h1>
-    <br>
-    <% for @p in @posts %>
-        <div class="box">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-64x64">
-                        <img src="avatar.png" class="rounded-corners">
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong><%= User.find(@p.user_id).username%></strong> 
-                            <small><%= @p.created_at.to_formatted_s(:short)%></small>
-                            <br> 
-                            <%= @p.content %>                        
-                        </p>
-                    </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                            <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-                            <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
-                            <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-                        </div>
-                    </nav>
-                </div>
-            </article>
+  <h1>Home Feed</h1>
+  <br>
+  <%= render '/components/post_form' %>
+  <% @posts.each do |posts| %> 
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+              <img src="avatar.png" class="rounded-corners">
+          </figure>
         </div>
-    <% end %>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
+              <small><%= posts.created_at.to_formatted_s(:short) %></small>
+              <br>
+              <%= posts.content %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+  <% end %>
 </div>

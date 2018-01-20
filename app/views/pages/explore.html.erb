@@ -1,24 +1,32 @@
-<div class="row">
-	<div class="col-xs-12">
-		<h2>Explore</h2>
-		<% for @p in @posts %>
-		<div class="panel panel-default post-panel">
-			<div class="panel-body">
-				<div class="col-sm-1">
-					<img src="avatar.png" class="rounded-corners" height="50px" width="50px"></img>
-				</div>
-				<div class="col-sm-11">
-					<p><span class="post-owner"><%= User.find(@p.user_id).username%></span> - <span class="post-created"><%= @p.created_at.to_formatted_s(:short)%></span> </p>
-					<p class="post-content"><%= @p.content %></p>
-				</div>
-				<div class="col-sm-12">
-					<p class="post-links">
-						<span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
-						<span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
-					</p>
-				</div>
-			</div>
-		</div>
-		<% end %>
-	</div>
+<div class="container is-fluid margins">
+  <h1>Explore Feed</h1>
+  <br>
+  <% @posts.each do |posts| %> 
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+              <img src="avatar.png" class="rounded-corners">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
+              <small><%= posts.created_at.to_formatted_s(:short) %></small>
+              <br>
+              <%= posts.content %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+  <% end %>
 </div>
