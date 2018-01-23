@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Employer_ranking: MyString
-  My_ranking: MyString
+  employerRank: 1
+  yourRank: 1
+  user: one
+  job: one
 
 two:
-  Employer_ranking: MyString
-  My_ranking: MyString
+  employerRank: 1
+  yourRank: 1
+  user: two
+  job: two

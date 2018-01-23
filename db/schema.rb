@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117154430) do
+ActiveRecord::Schema.define(version: 20180121013827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "Job_id"
-    t.string "Company"
-    t.string "Position"
-    t.string "Location"
-    t.integer "Openings"
+    t.integer "jobId"
+    t.string "company"
+    t.string "position"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,12 +34,14 @@ ActiveRecord::Schema.define(version: 20180117154430) do
   end
 
   create_table "rankings", force: :cascade do |t|
-    t.string "Employer_ranking"
-    t.string "My_ranking"
+    t.integer "employerRank"
+    t.integer "yourRank"
+    t.bigint "user_id"
+    t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "job_id"
+    t.index ["job_id"], name: "index_rankings_on_job_id"
+    t.index ["user_id"], name: "index_rankings_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
