@@ -1,3 +1,3 @@
 class Job < ApplicationRecord
-  has_many :rankings, dependent: :destroy
+  has_many :rankings
 end

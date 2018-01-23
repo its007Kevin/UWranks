@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   	end
   end
   resources :posts
+  resources :jobs
+  resources :rankings
   
   root 'pages#index'
 
-  get '/home' => 'pages#home' # overrides default route
+  get '/home' => 'pages#home'
   get '/user/:id' => 'pages#profile'
   get '/explore' => 'pages#explore'
   get '/index' => 'pages#index'

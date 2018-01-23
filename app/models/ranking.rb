@@ -1,4 +1,4 @@
 class Ranking < ApplicationRecord
   belongs_to :user
-  has_one :job
+  belongs_to :job
 end
