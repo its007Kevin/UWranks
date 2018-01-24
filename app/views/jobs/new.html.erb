@@ -1,24 +1,5 @@
 <div class="container is-fluid margins">
-  <h1>Job Form</h1>
-  <br>
-  <h6>Jobs</h6>
-  <table>
-    <tr>
-      <th>Job ID</th>
-      <th>Company</th>
-      <th>Position</th>
-      <th>Location</th>
-    </tr>
-
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.jobId %></td>
-        <td><%= job.company %></td>
-        <td><%= job.position %></td>
-        <td><%= job.location %></td>
-      </tr>
-    <% end %>
-  </table>
+  <h1>Add Job Form</h1>
   <br>
   <%= form_with model: @job, local: true do |form| %>
     <p>
@@ -46,6 +27,4 @@
       <%= form.submit %>
     </p>
   <% end %>
-
-  <%= render 'rankings/new' %>
 </div>

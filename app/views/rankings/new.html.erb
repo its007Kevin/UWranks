@@ -1,44 +1,46 @@
-<h1>Rankings</h1>
-<table>
-  <tr>
-    <th>Employer Rank</th>
-    <th>Your Rank</th>
-    <th>User Id</th>
-    <th>Job Id</th>
-  </tr>
-
-  <% @rankings.each do |ranking| %>
+<div class="container is-fluid margins">
+  <h1>Rankings</h1>
+  <table>
     <tr>
-      <td><%= ranking.employerRank %></td>
-      <td><%= ranking.yourRank %></td>
-      <td><%= ranking.user_id %></td>
-      <td><%= ranking.job_id %></td>
+      <th>Employer Rank</th>
+      <th>Your Rank</th>
+      <th>User Id</th>
+      <th>Job Id</th>
     </tr>
+
+    <% @rankings.each do |ranking| %>
+      <tr>
+        <td><%= ranking.employerRank %></td>
+        <td><%= ranking.yourRank %></td>
+        <td><%= ranking.user_id %></td>
+        <td><%= ranking.job_id %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= form_with model: @ranking, local: true do |form| %>
+    <p>
+      <%= form.label :"Employer Rank" %><br>
+      <%= form.text_field :employerRank %>
+    </p>
+   
+    <p>
+      <%= form.label :"Your Rank" %><br>
+      <%= form.text_field :yourRank %>
+    </p>
+
+    <p>
+      <%= form.label :"User Id" %><br>
+      <%= form.text_field :user_id %>
+    </p>
+
+    <p>
+      <%= form.label :"Job Id" %><br>
+      <%= form.text_field :job_id %>
+    </p>
+
+    <br>
+    <p>
+      <%= form.submit %>
+    </p>
   <% end %>
-</table>
-<%= form_with model: @ranking, local: true do |form| %>
-  <p>
-    <%= form.label :"Employer Rank" %><br>
-    <%= form.text_field :employerRank %>
-  </p>
- 
-  <p>
-    <%= form.label :"Your Rank" %><br>
-    <%= form.text_field :yourRank %>
-  </p>
-
-  <p>
-    <%= form.label :"User Id" %><br>
-    <%= form.text_field :user_id %>
-  </p>
-
-  <p>
-    <%= form.label :"Job Id" %><br>
-    <%= form.text_field :job_id %>
-  </p>
-
-  <br>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+</div>
