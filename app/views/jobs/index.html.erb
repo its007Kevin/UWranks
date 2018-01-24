@@ -1,0 +1,27 @@
+<div class="container is-fluid margins"
+  <h6>Jobs</h6>
+  <%= search_form_for @search do |f| %>
+    <%= f.label :"Search Jobs by name, position, location" %>
+    <%= f.search_field :company_or_position_or_location_cont %>
+    <%= f.submit %>
+  <% end %>
+  <table>
+    <tr>
+      <th>Job ID</th>
+      <th>Company</th>
+      <th>Position</th>
+      <th>Location</th>
+    </tr>
+
+    <% @results.each do |job| %>
+      <tr>
+        <td><%= job.jobId %></td>
+        <td><%= job.company %></td>
+        <td><%= job.position %></td>
+        <td><%= job.location %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+  <%= link_to 'Add new Job', new_job_path %>
+</div>

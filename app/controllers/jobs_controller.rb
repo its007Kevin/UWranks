@@ -1,13 +1,17 @@
 class JobsController < ApplicationController
+  def index 
+    @search = Job.ransack(params[:q])
+    @results = @search.result
+  end
+
   def new
-    @jobs = Job.all
     @job = Job.new
   end
 
   def create
     @job = Job.new(job_params)
     @job.save
-    redirect_to new_job_path
+    redirect_to jobs_path
   end
 
   private
