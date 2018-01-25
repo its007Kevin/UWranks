@@ -42,3 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+$(".selectJobBtn").click(function() {
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".jobTableId").text(); // Find the text
+    
+    // Let's test it out
+    alert($text);
+});

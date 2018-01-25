@@ -1,10 +1,13 @@
-<div class="container is-fluid margins"
-  <h6>Jobs</h6>
+<div class="container is-fluid margins">
+  <h2>Jobs</h2>
+  <br>
   <%= search_form_for @search do |f| %>
-    <%= f.label :"Search Jobs by name, position, location" %>
+    <%= f.label :"Search Jobs by company, position, location" %><br>
     <%= f.search_field :company_or_position_or_location_cont %>
     <%= f.submit %>
   <% end %>
+  <br>
+  <% if !@emptyQuery %>
   <table>
     <tr>
       <th>Job ID</th>
@@ -15,13 +18,17 @@
 
     <% @results.each do |job| %>
       <tr>
+        <td class="jobTableId" style="display:none;"><%= job.id %></td>
         <td><%= job.jobId %></td>
         <td><%= job.company %></td>
         <td><%= job.position %></td>
         <td><%= job.location %></td>
+        <td class="text-center"><button type="button" class="selectJobBtn">Select</button></td>
       </tr>
     <% end %>
   </table>
+  <% end %>
   <br>
-  <%= link_to 'Add new Job', new_job_path %>
+  <%= link_to "Add new Job", new_job_path %>
+  <br>
 </div>
