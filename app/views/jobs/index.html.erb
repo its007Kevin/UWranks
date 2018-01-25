@@ -18,12 +18,12 @@
 
     <% @results.each do |job| %>
       <tr>
-        <td class="jobTableId" style="display:none;"><%= job.id %></td>
+        <td class="jobId" style="display:none;"><%= job.id %></td>
         <td><%= job.jobId %></td>
         <td><%= job.company %></td>
         <td><%= job.position %></td>
         <td><%= job.location %></td>
-        <td class="text-center"><button type="button" class="selectJobBtn">Select</button></td>
+        <td class="text-center"><button type="button" class="selectBtn">Select</button></td>
       </tr>
     <% end %>
   </table>
