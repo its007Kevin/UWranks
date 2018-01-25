@@ -1,49 +1,32 @@
-<% if !user_signed_in? %>
-	<div class="index">
-		<div class="sign-in-panel box">
-			<label class="label">
-				Sign In
-			</label>
-			<br>
-			<%= form_for(:user, :url => session_path(:user)) do |f| %>
-				<div class="field">
-					<label class="label">Email</label>
-					<p class="control has-icons-left has-icons-right">
-						<%= f.text_field :email, :class => "input", :type => "email", :placeholder => "Email" %>
-						<span class="icon is-small is-left">
-							<i class="fa fa-envelope"></i>
-						</span>
-					</p>
-				</div>
-				<div class="field">
-					<label class="label">Password</label>
-					<p class="control has-icons-left">
-						<%= f.password_field :password, :class => "input", :type => "password", :placeholder => "Password" %>
-						<span class="icon is-small is-left">
-						<i class="fa fa-lock"></i>
-					</span>
-					</p>
-				</div>
-				<div class="field">
-					<div class="control">
-							<%= f.check_box :remember_me %>
-							<%= f.label :remember_me %>
-					</div>
-				</div>
-				<div class="field">
-					<p class="control">
-						<%= f.submit 'Login', :class => "button is-success" %>
-					</p>
-					<br>
-					<%= link_to "Forgot your password?", new_password_path(:user) %>
-					<br>
-					<%= link_to "Sign up", new_registration_path(:user) %>
-				</div>
-			<% end %>
-		</div>
-	</div>
-<% else %>
-	<script>
-		document.location = "/home"
-	</script>
-<% end %>
+<div class="container is-fluid margins">
+  <h1>Explore Feed</h1>
+  <br>
+  <% @posts.each do |posts| %> 
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+              <img src="avatar.png" class="rounded-corners">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
+              <small><%= posts.created_at.to_formatted_s(:short) %></small>
+              <br>
+              <%= posts.content %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
+              <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+  <% end %>
+</div>
