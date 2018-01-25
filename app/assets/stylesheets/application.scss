@@ -26,6 +26,20 @@ h1 {
 	font-size: 150%;
 }
 
+tr:hover {
+  background-color: #B8CBF5;
+}
+
+td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+th {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .error {
 	text-align: middle;
 	text-decoration: bold;

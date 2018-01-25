@@ -45744,3 +45744,953 @@ Processing by JobsController#index as HTML
 Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 22:25:51 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 22:51:46 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 28ms (Views: 21.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 22:51:48 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:51:53 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:52:14 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.7ms)
+Completed 200 OK in 49ms (Views: 42.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:52:17 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 23ms (Views: 17.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:54:15 -0500
+  
+SyntaxError (/home/kevin/Documents/UWranks/app/controllers/jobs_controller.rb:5: syntax error, unexpected '='
+      @emptyQuery? = true
+                   ^
+/home/kevin/Documents/UWranks/app/controllers/jobs_controller.rb:7: syntax error, unexpected '='
+      @emptyQuery? = false
+                   ^):
+  
+app/controllers/jobs_controller.rb:5: syntax error, unexpected '='
+app/controllers/jobs_controller.rb:7: syntax error, unexpected '='
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:55:07 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 21ms (Views: 16.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-23 22:55:25 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 27ms (Views: 16.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2018-01-23 22:55:37 -0500
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lPrwQXmFbtGjInaz75PQCWebE1pqJQRps7qvN6vvuFXECIYxN1KJNDxyOMMk9Use9oDHeAzFoz69/ayIED35iQ==", "job"=>{"jobId"=>"3241", "company"=>"Amazon", "position"=>"AWS Developer", "location"=>"USA"}, "commit"=>"Create Job"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "jobs" ("jobId", "company", "position", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["jobId", 3241], ["company", "Amazon"], ["position", "AWS Developer"], ["location", "USA"], ["created_at", "2018-01-24 03:55:37.643790"], ["updated_at", "2018-01-24 03:55:37.643790"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 11ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 22:55:37 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=amazon&commit=Search" for 127.0.0.1 at 2018-01-23 22:55:40 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"amazon"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%amazon%' OR "jobs"."position" ILIKE '%amazon%') OR "jobs"."location" ILIKE '%amazon%')[0m
+  Rendered jobs/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=amazon+snap&commit=Search" for 127.0.0.1 at 2018-01-23 22:58:08 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"amazon snap"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%amazon snap%' OR "jobs"."position" ILIKE '%amazon snap%') OR "jobs"."location" ILIKE '%amazon snap%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=amazon+snapchat&commit=Search" for 127.0.0.1 at 2018-01-23 22:58:11 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"amazon snapchat"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%amazon snapchat%' OR "jobs"."position" ILIKE '%amazon snapchat%') OR "jobs"."location" ILIKE '%amazon snapchat%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=snapchat&commit=Search" for 127.0.0.1 at 2018-01-23 22:58:14 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"snapchat"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%snapchat%' OR "jobs"."position" ILIKE '%snapchat%') OR "jobs"."location" ILIKE '%snapchat%')[0m
+  Rendered jobs/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.7ms)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=snapchat&commit=Search" for 127.0.0.1 at 2018-01-23 23:05:37 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"snapchat"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%snapchat%' OR "jobs"."position" ILIKE '%snapchat%') OR "jobs"."location" ILIKE '%snapchat%')[0m
+  Rendered jobs/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 29ms (Views: 22.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:05:41 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.9ms)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:05:46 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.7ms)
+Completed 200 OK in 47ms (Views: 43.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 23:05:52 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.6ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:05:54 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:07:21 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (0.6ms)
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/kevin/Documents/UWranks/app/views/jobs/index.html.erb:29: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append=( link_to 'Can't find your job? Add a new Job...
+...                              ^
+/home/kevin/Documents/UWranks/app/views/jobs/index.html.erb:30: syntax error, unexpected '<', expecting ')'
+</div>'.freeze;
+^
+/home/kevin/Documents/UWranks/app/views/jobs/index.html.erb:34: unterminated regexp meets end of file
+          end
+             ^
+/home/kevin/Documents/UWranks/app/views/jobs/index.html.erb:34: syntax error, unexpected end-of-input, expecting ')'
+          end
+             ^):
+  
+app/views/jobs/index.html.erb:29: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/jobs/index.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/jobs/index.html.erb:34: unterminated regexp meets end of file
+app/views/jobs/index.html.erb:34: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:07:30 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:07:39 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:09:44 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/job" for 127.0.0.1 at 2018-01-23 23:27:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/job"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 23:27:44 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 41ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-23 23:27:48 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2018-01-23 23:28:15 -0500
+Processing by JobsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RDtpkQjSjbtE2wWhlmt2fsIr00yk5ZEug9P6wLm6dCgUyR/hRgVqXtuLS9FdDe1pUzAHbsIFNnmNlPl/Amg19A==", "job"=>{"jobId"=>"1243", "company"=>"Google", "position"=>"System Engineer", "location"=>"USA"}, "commit"=>"Create Job"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "jobs" ("jobId", "company", "position", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["jobId", 1243], ["company", "Google"], ["position", "System Engineer"], ["location", "USA"], ["created_at", "2018-01-24 04:28:15.098596"], ["updated_at", "2018-01-24 04:28:15.098596"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs
+Completed 302 Found in 7ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-23 23:28:15 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-23 23:28:18 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Snapchat&commit=Search" for 127.0.0.1 at 2018-01-23 23:28:25 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Snapchat"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Snapchat%' OR "jobs"."position" ILIKE '%Snapchat%') OR "jobs"."location" ILIKE '%Snapchat%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Tesla&commit=Search" for 127.0.0.1 at 2018-01-23 23:28:31 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Tesla"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Tesla%' OR "jobs"."position" ILIKE '%Tesla%') OR "jobs"."location" ILIKE '%Tesla%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Tesla&commit=Search" for 127.0.0.1 at 2018-01-23 23:28:33 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Tesla"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Tesla%' OR "jobs"."position" ILIKE '%Tesla%') OR "jobs"."location" ILIKE '%Tesla%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:28:35 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 40ms (Views: 35.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-01-23 23:28:45 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 54ms (Views: 22.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:31:49 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-23 23:31:59 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 17:48:38 -0500
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (46.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.8ms)
+Completed 200 OK in 283ms (Views: 273.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-24 17:48:46 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.0ms)
+Completed 200 OK in 42ms (Views: 17.3ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-24 17:48:52 -0500
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.0ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-24 17:48:55 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (29.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 64ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 17:48:59 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (1.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 18:03:17 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-24 18:56:31 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.7ms)
+Completed 200 OK in 22ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-24 18:56:34 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-01-24 18:59:26 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 60ms (Views: 18.9ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-24 18:59:28 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5aMEhfxeU0h47gtAwUaMCGPI5UnzCxoOx9V0r0Fu3VOsf747G5zFHcbor2ZdWwqHVR3UW3Bf9jQXYJ9IXdXWzg==", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Next"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 41ms (Views: 24.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-24 18:59:41 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-24 18:59:45 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 18:59:59 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.6ms)
+  Rendered layouts/_nav.html.erb (1.8ms)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-24 19:00:03 -0500
+Processing by JobsController#new as HTML
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 19:01:55 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 19:16:36 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 19:16:40 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 19:57:26 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:24:09 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 956ms (Views: 954.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:24:41 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.3ms)
+Completed 200 OK in 879ms (Views: 875.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:26:08 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 806ms (Views: 803.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:27:35 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 36ms (Views: 33.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:27:40 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:27:45 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 53ms (Views: 48.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:27:46 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:29:12 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (26.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (4.3ms)
+Completed 200 OK in 259ms (Views: 246.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:29:16 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.6ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:29:21 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2018-01-24 20:29:25 -0500
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  Rendered jobs/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.6ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:29:26 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:30:32 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:31:07 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 795ms (Views: 791.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:31:18 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.0ms)
+Completed 200 OK in 806ms (Views: 803.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:31:44 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:31:55 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:00 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:10 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Google&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:12 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Google%' OR "jobs"."position" ILIKE '%Google%') OR "jobs"."location" ILIKE '%Google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Tesla&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:14 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Tesla"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Tesla%' OR "jobs"."position" ILIKE '%Tesla%') OR "jobs"."location" ILIKE '%Tesla%')[0m
+  Rendered jobs/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.6ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=Tesla&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:35 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"Tesla"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%Tesla%' OR "jobs"."position" ILIKE '%Tesla%') OR "jobs"."location" ILIKE '%Tesla%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 841ms (Views: 836.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:32:40 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.4ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:38:02 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search" for 127.0.0.1 at 2018-01-24 20:38:27 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%google%' OR "jobs"."position" ILIKE '%google%') OR "jobs"."location" ILIKE '%google%')[0m
+  Rendered jobs/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.2ms)
+Completed 200 OK in 37ms (Views: 32.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:38:32 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_nav_guest.html.erb (0.4ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:41:47 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.5ms)
+  Rendered layouts/_nav.html.erb (1.8ms)
+Completed 200 OK in 94ms (Views: 91.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:46:14 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 87ms (Views: 83.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:46:37 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.7ms)
+  Rendered layouts/_nav.html.erb (2.4ms)
+Completed 200 OK in 101ms (Views: 97.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:46:38 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.5ms)
+Completed 200 OK in 55ms (Views: 50.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:48:07 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_nav_guest.html.erb (0.2ms)
+  Rendered layouts/_nav.html.erb (1.0ms)
+Completed 200 OK in 89ms (Views: 85.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=&commit=Search" for 127.0.0.1 at 2018-01-24 20:50:23 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>""}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs"[0m
+  Rendered jobs/index.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_nav_guest.html.erb (0.3ms)
+  Rendered layouts/_nav.html.erb (1.1ms)
+Completed 200 OK in 81ms (Views: 78.3ms | ActiveRecord: 0.5ms)
+
+
