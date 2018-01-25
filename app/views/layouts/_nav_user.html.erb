@@ -11,21 +11,21 @@
       </div>
     </div>
 
-    <div id="navbarBurger" class="navbar-menu">
+     <div id="navbarBurger" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item">
           <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" placeholder="Search companies, jobs, profiles">
-            </div>
-            <div class="control">
-              <a class="button is-info">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </a>
+              <%= form_tag pages_path, :method => 'get' do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag 'Search' %>
+              <% end %>
             </div>
           </div>
         </div>
-      </div>
+      </div> 
+
+      
 
       <div class="navbar-end">
         <a class="navbar-item" href="/home">Home</a>
