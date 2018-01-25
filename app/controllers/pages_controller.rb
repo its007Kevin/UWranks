@@ -1,5 +1,14 @@
 class PagesController < ApplicationController
-  def index
+  
+   def index
+      @posts = if params[:search]
+        Post.where('content LIKE ?', "%#{params[:search]}%")
+      else
+        Post.all
+      end
+  end
+
+  def login
   end
 
   def home
