@@ -1,0 +1,27 @@
+<h1>Add Job Form</h1>
+<br>
+<%= form_with model: @job, url: '/jobs' do |form| %>
+  <p>
+    <%= form.label :"Job Id" %><br>
+    <%= form.text_field :jobId %>
+
+  <p>
+    <%= form.label :company %><br>
+    <%= form.text_field :company %>
+  </p>
+
+  <p>
+    <%= form.label :position %><br>
+    <%= form.text_field :position %>
+  </p>
+
+  <p>
+    <%= form.label :location %><br>
+    <%= form.text_field :location %>
+  </p>
+
+  <br>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

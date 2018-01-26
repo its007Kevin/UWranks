@@ -23,12 +23,14 @@
         <td><%= job.company %></td>
         <td><%= job.position %></td>
         <td><%= job.location %></td>
-        <td class="text-center"><button type="button" class="selectBtn">Select</button></td>
+        <td class="text-center"><%= button_to "Select", new_rankings_path,:class => "select is-primary selectBtn" %></td>
       </tr>
     <% end %>
   </table>
+  <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true %>
   <% end %>
   <br>
-  <%= link_to "Add new Job", new_job_path %>
+  <div id="addJobForm">
+  </div>
   <br>
 </div>

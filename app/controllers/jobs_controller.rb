@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def index 
     @search = Job.ransack(params[:q])
     if params[:q].nil?
@@ -7,23 +9,25 @@ class JobsController < ApplicationController
       @emptyQuery = false
     end
     @results = @search.result
+    # Store the url to allow page refresh after creating a job
+    session[:return_to] = request.fullpath
   end
 
   def new
-    @job = Job.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     @job = Job.new(job_params)
-    if @job.save
-      redirect_to jobs_path
-    else
-      redirect_to "", :notice => "Job was not saved"
-    end
+    @job.save
+    redirect_to session[:return_to]
+    session[:return_to] = nil
   end
 
   private
     def job_params
-      params.require(:job).permit(:jobId, :company, :position, :location, :search)
+      params.permit(:jobId, :company, :position, :location, :search)
     end
 end
