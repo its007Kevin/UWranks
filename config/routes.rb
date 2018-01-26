@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get '/explore' => 'pages#explore'
   get '/index' => 'pages#index'
   get '/login' => 'pages#login'
-
-  post '/rankings/new' => 'rankings#new'
+  
+  post '/jobs' => 'jobs#create'
 end

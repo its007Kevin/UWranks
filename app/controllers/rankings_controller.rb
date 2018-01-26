@@ -1,5 +1,4 @@
 class RankingsController < ApplicationController
-
   def new
     @ranking = Ranking.new
     @rankings = Ranking.all
