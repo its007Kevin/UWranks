@@ -54764,3 +54764,1594 @@ Processing by JobsController#index as HTML
 Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 0.6ms)
 
 
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (12.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20180127223543)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (225.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "commenter" character varying, "body" text, "post_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (59.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (210.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development"[0m
+  [1m[35m (166.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test"[0m
+  [1m[35m (1761.9ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  [1m[35m (767.2ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs" CASCADE[0m
+  [1m[35m (183.7ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "jobId" integer, "company" character varying, "position" character varying, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (33.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id_and_created_at" ON "posts"  ("user_id", "created_at")[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "rankings" CASCADE[0m
+  [1m[35m (33.1ms)[0m  [1m[35mCREATE TABLE "rankings" ("id" bigserial primary key, "employerRank" character varying, "yourRank" integer, "user_id" bigint, "job_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (36.7ms)[0m  [1m[35mCREATE  INDEX  "index_rankings_on_job_id" ON "rankings"  ("job_id")[0m
+  [1m[35m (33.6ms)[0m  [1m[35mCREATE  INDEX  "index_rankings_on_user_id" ON "rankings"  ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "relationships" CASCADE[0m
+  [1m[35m (51.7ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" bigserial primary key, "follower_id" integer, "followed_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_followed_id" ON "relationships"  ("followed_id")[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_relationships_on_followed_id_and_followed_id" ON "relationships"  ("followed_id")[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_follower_id" ON "relationships"  ("follower_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (53.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying, "program" character varying)[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (24.1ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (38.6ms)[0m  [1m[35mALTER TABLE "rankings" ADD CONSTRAINT "fk_rails_17bbc6c818"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+[0m
+  [1m[35m (12.2ms)[0m  [1m[35mALTER TABLE "rankings" ADD CONSTRAINT "fk_rails_512ef4e7e5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180123233939)[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180106231402),
+(20180109031303),
+(20180121013827),
+(20180106211524),
+(20180120235225),
+(20180106221414);
+
+[0m
+  [1m[35m (107.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-27 22:38:07.484740"], ["updated_at", "2018-01-27 22:38:07.484740"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs" CASCADE[0m
+  [1m[35m (60.3ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "jobId" integer, "company" character varying, "position" character varying, "location" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  [1m[35m (54.5ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "content" text, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id_and_created_at" ON "posts"  ("user_id", "created_at")[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_user_id" ON "posts"  ("user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "rankings" CASCADE[0m
+  [1m[35m (60.0ms)[0m  [1m[35mCREATE TABLE "rankings" ("id" bigserial primary key, "employerRank" character varying, "yourRank" integer, "user_id" bigint, "job_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX  "index_rankings_on_job_id" ON "rankings"  ("job_id")[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE  INDEX  "index_rankings_on_user_id" ON "rankings"  ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "relationships" CASCADE[0m
+  [1m[35m (33.1ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" bigserial primary key, "follower_id" integer, "followed_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_followed_id" ON "relationships"  ("followed_id")[0m
+  [1m[35m (26.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_relationships_on_followed_id_and_followed_id" ON "relationships"  ("followed_id")[0m
+  [1m[35m (85.1ms)[0m  [1m[35mCREATE  INDEX  "index_relationships_on_follower_id" ON "relationships"  ("follower_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (124.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "username" character varying, "program" character varying)[0m
+  [1m[35m (26.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (53.6ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (50.9ms)[0m  [1m[35mALTER TABLE "rankings" ADD CONSTRAINT "fk_rails_17bbc6c818"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "rankings" ADD CONSTRAINT "fk_rails_512ef4e7e5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (37.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180123233939)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180106231402),
+(20180109031303),
+(20180121013827),
+(20180106211524),
+(20180120235225),
+(20180106221414);
+
+[0m
+  [1m[35m (63.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-27 22:38:08.617199"], ["updated_at", "2018-01-27 22:38:08.617199"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (20.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20180127223543)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "commenter" character varying, "body" text, "post_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_post_id" ON "comments"  ("post_id")[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180127223543"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-27 17:50:11 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (580.1ms)
+  Rendered layouts/_nav_guest.html.erb (6.2ms)
+  Rendered layouts/_nav.html.erb (19.3ms)
+Completed 200 OK in 18273ms (Views: 18090.7ms | ActiveRecord: 42.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-01-27 17:50:47 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (33.7ms)
+  Rendered layouts/_nav_guest.html.erb (6.0ms)
+  Rendered layouts/_nav.html.erb (20.2ms)
+Completed 200 OK in 683ms (Views: 491.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-27 17:51:00 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eq+IJvotqXuUWgfpjYQ2DfY70Cbuc05qckCurfZkPOOHKXVehYq3SveVrSIof1dtS8KD3M2inIBTao0Fm+t/fQ==", "user"=>{"username"=>"kevinzeng123", "email"=>"kevin@zeng.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Next"}
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kevin@zeng.com"], ["LIMIT", 1]]
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "kevin@zeng.com"], ["encrypted_password", "$2a$11$hRPArP5AwEQPVcCCTxTRfuIemGPIOhqC/G6Hkct40QcF.Zzi00Ai."], ["created_at", "2018-01-27 22:51:01.672164"], ["updated_at", "2018-01-27 22:51:01.672164"], ["username", "kevinzeng123"]]
+  [1m[35m (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-01-27 22:51:01.702662"], ["last_sign_in_at", "2018-01-27 22:51:01.702662"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-01-27 22:51:01.720296"], ["id", 1]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1198ms (ActiveRecord: 35.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 17:51:01 -0500
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (19.7ms)
+  Rendered layouts/_nav_user.html.erb (2.6ms)
+  Rendered layouts/_nav.html.erb (74.0ms)
+Completed 200 OK in 413ms (Views: 407.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 17:51:04 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (14.3ms)
+  [1m[36mPost Load (6.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  Rendered pages/home.html.erb within layouts/application (43.7ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (12.4ms)
+  Rendered layouts/_nav.html.erb (29.4ms)
+Completed 200 OK in 557ms (Views: 365.2ms | ActiveRecord: 22.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-27 17:51:11 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzG3DYyrLwWw8ByxQC+PhFjQvyE7IIhInuMi0OZ/EzC/i023YaSe4kpYHuaZNv2a5O+K8Tl5QO4r4TtXRtjiMw==", "post"=>{"content"=>"hello"}, "commit"=>"Add Post"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (14.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (10.8ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "hello"], ["user_id", 1], ["created_at", "2018-01-27 22:51:12.186938"], ["updated_at", "2018-01-27 22:51:12.186938"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000
+Completed 302 Found in 245ms (ActiveRecord: 30.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 17:51:12 -0500
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (37.7ms)
+  Rendered layouts/_nav_user.html.erb (8.4ms)
+  Rendered layouts/_nav.html.erb (17.5ms)
+Completed 200 OK in 352ms (Views: 344.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 17:51:14 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (6.7ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (85.5ms)
+Completed 401 Unauthorized in 135ms (ActiveRecord: 6.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<Post::ActiveRecord_Relation:0x00007f0a0a7c9de8>):
+    20:             </p>
+    21: 
+    22:             <h2>Add a comment:</h2>
+    23:             <%= form_with(model: [ @posts, @posts.comments.build ], local: true) do |form| %>
+    24:               <p>
+    25:                 <%= form.label :commenter %><br>
+    26:                 <%= form.text_field :commenter %>
+  
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___285934957821519521_69840551162880'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___285934957821519521_69840551162880'
+Started GET "/home" for 127.0.0.1 at 2018-01-27 17:56:31 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (13.8ms)
+  [1m[36mPost Load (7.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (263.9ms)
+Completed 401 Unauthorized in 442ms (ActiveRecord: 59.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<Post::ActiveRecord_Relation:0x00007f0a09dffd80>):
+    20:             </p>
+    21: 
+    22:             <h2>Add a comment:</h2>
+    23:             <%= form_with(model: [ @posts, @posts.comments.build ], local: true) do |form| %>
+    24:               <p>
+    25:                 <%= form.label :commenter %><br>
+    26:                 <%= form.text_field :commenter %>
+  
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___285934957821519521_69840545955540'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___285934957821519521_69840545955540'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-27 17:58:12 -0500
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (147.1ms)
+  Rendered layouts/_nav_user.html.erb (3.6ms)
+  Rendered layouts/_nav.html.erb (16.6ms)
+Completed 200 OK in 2141ms (Views: 2003.6ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 17:58:16 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (54.1ms)
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (109.6ms)
+Completed 401 Unauthorized in 208ms (ActiveRecord: 13.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<Post::ActiveRecord_Relation:0x00007fd230063448>):
+    20:             </p>
+    21: 
+    22:             <h2>Add a comment:</h2>
+    23:             <%= form_with(model: [ @posts, @posts.comments.build ], local: true) do |form| %>
+    24:               <p>
+    25:                 <%= form.label :commenter %><br>
+    26:                 <%= form.text_field :commenter %>
+  
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___1762731551222516290_70270363010200'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___1762731551222516290_70270363010200'
+Started GET "/" for 127.0.0.1 at 2018-01-27 20:59:01 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (243.5ms)
+  Rendered layouts/_nav_user.html.erb (6.1ms)
+  Rendered layouts/_nav.html.erb (30.2ms)
+Completed 200 OK in 3687ms (Views: 3510.6ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 20:59:08 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (7.2ms)
+  [1m[36mPost Load (3.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (161.9ms)
+Completed 401 Unauthorized in 309ms (ActiveRecord: 23.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<Post::ActiveRecord_Relation:0x000055761059f200>):
+    20:             </p>
+    21: 
+    22:             <h2>Add a comment:</h2>
+    23:             <%= form_with(model: [ @posts, @posts.comments.build ], local: true) do |form| %>
+    24:               <p>
+    25:                 <%= form.label :commenter %><br>
+    26:                 <%= form.text_field :commenter %>
+  
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb__1504078847490532053_46982784484300'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb__1504078847490532053_46982784484300'
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:00:51 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (13.3ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (687.6ms)
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (8.3ms)
+  Rendered layouts/_nav.html.erb (31.5ms)
+Completed 200 OK in 940ms (Views: 887.4ms | ActiveRecord: 27.8ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:01:02 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iB/rUvbODv62Ml9mFiJ5zEqkwyq51P9Ne8NTqw3HN6RQpRHoG8G/GUyaXTHPOwvS9pv2+ruNN+vOwUosrWDGpw==", "comment"=>{"commenter"=>"", "body"=>"hi"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (65.0ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", ""], ["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:01:02.282127"], ["updated_at", "2018-01-28 02:01:02.282127"]]
+  [1m[35m (22.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 138ms (ActiveRecord: 94.3ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2018-01-27 21:01:02 -0500
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-01-27 21:04:11 -0500
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (123.3ms)
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (5.3ms)
+Completed 200 OK in 399ms (Views: 340.5ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:04:13 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.6ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (142.4ms)
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (8.0ms)
+  Rendered layouts/_nav.html.erb (30.0ms)
+Completed 200 OK in 419ms (Views: 307.9ms | ActiveRecord: 37.7ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:04:18 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d35ZLSKRilGgaxnJEM83EMh6QG8dnJiPirGruqa8hiWvxKOXz547tlrDG57J1kUOdEV1vx/FUCk/s7I9Bht3Jg==", "comment"=>{"commenter"=>"", "body"=>"hi"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", ""], ["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:04:18.708556"], ["updated_at", "2018-01-28 02:04:18.708556"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 51ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:04:19 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (9.5ms)
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (93.6ms)
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (16.9ms)
+  Rendered layouts/_nav.html.erb (60.6ms)
+Completed 200 OK in 457ms (Views: 401.8ms | ActiveRecord: 13.4ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:07:10 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7xDqEIbS4E+wrDQh2eyUUqh69zDi6BzWvPUBUZvcXQ03qhCqa91RqEoENnYA9eZMFEXC4OCx1HAJ9xjWO3usDg==", "comment"=>{"commenter"=>"", "body"=>"hi"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (35.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (149.4ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", ""], ["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:07:11.775414"], ["updated_at", "2018-01-28 02:07:11.775414"]]
+  [1m[35m (32.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 751ms (ActiveRecord: 218.3ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:07:12 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (6.0ms)
+  [1m[36mPost Load (2.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (161.8ms)
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (12.1ms)
+  Rendered layouts/_nav.html.erb (103.0ms)
+Completed 200 OK in 2480ms (Views: 2410.1ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 21:09:38 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (27.5ms)
+  Rendered layouts/_nav_user.html.erb (8.1ms)
+  Rendered layouts/_nav.html.erb (32.2ms)
+Completed 200 OK in 3353ms (Views: 3315.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:09:44 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (19.4ms)
+  [1m[36mPost Load (2.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (498.2ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (1.9ms)
+  Rendered layouts/_nav.html.erb (27.3ms)
+Completed 200 OK in 874ms (Views: 738.4ms | ActiveRecord: 40.6ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:09:51 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+r2pwF4HzVZy5J7kpOphUpB49wuy/z8tFigDvYg65dwiB1N6swh8sYhMnLN98xNMLEfC27Cm94ujKho6KJ0U3w==", "comment"=>{"body"=>"hi"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:09:51.698870"], ["updated_at", "2018-01-28 02:09:51.698870"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 80ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:09:52 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (9.2ms)
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (95.9ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (3.2ms)
+  Rendered layouts/_nav.html.erb (58.7ms)
+Completed 200 OK in 461ms (Views: 399.7ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:10:45 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (17.8ms)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (292.9ms)
+Completed 401 Unauthorized in 376ms (ActiveRecord: 10.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Class:0x000055d7af120bb0>):
+    23:             <% posts.comments.each do |comment| %>
+    24:               <p>
+    25:                 <strong>Commenter:</strong>
+    26:                 <%= User.user_id %>
+    27:               </p>
+    28:              
+    29:               <p>
+  
+app/views/pages/home.html.erb:26:in `block (2 levels) in _app_views_pages_home_html_erb___2111515638762496866_70344131467520'
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___2111515638762496866_70344131467520'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___2111515638762496866_70344131467520'
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:11:29 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (16.5ms)
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (116.1ms)
+  Rendered layouts/_nav_user.html.erb (10.5ms)
+  Rendered layouts/_nav.html.erb (29.9ms)
+Completed 200 OK in 418ms (Views: 377.3ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:11:37 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vc34ePZLoBQotpalmS2M3t0GEhsw9WYfvnEp1WsjBLhldwLCG0QR89IelPJANP7AYTknyzKsrrkLczBSy4T1uw==", "comment"=>{"body"=>"hi"}, "commit"=>"Create Comment", "post_id"=>"1"}
+  [1m[36mPost Load (4.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:11:37.154054"], ["updated_at", "2018-01-28 02:11:37.154054"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 66ms (ActiveRecord: 19.5ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:11:37 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (11.3ms)
+  [1m[36mPost Load (5.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (119.3ms)
+  Rendered layouts/_nav_user.html.erb (2.9ms)
+  Rendered layouts/_nav.html.erb (27.1ms)
+Completed 200 OK in 392ms (Views: 345.5ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:13:00 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (15.3ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (150.1ms)
+  Rendered layouts/_nav_user.html.erb (2.5ms)
+  Rendered layouts/_nav.html.erb (33.0ms)
+Completed 200 OK in 545ms (Views: 438.5ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:14:42 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (12.0ms)
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (16.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (174.4ms)
+  Rendered layouts/_nav_user.html.erb (2.0ms)
+  Rendered layouts/_nav.html.erb (29.1ms)
+Completed 200 OK in 477ms (Views: 412.1ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:18:14 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (16.0ms)
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (113.4ms)
+  Rendered layouts/_nav_user.html.erb (9.1ms)
+  Rendered layouts/_nav.html.erb (36.2ms)
+Completed 200 OK in 442ms (Views: 399.9ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:18:28 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BG8+Wquin/d2/68G7HpxZ2TsG4z3TyC3HJUAFj1vp6Pc1cTgRq0uEIxXrVE1YwN52NMuXPUW6BGplxmRnchWoA==", "comment"=>{"body"=>"hello"}, "commit"=>"Add Comment", "post_id"=>"1"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (13.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "hello"], ["post_id", 1], ["created_at", "2018-01-28 02:18:28.512746"], ["updated_at", "2018-01-28 02:18:28.512746"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 63ms (ActiveRecord: 19.0ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:18:28 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (7.8ms)
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (120.3ms)
+  Rendered layouts/_nav_user.html.erb (12.6ms)
+  Rendered layouts/_nav.html.erb (39.6ms)
+Completed 200 OK in 460ms (Views: 415.1ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-01-27 21:18:54 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LheLiyreSzYvFd+8KV8ZKP0iLeXooIAwEGWjP0Hkxoj2rXExx9H60dW93evwRms2QR0YNer5SJalZ7q44UM3iw==", "post"=>{"content"=>"hi friends"}, "commit"=>"Add Post"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (19.9ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "hi friends"], ["user_id", 1], ["created_at", "2018-01-28 02:18:55.038752"], ["updated_at", "2018-01-28 02:18:55.038752"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000
+Completed 302 Found in 107ms (ActiveRecord: 37.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 21:18:55 -0500
+Processing by PagesController#login as HTML
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_nav_user.html.erb (14.6ms)
+  Rendered layouts/_nav.html.erb (24.1ms)
+Completed 200 OK in 273ms (Views: 269.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:18:57 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (11.7ms)
+  [1m[36mPost Load (3.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (14.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (118.7ms)
+  Rendered layouts/_nav_user.html.erb (2.2ms)
+  Rendered layouts/_nav.html.erb (14.1ms)
+Completed 200 OK in 325ms (Views: 274.8ms | ActiveRecord: 34.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:19:37 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (21.2ms)
+  [1m[36mPost Load (7.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (11.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (120.8ms)
+  Rendered layouts/_nav_user.html.erb (2.6ms)
+  Rendered layouts/_nav.html.erb (13.8ms)
+Completed 200 OK in 381ms (Views: 338.8ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:20:00 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (9.9ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (132.3ms)
+  Rendered layouts/_nav_user.html.erb (6.2ms)
+  Rendered layouts/_nav.html.erb (20.6ms)
+Completed 200 OK in 401ms (Views: 377.9ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:20:26 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.6ms)
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (129.2ms)
+  Rendered layouts/_nav_user.html.erb (2.6ms)
+  Rendered layouts/_nav.html.erb (13.4ms)
+Completed 200 OK in 426ms (Views: 406.1ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:21:53 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.7ms)
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (123.0ms)
+  Rendered layouts/_nav_user.html.erb (5.9ms)
+  Rendered layouts/_nav.html.erb (8.7ms)
+Completed 200 OK in 361ms (Views: 335.0ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:23:02 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (7.2ms)
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (121.1ms)
+  Rendered layouts/_nav_user.html.erb (6.7ms)
+  Rendered layouts/_nav.html.erb (14.9ms)
+Completed 200 OK in 397ms (Views: 359.8ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:23:37 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.1ms)
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (1679.9ms)
+Completed 401 Unauthorized in 1717ms (ActiveRecord: 7.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comments' for #<#<Class:0x000055d7b04765e8>:0x000055d7b07b0d58>
+Did you mean?  comment):
+    22:             <h4>Comments</h4>
+    23:             <% posts.comments.each do |comment| %>
+    24:               <p>
+    25:                 <small><%= comments.created_at.to_formatted_s(:short) %></small>
+    26:                 <%= current_user.username %> <%= comment.body %>
+    27:               </p>
+    28:             <% end %>
+  
+app/views/pages/home.html.erb:25:in `block (2 levels) in _app_views_pages_home_html_erb___2111515638762496866_47192433593460'
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___2111515638762496866_47192433593460'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___2111515638762496866_47192433593460'
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:23:55 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (5.5ms)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (117.1ms)
+  Rendered layouts/_nav_user.html.erb (7.8ms)
+  Rendered layouts/_nav.html.erb (14.1ms)
+Completed 200 OK in 410ms (Views: 392.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:25:01 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (7.8ms)
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (16.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/home.html.erb within layouts/application (106.9ms)
+  Rendered layouts/_nav_user.html.erb (1.8ms)
+  Rendered layouts/_nav.html.erb (14.0ms)
+Completed 200 OK in 339ms (Views: 302.3ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:26:25 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (10.0ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (9.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (172.4ms)
+Completed 401 Unauthorized in 209ms (ActiveRecord: 12.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Comment:0x00007ff48956ed18>):
+    22:             <h4>Comments</h4>
+    23:             <% posts.comments.each do |comment| %>
+    24:               <p>
+    25:                 <a href="/user/<%= User.find(comment.user_id).username %>"><%= User.find(comment.user_id).username %></a>
+    26:                 <small><%= comment.created_at.to_formatted_s(:short) %></small>      
+    27:               </p>
+    28:               <p>
+  
+app/views/pages/home.html.erb:25:in `block (2 levels) in _app_views_pages_home_html_erb___2111515638762496866_70344126908940'
+app/views/pages/home.html.erb:23:in `block in _app_views_pages_home_html_erb___2111515638762496866_70344126908940'
+app/views/pages/home.html.erb:5:in `_app_views_pages_home_html_erb___2111515638762496866_70344126908940'
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:28:05 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.3ms)
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (10.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (146.8ms)
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (6.7ms)
+  Rendered layouts/_nav.html.erb (25.7ms)
+Completed 200 OK in 362ms (Views: 324.2ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:36:22 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (14.3ms)
+Completed 401 Unauthorized in 67ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/eric/UWranks New/UWranks/app/views/pages/home.html.erb:37: syntax error, unexpected tLABEL, expecting '='
+...append=( form.text_area, value: 'user@admin.com' );@output_b...
+...                         ^~~~~~):
+  
+app/views/pages/home.html.erb:37: syntax error, unexpected tLABEL, expecting '='
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:37:01 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (3.4ms)
+Completed 401 Unauthorized in 45ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/eric/UWranks New/UWranks/app/views/pages/home.html.erb:37: syntax error, unexpected tLABEL, expecting '='
+...ppend=( form.text_field, value: 'user@admin.com' );@output_b...
+...                         ^~~~~~):
+  
+app/views/pages/home.html.erb:37: syntax error, unexpected tLABEL, expecting '='
+Started GET "/home" for 127.0.0.1 at 2018-01-27 21:39:41 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (5.4ms)
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (29.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (159.8ms)
+  Rendered layouts/_nav_user.html.erb (7.8ms)
+  Rendered layouts/_nav.html.erb (16.4ms)
+Completed 200 OK in 378ms (Views: 323.4ms | ActiveRecord: 44.0ms)
+
+
+Started POST "/posts/1/comments" for 127.0.0.1 at 2018-01-27 21:39:52 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fh/wSWtqFncD1E5RzScuk+KnaBHJf8NSWuJfg2XseuvOpQrzhmWnkPl8TAYUPlyNXphdwcsmC/Tv4EYExUuL6A==", "comment"=>{"commenter"=>"kevinzeng123", "body"=>"hi"}, "commit"=>"Comment", "post_id"=>"1"}
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", "kevinzeng123"], ["body", "hi"], ["post_id", 1], ["created_at", "2018-01-28 02:39:52.291781"], ["updated_at", "2018-01-28 02:39:52.291781"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.1
+Completed 302 Found in 61ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:39:52 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (16.6ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (182.8ms)
+  Rendered layouts/_nav_user.html.erb (6.5ms)
+  Rendered layouts/_nav.html.erb (36.7ms)
+Completed 200 OK in 514ms (Views: 453.0ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/home.1" for 127.0.0.1 at 2018-01-27 21:40:56 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (13.2ms)
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (10.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (238.5ms)
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (28.6ms)
+Completed 200 OK in 585ms (Views: 531.0ms | ActiveRecord: 23.9ms)
+
+
+Started POST "/posts/2/comments" for 127.0.0.1 at 2018-01-27 21:41:06 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9HIx0S9G3/D37q2DqozjSnySSYE6YiLFl2xKmjLT4+ssyMtrwkluFw1Gr9RzlZFUwK18UTg76mMiblMdknQS6A==", "comment"=>{"commenter"=>"kevinzeng123", "body"=>"hi!!!"}, "commit"=>"Comment", "post_id"=>"2"}
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", "kevinzeng123"], ["body", "hi!!!"], ["post_id", 2], ["created_at", "2018-01-28 02:41:06.913782"], ["updated_at", "2018-01-28 02:41:06.913782"]]
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.2
+Completed 302 Found in 68ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:41:07 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (7.6ms)
+  [1m[36mPost Load (3.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (13.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (151.8ms)
+  Rendered layouts/_nav_user.html.erb (2.6ms)
+  Rendered layouts/_nav.html.erb (18.7ms)
+Completed 200 OK in 446ms (Views: 384.0ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:42:20 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (15.1ms)
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (7.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (197.7ms)
+  Rendered layouts/_nav_user.html.erb (6.5ms)
+  Rendered layouts/_nav.html.erb (32.8ms)
+Completed 200 OK in 515ms (Views: 462.8ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/user/kevinzeng123" for 127.0.0.1 at 2018-01-27 21:42:27 -0500
+Processing by PagesController#profile as HTML
+  Parameters: {"id"=>"kevinzeng123"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered components/_follow_button.html.erb (18.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (41.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (61.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = $1[0m  [["followed_id", 1]]
+  Rendered components/_post_form.html.erb (6.4ms)
+  [1m[36mPost Load (77.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (user_id = 1) ORDER BY "posts"."created_at" DESC[0m
+  Rendered pages/profile.html.erb within layouts/application (403.2ms)
+  Rendered layouts/_nav_user.html.erb (3.1ms)
+  Rendered layouts/_nav.html.erb (6.0ms)
+Completed 200 OK in 688ms (Views: 410.0ms | ActiveRecord: 193.5ms)
+
+
+Started GET "/user/avatar.png" for 127.0.0.1 at 2018-01-27 21:42:27 -0500
+Processing by PagesController#profile as PNG
+  Parameters: {"id"=>"avatar"}
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "avatar"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "avatar"], ["LIMIT", 1]]
+Completed 302 Found in 19ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 21:42:28 -0500
+Processing by PagesController#login as */*
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (31.2ms)
+  Rendered layouts/_nav_user.html.erb (7.0ms)
+  Rendered layouts/_nav.html.erb (35.1ms)
+Completed 200 OK in 360ms (Views: 310.7ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:42:38 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (18.4ms)
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (17.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (186.8ms)
+  Rendered layouts/_nav_user.html.erb (13.7ms)
+  Rendered layouts/_nav.html.erb (33.4ms)
+Completed 200 OK in 498ms (Views: 430.8ms | ActiveRecord: 28.6ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:43:02 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (13.7ms)
+  [1m[36mPost Load (6.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (201.2ms)
+  Rendered layouts/_nav_user.html.erb (7.1ms)
+  Rendered layouts/_nav.html.erb (30.2ms)
+Completed 200 OK in 522ms (Views: 450.6ms | ActiveRecord: 34.0ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:43:41 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (12.0ms)
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (180.4ms)
+  Rendered layouts/_nav_user.html.erb (10.4ms)
+  Rendered layouts/_nav.html.erb (34.9ms)
+Completed 200 OK in 505ms (Views: 465.4ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:44:37 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (22.4ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (177.1ms)
+  Rendered layouts/_nav_user.html.erb (2.8ms)
+  Rendered layouts/_nav.html.erb (31.6ms)
+Completed 200 OK in 518ms (Views: 473.2ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:45:36 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (16.1ms)
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (15.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (212.2ms)
+  Rendered layouts/_nav_user.html.erb (8.4ms)
+  Rendered layouts/_nav.html.erb (33.8ms)
+Completed 200 OK in 540ms (Views: 471.6ms | ActiveRecord: 30.5ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:46:00 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (18.6ms)
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (7.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (181.3ms)
+  Rendered layouts/_nav_user.html.erb (9.3ms)
+  Rendered layouts/_nav.html.erb (34.6ms)
+Completed 200 OK in 536ms (Views: 474.2ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:46:27 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (10.7ms)
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (181.9ms)
+  Rendered layouts/_nav_user.html.erb (2.7ms)
+  Rendered layouts/_nav.html.erb (26.4ms)
+Completed 200 OK in 484ms (Views: 428.2ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:46:51 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (19.5ms)
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (15.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (164.6ms)
+  Rendered layouts/_nav_user.html.erb (6.9ms)
+  Rendered layouts/_nav.html.erb (30.1ms)
+Completed 200 OK in 497ms (Views: 442.5ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:47:51 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (10.5ms)
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (184.3ms)
+  Rendered layouts/_nav_user.html.erb (8.8ms)
+  Rendered layouts/_nav.html.erb (29.0ms)
+Completed 200 OK in 493ms (Views: 441.5ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:48:51 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (5.9ms)
+  [1m[36mPost Load (3.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (176.9ms)
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (22.3ms)
+Completed 200 OK in 459ms (Views: 405.2ms | ActiveRecord: 15.4ms)
+
+
+Started POST "/posts/2/comments" for 127.0.0.1 at 2018-01-27 21:49:57 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o1jChWc7RohobKitex/NssF1wvE3m3oVU3sIuiOWuW574jg/ijT3b5LEqvqiBr+sfUr3ITXCsrPmeRE9gzFIbQ==", "comment"=>{"commenter"=>"kevinzeng123", "body"=>"hello boi"}, "commit"=>"Comment", "post_id"=>"2"}
+  [1m[36mPost Load (7.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["commenter", "kevinzeng123"], ["body", "hello boi"], ["post_id", 2], ["created_at", "2018-01-28 02:49:57.439606"], ["updated_at", "2018-01-28 02:49:57.439606"]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/home.2
+Completed 302 Found in 87ms (ActiveRecord: 24.3ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:49:57 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (22.6ms)
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (234.8ms)
+  Rendered layouts/_nav_user.html.erb (10.8ms)
+  Rendered layouts/_nav.html.erb (45.6ms)
+Completed 200 OK in 730ms (Views: 681.0ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:52:30 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (11.8ms)
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (13.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (206.6ms)
+  Rendered layouts/_nav_user.html.erb (3.3ms)
+  Rendered layouts/_nav.html.erb (26.5ms)
+Completed 200 OK in 681ms (Views: 612.0ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:52:53 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (15.5ms)
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (200.1ms)
+  Rendered layouts/_nav_user.html.erb (2.5ms)
+  Rendered layouts/_nav.html.erb (25.9ms)
+Completed 200 OK in 568ms (Views: 514.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:53:52 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (14.4ms)
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (211.6ms)
+  Rendered layouts/_nav_user.html.erb (11.0ms)
+  Rendered layouts/_nav.html.erb (38.7ms)
+Completed 200 OK in 596ms (Views: 538.8ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:54:43 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (17.8ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (9.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (178.0ms)
+  Rendered layouts/_nav_user.html.erb (11.1ms)
+  Rendered layouts/_nav.html.erb (33.4ms)
+Completed 200 OK in 531ms (Views: 486.2ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:57:59 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (9.0ms)
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (220.6ms)
+  Rendered layouts/_nav_user.html.erb (10.4ms)
+  Rendered layouts/_nav.html.erb (34.4ms)
+Completed 200 OK in 705ms (Views: 644.6ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:58:34 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (15.8ms)
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (5.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (211.6ms)
+  Rendered layouts/_nav_user.html.erb (9.7ms)
+  Rendered layouts/_nav.html.erb (38.7ms)
+Completed 200 OK in 514ms (Views: 442.6ms | ActiveRecord: 31.2ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 21:59:54 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (12.8ms)
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (15.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (180.8ms)
+  Rendered layouts/_nav_user.html.erb (2.2ms)
+  Rendered layouts/_nav.html.erb (17.0ms)
+Completed 200 OK in 499ms (Views: 427.7ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 22:01:09 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (15.1ms)
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (217.1ms)
+  Rendered layouts/_nav_user.html.erb (2.7ms)
+  Rendered layouts/_nav.html.erb (38.1ms)
+Completed 200 OK in 584ms (Views: 538.3ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/home.2" for 127.0.0.1 at 2018-01-27 22:01:59 -0500
+Processing by PagesController#home as 
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (8.0ms)
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (15.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (4.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (217.1ms)
+  Rendered layouts/_nav_user.html.erb (6.5ms)
+  Rendered layouts/_nav.html.erb (33.7ms)
+Completed 200 OK in 627ms (Views: 551.9ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/explore" for 127.0.0.1 at 2018-01-27 22:02:09 -0500
+Processing by PagesController#explore as HTML
+  Rendering pages/explore.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/explore.html.erb within layouts/application (28.7ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (14.6ms)
+  Rendered layouts/_nav.html.erb (34.9ms)
+Completed 200 OK in 359ms (Views: 322.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/user/kevinzeng123" for 127.0.0.1 at 2018-01-27 22:02:20 -0500
+Processing by PagesController#profile as HTML
+  Parameters: {"id"=>"kevinzeng123"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered components/_follow_button.html.erb (17.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = $1[0m  [["followed_id", 1]]
+  Rendered components/_post_form.html.erb (22.0ms)
+  [1m[36mPost Load (6.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (user_id = 1) ORDER BY "posts"."created_at" DESC[0m
+  Rendered pages/profile.html.erb within layouts/application (137.5ms)
+  Rendered layouts/_nav_user.html.erb (13.7ms)
+  Rendered layouts/_nav.html.erb (22.1ms)
+Completed 200 OK in 417ms (Views: 355.7ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/user/avatar.png" for 127.0.0.1 at 2018-01-27 22:02:21 -0500
+Processing by PagesController#profile as PNG
+  Parameters: {"id"=>"avatar"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "avatar"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "avatar"], ["LIMIT", 1]]
+Completed 302 Found in 30ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-27 22:02:21 -0500
+Processing by PagesController#login as */*
+  Rendering pages/login.html.erb within layouts/application
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/login.html.erb within layouts/application (30.5ms)
+  Rendered layouts/_nav_user.html.erb (2.2ms)
+  Rendered layouts/_nav.html.erb (11.4ms)
+Completed 200 OK in 340ms (Views: 299.8ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/user/kevinzeng123" for 127.0.0.1 at 2018-01-27 22:03:33 -0500
+Processing by PagesController#profile as HTML
+  Parameters: {"id"=>"kevinzeng123"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  Rendering pages/profile.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered components/_follow_button.html.erb (13.0ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevinzeng123"], ["LIMIT", 1]]
+  [1m[35m (17.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = $1[0m  [["followed_id", 1]]
+  Rendered components/_post_form.html.erb (3.3ms)
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE (user_id = 1) ORDER BY "posts"."created_at" DESC[0m
+  Rendered pages/profile.html.erb within layouts/application (131.6ms)
+  Rendered layouts/_nav_user.html.erb (8.0ms)
+  Rendered layouts/_nav.html.erb (21.4ms)
+Completed 200 OK in 492ms (Views: 422.4ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/explore" for 127.0.0.1 at 2018-01-27 22:03:37 -0500
+Processing by PagesController#explore as HTML
+  Rendering pages/explore.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/explore.html.erb within layouts/application (27.9ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (9.6ms)
+  Rendered layouts/_nav.html.erb (29.0ms)
+Completed 200 OK in 347ms (Views: 324.2ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/explore" for 127.0.0.1 at 2018-01-27 22:04:33 -0500
+Processing by PagesController#explore as HTML
+  Rendering pages/explore.html.erb within layouts/application
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/explore.html.erb within layouts/application (181.2ms)
+  Rendered layouts/_nav_user.html.erb (11.7ms)
+  Rendered layouts/_nav.html.erb (16.1ms)
+Completed 200 OK in 606ms (Views: 581.6ms | ActiveRecord: 11.7ms)
+
+
