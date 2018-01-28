@@ -60133,3 +60133,200 @@ Processing by PagesController#home as
 Completed 200 OK in 743ms (Views: 687.8ms | ActiveRecord: 10.9ms)
 
 
+Started GET "/jobs" for 127.0.0.1 at 2018-01-27 22:44:05 -0500
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mRanking Load (34.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings"[0m
+  Rendered jobs/index.html.erb within layouts/application (410.0ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (8.2ms)
+  Rendered layouts/_nav.html.erb (109.0ms)
+Completed 200 OK in 2474ms (Views: 2156.9ms | ActiveRecord: 75.0ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search" for 127.0.0.1 at 2018-01-27 22:44:21 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (76.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%google%' OR "jobs"."position" ILIKE '%google%') OR "jobs"."location" ILIKE '%google%')[0m
+  [1m[36mRanking Load (0.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings"[0m
+  Rendered jobs/index.html.erb within layouts/application (102.7ms)
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (15.4ms)
+  Rendered layouts/_nav.html.erb (33.9ms)
+Completed 200 OK in 489ms (Views: 372.2ms | ActiveRecord: 84.3ms)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2018-01-27 22:44:26 -0500
+Processing by JobsController#new as JS
+  Rendering jobs/new.js.erb
+  Rendered jobs/_new.html.erb (50.4ms)
+  Rendered jobs/new.js.erb (122.8ms)
+Completed 200 OK in 179ms (Views: 147.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2018-01-27 22:44:47 -0500
+Processing by JobsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GErQpQz5MkmxcrQ86h8MR34knCfs5yyxA15UzxFapdFjbgB3QYmF+h0Ygdcoguu8cKt/gcboU8XcUQmQKS64Sw==", "jobId"=>"12345", "company"=>"Google", "position"=>"Software Engineer", "location"=>"Cali", "commit"=>"Save "}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO "jobs" ("jobId", "company", "position", "location", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["jobId", 12345], ["company", "Google"], ["position", "Software Engineer"], ["location", "Cali"], ["created_at", "2018-01-28 03:44:47.487448"], ["updated_at", "2018-01-28 03:44:47.487448"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search
+Completed 200 OK in 101ms (ActiveRecord: 23.6ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search" for 127.0.0.1 at 2018-01-27 22:44:47 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (24.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%google%' OR "jobs"."position" ILIKE '%google%') OR "jobs"."location" ILIKE '%google%')[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered rankings/_new.html.erb (52.8ms)
+  [1m[36mRanking Load (0.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings"[0m
+  Rendered jobs/index.html.erb within layouts/application (122.4ms)
+  Rendered layouts/_nav_user.html.erb (5.9ms)
+  Rendered layouts/_nav.html.erb (12.6ms)
+Completed 200 OK in 331ms (Views: 281.7ms | ActiveRecord: 26.9ms)
+
+
+Started POST "/rankings" for 127.0.0.1 at 2018-01-27 22:44:58 -0500
+Processing by RankingsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xW4tZ1RZn1QyT3xh0n7ob9r5oSMBOiWxkdyK17JRhch1eiXIGiv2IJRHBP510qkT0P5XFPkR3PdX9ANk+fxA9Q==", "employerRank"=>"Ranked", "yourRank"=>"5", "user_id"=>"1", "job_id"=>"1", "commit"=>"Add"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mJob Load (3.8ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (61.6ms)[0m  [1m[32mINSERT INTO "rankings" ("employerRank", "yourRank", "user_id", "job_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["employerRank", "Ranked"], ["yourRank", 5], ["user_id", 1], ["job_id", 1], ["created_at", "2018-01-28 03:44:58.723222"], ["updated_at", "2018-01-28 03:44:58.723222"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search
+Completed 200 OK in 339ms (ActiveRecord: 90.3ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search" for 127.0.0.1 at 2018-01-27 22:44:58 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (13.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%google%' OR "jobs"."position" ILIKE '%google%') OR "jobs"."location" ILIKE '%google%')[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered rankings/_new.html.erb (73.0ms)
+  [1m[36mRanking Load (2.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings"[0m
+  [1m[36mJob Load (3.4ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (169.8ms)
+  Rendered layouts/_nav_user.html.erb (11.9ms)
+  Rendered layouts/_nav.html.erb (21.1ms)
+Completed 200 OK in 450ms (Views: 411.6ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/jobs?utf8=%E2%9C%93&q%5Bcompany_or_position_or_location_cont%5D=google&commit=Search" for 127.0.0.1 at 2018-01-27 22:46:38 -0500
+Processing by JobsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"company_or_position_or_location_cont"=>"google"}, "commit"=>"Search"}
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (9.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE (("jobs"."company" ILIKE '%google%' OR "jobs"."position" ILIKE '%google%') OR "jobs"."location" ILIKE '%google%')[0m
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered rankings/_new.html.erb (69.5ms)
+  [1m[36mRanking Load (6.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings"[0m
+  [1m[36mJob Load (2.9ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered jobs/index.html.erb within layouts/application (158.9ms)
+  Rendered layouts/_nav_user.html.erb (11.4ms)
+  Rendered layouts/_nav.html.erb (21.8ms)
+Completed 200 OK in 582ms (Views: 506.6ms | ActiveRecord: 30.7ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2018-01-27 22:46:50 -0500
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (5.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (159.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (9.7ms)
+Completed 200 OK in 411ms (Views: 312.0ms | ActiveRecord: 62.6ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2018-01-27 22:47:00 -0500
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (40.0ms)
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (14.0ms)
+  Rendered layouts/_nav.html.erb (34.4ms)
+Completed 200 OK in 310ms (Views: 292.5ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 22:47:06 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (32.7ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (3.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (537.2ms)
+  Rendered layouts/_nav_user.html.erb (9.1ms)
+  Rendered layouts/_nav.html.erb (22.6ms)
+Completed 200 OK in 936ms (Views: 879.6ms | ActiveRecord: 35.9ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2018-01-27 22:47:17 -0500
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (30.7ms)
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (9.4ms)
+  Rendered layouts/_nav.html.erb (39.9ms)
+Completed 200 OK in 391ms (Views: 377.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2018-01-27 22:48:33 -0500
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pages/index.html.erb within layouts/application (39.1ms)
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (25.0ms)
+  Rendered layouts/_nav.html.erb (62.2ms)
+Completed 200 OK in 527ms (Views: 507.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-01-27 22:48:36 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered components/_post_form.html.erb (10.1ms)
+  [1m[36mPost Load (4.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (9.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered pages/home.html.erb within layouts/application (195.8ms)
+  Rendered layouts/_nav_user.html.erb (10.9ms)
+  Rendered layouts/_nav.html.erb (23.6ms)
+Completed 200 OK in 604ms (Views: 535.8ms | ActiveRecord: 25.0ms)
+
+
