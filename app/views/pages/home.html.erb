@@ -18,45 +18,50 @@
               <br>
               <%= posts.content %>
             </p>
-
-            <!-- Comments section -->
-            <hr>
-            <h4>Comments</h4>
-            <% posts.comments.each do |comment| %>              
-              <div>
-                <img src="avatar.png" class="rounded-corners" width = "64" height = "64">
-                <a href="/user/<%= comment.commenter %>"><%= comment.commenter %></a>
-                <%= comment.body %>
-              </div>
-              <div ALIGN=RIGHT>
-                 <small><%= comment.created_at.to_formatted_s(:short) %></small>   
-              </div>
-              <div ALIGN=RIGHT>
-                <small><%= link_to 'Delete Comment', [comment.post, comment],
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></small>   
-              </div>
-            <% end %>
-            <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>       
-              <p>
-                <%= form.hidden_field :commenter, :value => current_user.username %>
-                <%= form.text_area :body, autofocus: true,  placeholder: 'Add a Comment', class: 'input'%>
-              </p>
-              <p>
-                <%= form.submit "Comment", class: "button is-link"%>
-              </p>
-            <% end %>
-
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-            </div>
-          </nav>
         </div>
       </article>
+    
+      <!-- Comments -->
+      <br>
+      <h1> Comments </h1>
+      <hr>
+      <br>
+      <% posts.comments.each do |comment| %>  
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+                <img src="avatar.png" class="rounded-corners">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
+                <%= comment.body %>
+                <div ALIGN=RIGHT>
+                   <small><%= comment.created_at.to_formatted_s(:short) %></small>   
+                </div>
+                <div ALIGN=RIGHT>
+                  <small><%= link_to 'Delete Comment', [comment.post, comment],
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></small>   
+                </div>
+              </p>
+            </div>
+          </div>
+        <hr>
+        </article>
+      <% end %>
+      <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>       
+        <p>
+          <%= form.hidden_field :commenter, :value => current_user.username %>
+          <%= form.text_area :body, autofocus: true,  placeholder: 'Add a Comment', class: 'input'%>
+        </p>
+        <p>
+          <%= form.submit "Comment", class: "button is-link"%>
+        </p>
+      <% end %>
     </div>
   <% end %>
 </div>
