@@ -1,5 +1,5 @@
 <div class="container is-fluid margins">
-  <h2>Jobs</h2>
+  <h1>Jobs</h1>
   <br>
   <%= search_form_for @search do |f| %>
     <%= f.label :"Search Jobs by company, position, location" %><br>
@@ -14,23 +14,44 @@
       <th>Company</th>
       <th>Position</th>
       <th>Location</th>
+      <th>Ranking</th>
     </tr>
 
     <% @results.each do |job| %>
       <tr>
-        <td class="jobId" style="display:none;"><%= job.id %></td>
         <td><%= job.jobId %></td>
         <td><%= job.company %></td>
         <td><%= job.position %></td>
         <td><%= job.location %></td>
-        <td class="text-center"><%= button_to "Select", new_rankings_path,:class => "select is-primary selectBtn" %></td>
+        <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
       </tr>
     <% end %>
   </table>
-  <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true %>
+  <%= link_to "Didn't find your job in the database? Add new Job", new_job_path, id: "newJob", remote: true %>
   <% end %>
   <br>
-  <div id="addJobForm">
-  </div>
+  <div id="addJobForm"></div>
   <br>
+
+  <h1>Your Rankings</h1>
+  <table>
+    <tr>
+      <th>Job ID</th>
+      <th>Company</th>
+      <th>Position</th>
+      <th>Location</th>
+      <th>Employer Rank</th>
+      <th>Your Rank</th>
+    </tr>
+    <% @rankings.each do |ranking| %>
+      <tr>
+        <td><%= ranking.job.jobId %></td>
+        <td><%= ranking.job.company %></td>
+        <td><%= ranking.job.position %></td>
+        <td><%= ranking.job.location %></td>
+        <td><%= ranking.employerRank %></td>
+        <td><%= ranking.yourRank %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
