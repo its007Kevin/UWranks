@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   		get :following, :followers
   	end
   end
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :jobs
   resources :rankings
   resources :pages
