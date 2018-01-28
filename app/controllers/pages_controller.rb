@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   	@posts = Post.all
     @username = params[:id]
     @newPosts = Post.new
+    session[:return_to] = request.fullpath
   end
 
   def profile

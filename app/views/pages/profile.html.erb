@@ -2,34 +2,36 @@
 	<div class="columns is-3">
 		<div class="column">
 			<img src="/avatar.png" height="200px" width="200px"></img>
+      <br><br>
 			<h3 style="font-weight: bold"><%= @username %></h3>
 			<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
 			<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
 			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
 		</div>
 		<div class="column is-9">
-      <h1><%= @username %>'s Rankings</h1>
-      <table>
-        <tr>
-          <th>Job ID</th>
-          <th>Company</th>
-          <th>Position</th>
-          <th>Location</th>
-          <th>Employer Rank</th>
-          <th>Their Rank</th>
-        </tr>
-        <% @rankings.each do |ranking| %>
+      <div class="box">
+        <h1><%= @username %>'s Rankings</h1>
+        <table class="table">
           <tr>
-            <td><%= ranking.job.jobId %></td>
-            <td><%= ranking.job.company %></td>
-            <td><%= ranking.job.position %></td>
-            <td><%= ranking.job.location %></td>
-            <td><%= ranking.employerRank %></td>
-            <td><%= ranking.yourRank %></td>
+            <th>Job ID</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Employer Rank</th>
+            <th>Their Rank</th>
           </tr>
-        <% end %>
-      </table>
-      <br>
+          <% @rankings.each do |ranking| %>
+            <tr>
+              <td><%= ranking.job.jobId %></td>
+              <td><%= ranking.job.company %></td>
+              <td><%= ranking.job.position %></td>
+              <td><%= ranking.job.location %></td>
+              <td><%= ranking.employerRank %></td>
+              <td><%= ranking.yourRank %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
       <h1>Posts</h1>
       <% if current_user.username == @username %>
        <%= render '/components/post_form' %>

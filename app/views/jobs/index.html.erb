@@ -1,59 +1,70 @@
 <div class="container is-fluid margins">
-  <h1>Add Jobs</h1>
   <br>
-  <%= search_form_for @search do |f| %>
-    <%= f.label :"Search Jobs by company, position, location" %><br>
-    <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search All" %>
-    <%= f.submit %>
-  <% end %>
+  <h2>Please share your ranking details</h21>
   <br>
-  <% if !@emptyQuery %>
-  <table>
-    <tr>
-      <th>Job ID</th>
-      <th>Company</th>
-      <th>Position</th>
-      <th>Location</th>
-      <th>Ranking</th>
-    </tr>
-    <% @results.each do |job| %>
-      <tr>
-        <td><%= job.jobId %></td>
-        <td><%= job.company %></td>
-        <td><%= job.position %></td>
-        <td><%= job.location %></td>
-        <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
-      </tr>
+  <br>
+
+  <div class="box">
+    <h1>Add Jobs</h1>
+    <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
+      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search company, position, location", :class => "input control" %>
+      <%= f.submit "Search", :class => "button is-info" %>
     <% end %>
-  </table>
-  <%= link_to "Didn't find your job in the database? Add new Job", new_job_path, id: "newJob", remote: true %>
-  <% end %>
-  <br>
-  <div id="addJobForm"></div>
-  <br>
+    <% if !@emptyQuery %>
+      <table class="table">
+        <tr>
+          <th>Job ID</th>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Location</th>
+          <th>Ranking</th>
+        </tr>
+        <% @results.each do |job| %>
+          <tr>
+            <td><%= job.jobId %></td>
+            <td><%= job.company %></td>
+            <td><%= job.position %></td>
+            <td><%= job.location %></td>
+            <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success" %>
+    <% end %>
+    <div id="addJobForm"></div>
+  </div>
+
+  <div class="box">
   <h1>Your Rankings</h1>
-  <table>
-    <tr>
-      <th>Job ID</th>
-      <th>Company</th>
-      <th>Position</th>
-      <th>Location</th>
-      <th>Employer Rank</th>
-      <th>Your Rank</th>
-      <th>Edit Ranks</th>
-    </tr>
-    <% @rankings.each do |ranking| %>
-      <tr>
-        <td><%= ranking.job.jobId %></td>
-        <td><%= ranking.job.company %></td>
-        <td><%= ranking.job.position %></td>
-        <td><%= ranking.job.location %></td>
-        <td><%= ranking.employerRank %></td>
-        <td><%= ranking.yourRank %></td>
-        <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
-        <td><%= link_to 'Remove', ranking_path(ranking), method: :delete %></td>
-      </tr>
+    <% if @rankings.empty? %>
+      <h2>You have no rankings yet, use the search bar to add some</h2>
+    <% else %>
+      <table class="table">
+        <tr>
+          <th>Job ID</th>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Location</th>
+          <th>Employer Rank</th>
+          <th>Your Rank</th>
+          <th colspan="2">Edit</th>
+        </tr>
+        <% @rankings.each do |ranking| %>
+          <tr class="jobs">
+            <td><%= ranking.job.jobId %></td>
+            <td><%= ranking.job.company %></td>
+            <td><%= ranking.job.position %></td>
+            <td><%= ranking.job.location %></td>
+            <td><%= ranking.employerRank %></td>
+            <td><%= ranking.yourRank %></td>
+            <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
+            <td><%= button_to 'Remove', ranking_path(ranking), method: :delete, :class => "button is-danger is-small" %></td>
+          </tr>
+        <% end %>
+      </table>
     <% end %>
-  </table>
-  <%= link_to "Finish", home_path %>
+  </div>
+  <%= button_to "Finish", home_path, :class => "button is-primary is-medium" %>
+  <br>
+  <br>
 </div>

@@ -1,18 +1,16 @@
-<%= form_with model: @ranking, url: rankings_path do |form| %>
-  <p>
-    <%= form.label :"Employer Rank" %>
-    <%= form.select :employerRank, ['Ranked', 'Offer'], prompt: "Select" %>
-  </p>
- 
-  <%= form.label :"Your Rank" %>
-  <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Select" %>
+<div class="columns">
+  <%= form_with model: @ranking, url: rankings_path, :html => {:class => "field is-horizontal"} do |form| %>
+  <div class="column">
+    <%= form.select :employerRank, ['Ranked', 'Offer'], prompt: "Employer Rank" %>
+    <br> 
+    <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Your Rank" %>
 
-  <%= form.hidden_field :user_id, :value => current_user.id%>
+    <%= form.hidden_field :user_id, :value => current_user.id%>
 
-  <%= form.hidden_field :job_id, :value => job.id %>
-
-  <br>
-  <p>
-    <%= form.submit "Add" %>
-  </p>
-<% end %>
+    <%= form.hidden_field :job_id, :value => job.id %>
+  </div>
+  <div class="column">
+    <%= form.submit "Add", :class => "button is-success" %>
+  </div>
+  <% end %>
+</div>
