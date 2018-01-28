@@ -1,9 +1,9 @@
 <div class="container is-fluid margins">
-  <h1>Jobs</h1>
+  <h1>Search Jobs</h1>
   <br>
   <%= search_form_for @search do |f| %>
     <%= f.label :"Search Jobs by company, position, location" %><br>
-    <%= f.search_field :company_or_position_or_location_cont %>
+    <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search All" %>
     <%= f.submit %>
   <% end %>
   <br>
@@ -16,7 +16,6 @@
       <th>Location</th>
       <th>Ranking</th>
     </tr>
-
     <% @results.each do |job| %>
       <tr>
         <td><%= job.jobId %></td>
@@ -32,7 +31,6 @@
   <br>
   <div id="addJobForm"></div>
   <br>
-
   <h1>Your Rankings</h1>
   <table>
     <tr>
@@ -42,6 +40,7 @@
       <th>Location</th>
       <th>Employer Rank</th>
       <th>Your Rank</th>
+      <th>Edit Ranks</th>
     </tr>
     <% @rankings.each do |ranking| %>
       <tr>
@@ -51,6 +50,8 @@
         <td><%= ranking.job.location %></td>
         <td><%= ranking.employerRank %></td>
         <td><%= ranking.yourRank %></td>
+        <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
+        <td><%= link_to 'Remove', ranking_path(ranking), method: :delete %></td>
       </tr>
     <% end %>
   </table>

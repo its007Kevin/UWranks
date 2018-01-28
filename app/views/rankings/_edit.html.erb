@@ -1,0 +1,16 @@
+<%= form_for(ranking) do |form| %>
+
+  <%= form.hidden_field :employerRank, :value => ranking.employerRank %>
+ 
+  <%= form.label :"Your Rank" %><br>
+  <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Select" %>
+
+  <%= form.hidden_field :user_id, :value => current_user.id%>
+
+  <%= form.hidden_field :job_id, :value => ranking.job.id %>
+
+  <br>
+  <p>
+    <%= form.submit "Save Changes" %>
+  </p>
+<% end %>
