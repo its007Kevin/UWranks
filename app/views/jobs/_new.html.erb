@@ -1,6 +1,5 @@
-<h1>Add Job Form</h1>
-<br>
-<%= form_with model: @job, url: '/jobs' do |form| %>
+<h2>Add Job</h2>
+<%= form_with model: @job, url: jobs_path do |form| %>
   <p>
     <%= form.label :"Job Id" %><br>
     <%= form.text_field :jobId %>
@@ -19,8 +18,6 @@
     <%= form.label :location %><br>
     <%= form.text_field :location %>
   </p>
-
-  <br>
   <p>
     <%= form.submit %>
   </p>

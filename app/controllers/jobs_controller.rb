@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
+
   skip_before_action :verify_authenticity_token
   
-  def index 
+  def index
+    @rankings = Ranking.all
     @search = Job.ransack(params[:q])
     if params[:q].nil?
       @emptyQuery = true
