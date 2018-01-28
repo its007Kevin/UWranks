@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   	@posts = Post.all
     @username = params[:id]
     @newPosts = Post.new
+    session[:return_to] = request.fullpath
   end
 
   def profile
@@ -25,7 +26,9 @@ class PagesController < ApplicationController
   	end
 
   	@posts = Post.all.where("user_id = ?", User.find_by_username(params[:id]))
+    @rankings = Ranking.all.where("user_id = ?", User.find_by_username(params[:id]))
     @newPosts = Post.new
+    session[:return_to] = request.fullpath
   end
 
   def explore

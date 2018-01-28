@@ -6,13 +6,9 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
-		respond_to do |f|
-			if (@post.save)
-				f.html { redirect_to "", notice: "Post Created" }
-			else
-				f.html { redirect_to "", notice: "Error: Post Not Saved" }
-			end
-		end
+		@post.save
+		redirect_to session[:return_to]
+    session[:return_to] = nil
 	end
 
 	private

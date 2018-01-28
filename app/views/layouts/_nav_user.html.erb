@@ -14,44 +14,50 @@
      <div id="navbarBurger" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item">
-          <div class="field has-addons">
-            <div class="control">
-              <%= form_tag pages_path, :method => 'get' do %>
-                <%= text_field_tag :search, params[:search] %>
-                <%= submit_tag 'Search' %>
-              <% end %>
-            </div>
+          <div class="field" style="margin-top: 20px">
+            <%= form_tag pages_path, :method => 'get' do %>
+              <div class="columns">
+                <div class="columns is-three-quarters">
+                  <%= text_field_tag :search, params[:search], :class => "input control" %>
+                </div>
+                <div class="columns">
+                <%= submit_tag 'Search', :class => "button is-info control" %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
-      </div> 
+      </div>
+    </div> 
 
-      
-
-      <div class="navbar-end">
-        <a class="navbar-item" href="/home">Home</a>
-        <a class="navbar-item" href="/explore">Explore</a>
-        <a class="navbar-item" href="#">Notifications</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <div class="navbar-link">
-            My Profile
+    <div class="navbar-end">
+      <a class="navbar-item" href="/home">Home</a>
+      <a class="navbar-item" href="/explore">Explore</a>
+      <a class="navbar-item" href="/explore">Notifications</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-link">
+          My Profile
+        </div>
+        <div class="navbar-dropdown is-right">
+          <div class="navbar-item">
+            <a href="/user/<%= current_user.username %>">Profile Page</a>
           </div>
-          <div class="navbar-dropdown is-right">
-            <div class="navbar-item">
-              <a href="/user/<%= current_user.username %>">Profile</a>
-            </div>
-            <div class="navbar-item">
-              <a href="#">Help</a>
-            </div>
-            <div class="navbar-item">
-              <%= link_to('Edit Profile', edit_user_registration_path) %>
-            </div>
-            <hr class="navbar-divider">
-            <div class="navbar-item">
-              <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
-            </div>
+          <div class="navbar-item">
+            <a href="#">Help</a>
+          </div>
+          <div class="navbar-item">
+            <%= link_to('Edit Rankings', jobs_path) %>
+          </div>
+          <div class="navbar-item">
+            <%= link_to('Edit Profile', edit_user_registration_path) %>
+          </div>
+          <hr class="navbar-divider">
+          <div class="navbar-item">
+            <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </nav>
