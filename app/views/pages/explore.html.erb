@@ -17,6 +17,30 @@
               <br>
               <%= posts.content %>
             </p>
+
+            <!-- Comments section -->
+            <hr>
+            <h4>Comments</h4>
+            <% posts.comments.each do |comment| %>
+              <p>
+                <img src="avatar.png" class="rounded-corners" width = "64" height = "64">
+                <a href="/user/<%= comment.commenter %>"><%= comment.commenter %></a>
+                <%= comment.body %>                   
+              </p>
+              <p ALIGN=RIGHT>
+                 <small><%= comment.created_at.to_formatted_s(:short) %></small>   
+              </p>              
+            <% end %>            
+            <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>           
+              <p>
+                <%= form.hidden_field :commenter, :value => current_user.username %>
+                <%= form.text_area :body, autofocus: true,  placeholder: 'Add a Comment', class: 'input'%>
+              </p>
+              <p>
+                <%= form.submit "Comment", class: "button is-link"%>
+              </p>
+            <% end %>
+
           </div>
           <nav class="level is-mobile">
             <div class="level-left">
