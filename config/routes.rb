@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   get '/index' => 'pages#index'
   get '/login' => 'pages#login'
   
+  # For custom jobs index paths
   post '/jobs' => 'jobs#create'
+  post '/rankings/new' => 'rankings#new'
 end
