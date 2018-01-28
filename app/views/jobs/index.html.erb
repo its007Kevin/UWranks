@@ -1,5 +1,5 @@
 <div class="container is-fluid margins">
-  <h1>Search Jobs</h1>
+  <h1>Add Jobs</h1>
   <br>
   <%= search_form_for @search do |f| %>
     <%= f.label :"Search Jobs by company, position, location" %><br>
@@ -55,4 +55,5 @@
       </tr>
     <% end %>
   </table>
+  <%= link_to "Finish", home_path %>
 </div>
