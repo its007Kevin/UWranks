@@ -1,17 +1,22 @@
 class RankingsController < ApplicationController
+  
+  skip_before_action :verify_authenticity_token
+
   def new
-    @ranking = Ranking.new
-    @rankings = Ranking.all
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     @ranking = Ranking.new(ranking_params)
     @ranking.save
-    redirect_to new_ranking_path
+    redirect_to session[:return_to]
+    session[:return_to] = nil
   end
 
   private
     def ranking_params
-      params.require(:ranking).permit(:employerRank, :yourRank, :user_id, :job_id)
+      params.permit(:employerRank, :yourRank, :user_id, :job_id)
     end
 end
