@@ -23,14 +23,19 @@
             <hr>
             <h4>Comments</h4>
             <% posts.comments.each do |comment| %>              
-              <p>
+              <div>
                 <img src="avatar.png" class="rounded-corners" width = "64" height = "64">
                 <a href="/user/<%= comment.commenter %>"><%= comment.commenter %></a>
                 <%= comment.body %>
-              </p>
-              <p ALIGN=RIGHT>
+              </div>
+              <div ALIGN=RIGHT>
                  <small><%= comment.created_at.to_formatted_s(:short) %></small>   
-              </p>
+              </div>
+              <div ALIGN=RIGHT>
+                <small><%= link_to 'Delete Comment', [comment.post, comment],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></small>   
+              </div>
             <% end %>
             <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>       
               <p>
