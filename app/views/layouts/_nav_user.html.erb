@@ -14,16 +14,10 @@
      <div id="navbarBurger" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item">
-          <div class="field" style="margin-top: 20px">
+          <div class="field has-addon1">
             <%= form_tag pages_path, :method => 'get' do %>
-              <div class="columns">
-                <div class="columns is-three-quarters">
-                  <%= text_field_tag :search, params[:search], :class => "input control" %>
-                </div>
-                <div class="columns">
-                <%= submit_tag 'Search', :class => "button is-info control" %>
-                </div>
-              </div>
+                <%= text_field_tag :search, params[:search], :class => "input", :style => "width: 200px" %>
+                <%= submit_tag 'Search', :class => "button is-info" %>
             <% end %>
           </div>
         </div>
@@ -43,13 +37,13 @@
             <a href="/user/<%= current_user.username %>">Profile Page</a>
           </div>
           <div class="navbar-item">
-            <a href="#">Help</a>
-          </div>
-          <div class="navbar-item">
             <%= link_to('Edit Rankings', jobs_path) %>
           </div>
           <div class="navbar-item">
-            <%= link_to('Edit Profile', edit_user_registration_path) %>
+            <%= link_to('Account Settings', edit_user_registration_path) %>
+          </div>
+          <div class="navbar-item">
+            <a href="#">Help</a>
           </div>
           <hr class="navbar-divider">
           <div class="navbar-item">
