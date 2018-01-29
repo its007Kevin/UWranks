@@ -1,13 +1,8 @@
 <div class="container is-fluid margins">
-  <br>
-  <h2>Please share your ranking details</h21>
-  <br>
-  <br>
-
   <div class="box">
-    <h1>Add Jobs</h1>
+    <h1>Search and Add Jobs</h1>
     <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
-      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search company, position, location", :class => "input control" %>
+      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
       <%= f.submit "Search", :class => "button is-info" %>
     <% end %>
     <% if !@emptyQuery %>
@@ -64,7 +59,7 @@
       </table>
     <% end %>
   </div>
-  <%= button_to "Finish", home_path, :class => "button is-primary is-medium" %>
+  <%= link_to "Finish", home_path, :class => "button is-primary is-medium" %>
   <br>
   <br>
 </div>

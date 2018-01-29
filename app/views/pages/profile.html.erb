@@ -9,8 +9,8 @@
 			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
 		</div>
 		<div class="column is-9">
+      <h1>Rankings</h1>
       <div class="box">
-        <h1><%= @username %>'s Rankings</h1>
         <table class="table">
           <tr>
             <th>Job ID</th>
