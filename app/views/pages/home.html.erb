@@ -42,11 +42,6 @@
                 <div ALIGN=RIGHT>
                    <small><%= comment.created_at.to_formatted_s(:short) %></small>   
                 </div>
-                <div ALIGN=RIGHT>
-                  <small><%= link_to 'Delete Comment', [comment.post, comment],
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></small>   
-                </div>
               </p>
             </div>
           </div>
