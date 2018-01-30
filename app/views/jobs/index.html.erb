@@ -1,12 +1,12 @@
 <div class="container is-fluid margins">
-  <div class="box">
-    <h1>Search and Add Jobs</h1>
-    <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
-      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
-      <%= f.submit "Search", :class => "button is-info" %>
-    <% end %>
-    <% if !@emptyQuery %>
-      <table class="table">
+  <p class="header">Search and Add Jobs</p>
+  <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
+    <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
+    <%= f.submit "Search", :class => "button is-info" %>
+  <% end %>
+  <% if !@emptyQuery %>
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
         <tr>
           <th>Job ID</th>
           <th>Company</th>
@@ -14,36 +14,37 @@
           <th>Location</th>
           <th>Ranking</th>
         </tr>
-        <% @results.each do |job| %>
-          <tr>
-            <td><%= job.jobId %></td>
-            <td><%= job.company %></td>
-            <td><%= job.position %></td>
-            <td><%= job.location %></td>
-            <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
-          </tr>
-        <% end %>
-      </table>
-      <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success" %>
-    <% end %>
-    <div id="addJobForm"></div>
-  </div>
-
-  <div class="box">
-  <h1>Your Rankings</h1>
+      </thead>
+      <% @results.each do |job| %>
+        <tr>
+          <td><%= job.jobId %></td>
+          <td><%= job.company %></td>
+          <td><%= job.position %></td>
+          <td><%= job.location %></td>
+          <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success" %>
+  <% end %>
+  <div id="addJobForm"></div>
+  <hr>
+  <p class="header">Your Rankings</p>
     <% if @rankings.empty? %>
       <h2>You have no rankings yet, use the search bar to add some</h2>
     <% else %>
-      <table class="table">
-        <tr>
-          <th>Job ID</th>
-          <th>Company</th>
-          <th>Position</th>
-          <th>Location</th>
-          <th>Employer Rank</th>
-          <th>Your Rank</th>
-          <th colspan="2">Edit</th>
-        </tr>
+      <table class="table is-hoverable is-fullwidth is-fullwidth">
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Employer Rank</th>
+            <th>Your Rank</th>
+            <th colspan="2">Edit</th>
+          </tr>
+        </thead>
         <% @rankings.each do |ranking| %>
           <tr class="jobs">
             <td><%= ranking.job.jobId %></td>
@@ -58,7 +59,6 @@
         <% end %>
       </table>
     <% end %>
-  </div>
   <%= link_to "Finish", home_path, :class => "button is-primary is-medium" %>
   <br>
   <br>

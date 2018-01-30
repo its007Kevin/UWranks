@@ -1,17 +1,19 @@
 <div class="container is-fluid margins">
 	<div class="columns is-3">
 		<div class="column">
-			<img src="/avatar.png" height="200px" width="200px"></img>
-      <br><br>
+        <p class="image is-square">
+          <img src="https://bulma.io/images/placeholders/480x480.png">
+        </p>
+      <br>
 			<h3 style="font-weight: bold"><%= @username %></h3>
 			<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
 			<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
 			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
 		</div>
 		<div class="column is-9">
-      <h1>Rankings</h1>
+      <p class="header">Rankings</p>
       <div class="box">
-        <table class="table">
+        <table class="table is-hoverable">
           <tr>
             <th>Job ID</th>
             <th>Company</th>
@@ -32,7 +34,7 @@
           <% end %>
         </table>
       </div>
-      <h1>Posts</h1>
+      <p class="header">Posts</p>
       <% if current_user.username == @username %>
        <%= render '/components/post_form' %>
       <% end %>

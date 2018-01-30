@@ -21,16 +21,6 @@ a {
 	text-decoration: bold;
 }
 
-h1 {
-	text-decoration: bold;
-	font-size: 150%;
-}
-
-tr:hover {
-  background-color: #358BF2;
-  color: white;
-}
-
 td {
   padding-left: 10px;
   padding-right: 10px;
@@ -39,6 +29,12 @@ td {
 th {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.header {
+  font-size: 150%;
+  font-weight: bold;
+  padding-bottom: 20px;
 }
 
 .error {
@@ -52,8 +48,8 @@ th {
     -moz-box-shadow: 0 8px 6px -6px #999;
     box-shadow: 0 4px 6px -6px #999;
 
-  padding-left: 20%;
-	padding-right: 20%;
+  padding-left: 14%;
+	padding-right: 14%;
 }
 
 .rounded-corners {
@@ -98,12 +94,6 @@ th {
 
 .margins {
 	margin-top: 70px;
-	padding-left: 18%;
-	padding-right: 18%;
-}
-
-.big-margins {
-	margin-top: 70px;
-	padding-left: 35%;
-	padding-right: 35%;
+	padding-left: 12%;
+	padding-right: 12%;
 }
