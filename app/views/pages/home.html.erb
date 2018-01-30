@@ -1,62 +1,75 @@
 <div class="container is-fluid margins">
-  <h1>Home Feed</h1>
-  <br>
+  <p class="header">Home Feed</p>
   <%= render '/components/post_form' %>
+
   <% @posts.each do |posts| %> 
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-              <img src="avatar.png" class="rounded-corners">
-          </figure>
+  <div class="box">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
+            <small><%= posts.created_at.to_formatted_s(:short) %></small>
+            <br>
+            <%= posts.content %>
+            <br>
+            <small><a>Like</a></small>
+          </p>
         </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
-              <small><%= posts.created_at.to_formatted_s(:short) %></small>
-              <br>
-              <%= posts.content %>
-            </p>
-          </div>
-        </div>
-      </article>
-    
-      <!-- Comments -->
-      <br>
-      <h1> Comments </h1>
-      <hr>
-      <br>
-      <% posts.comments.each do |comment| %>  
+
+        <% posts.comments.first(2).each do |comment| %>  
         <article class="media">
-          <div class="media-left">
-            <figure class="image is-64x64">
-                <img src="avatar.png" class="rounded-corners">
-            </figure>
-          </div>
+          <figure class="media-left">
+            <p class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png">
+            </p>
+          </figure>
           <div class="media-content">
             <div class="content">
               <p>
                 <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
-                <%= comment.body %>
-                <div ALIGN=RIGHT>
-                   <small><%= comment.created_at.to_formatted_s(:short) %></small>   
-                </div>
+                <small><%= comment.created_at.to_formatted_s(:short) %></small>  
+                <br>
+                <%= comment.body %> 
+                <br>
+                <small><a>Like</a></small>
               </p>
             </div>
           </div>
-        <hr>
         </article>
-      <% end %>
-      <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>       
-        <p>
+        <% end %>
+      </div>
+    </article>
+    <br>
+    <!-- Comment Form -->
+    <%= form_with(model: [ posts, posts.comments.build ], local: true) do |form| %>  
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="field">
           <%= form.hidden_field :commenter, :value => current_user.username %>
-          <%= form.text_area :body, autofocus: true,  placeholder: 'Add a Comment', class: 'input'%>
-        </p>
-        <p>
-          <%= form.submit "Comment", class: "button is-link"%>
-        </p>
-      <% end %>
-    </div>
+          <p class="control">
+            <!-- <textarea class="textarea" placeholder="Add a comment..."></textarea> -->
+            <%= form.text_area :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <%= form.submit "Post Comment", class: "button"%>
+          </p>
+        </div>
+      </div>
+    </article>
+    <% end %> 
+  </div>
   <% end %>
 </div>

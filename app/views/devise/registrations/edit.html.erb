@@ -1,6 +1,6 @@
 <div class="container is-fluid margins">
 
-  <h1>Account Settings</h1>
+  <p class="header">Account Settings</p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -19,7 +19,7 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <h1>Change Password</h1>
+    <p class="header">Change Password</p>
 
     <div class="field">
       <label class="label">Password
