@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :jobs
   resources :rankings
   resources :pages
+
+  resources :conversations do
+    resources :messages
+  end
   
   root 'pages#login'
 
@@ -27,4 +31,5 @@ Rails.application.routes.draw do
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
   post '/rankings/new' => 'rankings#new'
+  get '/conversations' => 'conversations#index'
 end
