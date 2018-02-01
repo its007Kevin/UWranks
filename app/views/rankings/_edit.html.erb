@@ -3,7 +3,7 @@
   <%= form_for(ranking, :html => {:class => "field is-horizontal"}) do |form| %>
 
     <%= form.hidden_field :employerRank, :value => ranking.employerRank %>
-   
+
     <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
 
     <%= form.hidden_field :user_id, :value => current_user.id%>
