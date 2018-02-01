@@ -36,6 +36,10 @@
           <div class="navbar-item">
             <a href="/user/<%= current_user.username %>">Profile Page</a>
           </div>
+          <div class="navbar-dropdown is-right">
+          <div class="navbar-item">
+            <%= link_to('Messages', conversations_path) %>
+          </div>
           <div class="navbar-item">
             <%= link_to('Edit Rankings', jobs_path) %>
           </div>
