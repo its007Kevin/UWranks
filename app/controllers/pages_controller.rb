@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+
    def index
       @posts = if params[:search]
         Post.where('content LIKE ?', "%#{params[:search]}%")
@@ -13,13 +13,12 @@ class PagesController < ApplicationController
 
   def home
   	@posts = Post.all
-    @username = params[:id]
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
 
   def profile
-  	if (User.find_by_username(params[:id])) 
+  	if (User.find_by_username(params[:id]))
   		@username = params[:id]
   	else
   		redirect_to root_path, :notice => "User not found!"
@@ -33,6 +32,5 @@ class PagesController < ApplicationController
 
   def explore
   	@posts = Post.all
-    @username = params[:id]
   end
 end

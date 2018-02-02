@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <div class="navbar-end">
       <a class="navbar-item" href="/home">Home</a>
@@ -30,21 +30,20 @@
       <a class="navbar-item" href="/explore">Notifications</a>
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">
-          My Profile
+          <%= current_user.username %>
         </div>
         <div class="navbar-dropdown is-right">
           <div class="navbar-item">
-            <a href="/user/<%= current_user.username %>">Profile Page</a>
+            <a href="/user/<%= current_user.username %>">My Profile</a>
           </div>
-          <div class="navbar-dropdown is-right">
           <div class="navbar-item">
             <%= link_to('Messages', conversations_path) %>
           </div>
           <div class="navbar-item">
-            <%= link_to('Edit Rankings', jobs_path) %>
+            <%= link_to('My Rankings', jobs_path) %>
           </div>
           <div class="navbar-item">
-            <%= link_to('Account Settings', edit_user_registration_path) %>
+            <%= link_to('Settings', edit_user_registration_path) %>
           </div>
           <div class="navbar-item">
             <a href="#">Help</a>
