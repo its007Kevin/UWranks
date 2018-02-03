@@ -14,9 +14,9 @@
      <div id="navbarBurger" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item">
-          <div class="field has-addon1">
+          <div class="field has-addon">
             <%= form_tag pages_path, :method => 'get' do %>
-                <%= text_field_tag :search, params[:search], :class => "input", :style => "width: 250px" %>
+                <%= text_field_tag :search, params[:search], :class => "input", :style => "width: 250px", :placeholder => "Search companies, positions, locations" %>
                 <%= submit_tag 'Search', :class => "button is-info" %>
             <% end %>
           </div>

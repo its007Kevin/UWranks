@@ -1,32 +1,32 @@
 <div class="container is-fluid margins">
-  <h1>Explore Feed</h1>
-  <br>
-  <% @posts.each do |posts| %> 
-    <div class="box">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-              <img src="avatar.png" class="rounded-corners">
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <a href="/user/<%= User.find(posts.user_id).username %>"><%= User.find(posts.user_id).username %></a>
-              <small><%= posts.created_at.to_formatted_s(:short) %></small>
-              <br>
-              <%= posts.content %>
-            </p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-reply"></i></span></a>
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-retweet"></i></span></a>
-              <a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a>
-            </div>
-          </nav>
-        </div>
-      </article>
-    </div>
+  <p class="header">Search Results</p>
+  <% if @jobs.any? %>
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Job ID</th>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.jobId %></td>
+          <td><%= job.company %></td>
+          <td><%= job.position %></td>
+          <td><%= job.location %></td>
+        </tr>
+        <% job.rankings.each do |rankings| %>
+          <tr>
+            <td><a href="/user/<%= rankings.user.username %>"><%= rankings.user.username %></a></td>
+            <td><%= rankings.employerRank %></td>
+            <td><%= rankings.yourRank %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <% else %>
+    <p>Sorry, no results.</p>
   <% end %>
 </div>
