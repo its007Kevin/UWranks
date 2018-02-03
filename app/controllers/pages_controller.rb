@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   def home
   	@posts = Post.all
     @newPosts = Post.new
+    @myRankings = Ranking.all.where("user_id = ?", current_user.id)
     session[:return_to] = request.fullpath
   end
 
@@ -28,6 +29,6 @@ class PagesController < ApplicationController
   end
 
   def explore
-  	@posts = Post.all
+  	@search = Job.ransack(params[:q])
   end
 end
