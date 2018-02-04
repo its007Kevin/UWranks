@@ -2,7 +2,7 @@
   <%= form_with model: @ranking, url: rankings_path, :html => {:class => "field is-horizontal"} do |form| %>
   <div class="column">
     <%= form.select :employerRank, ['Ranked', 'Offer'], prompt: "Employer Rank" %>
-    <br> 
+    <br>
     <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Your Rank" %>
 
     <%= form.hidden_field :user_id, :value => current_user.id%>
@@ -10,7 +10,7 @@
     <%= form.hidden_field :job_id, :value => job.id %>
   </div>
   <div class="column">
-    <%= form.submit "Add", :class => "button is-success" %>
+    <%= form.submit "Add", :class => "button is-success is-rounded" %>
   </div>
   <% end %>
 </div>

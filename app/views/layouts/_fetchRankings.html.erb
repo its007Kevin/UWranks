@@ -1,0 +1,47 @@
+<div class="column is-12">
+  <article class="media box">
+    <div class="column is-3">
+      <div class="media-left">
+        <div class="content">
+          <p class="title is-4">
+            <%= job.company %>
+          </p>
+          <p class="subtitle is-6">
+            (<%= job.jobId %>) <%= job.position %>
+            <br />
+            <%= job.location %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="column is-9">
+      <div class="media-content columns is-multiline" style="margin-left: 30px">
+          <% job.rankings.each do |other| %>
+            <% if other.user.username != current_user.username %>
+              <div class="column is-4">
+                <article class="media">
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
+                        <br />
+                        <% if other.employerRank == "Offer" %>
+                          <span class="button is-rounded is-success"><%= other.employerRank %></span>
+                        <% else %>
+                          <span class="button is-rounded is-info"><%= other.employerRank %></span>
+                        <% end %>
+                        <span class="button is-rounded"><%= other.yourRank %></span>
+                        <br>
+                        <small><%= other.created_at.strftime("%a, %b %d | %l:%M %p") %></small><br />
+                        <small><a>Message</a></small>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </article>
+</div>

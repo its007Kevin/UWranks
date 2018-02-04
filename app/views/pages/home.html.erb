@@ -1,32 +1,6 @@
 <div class="container is-fluid margins">
   <p class="header">Home Feed</p>
-  <table class="table is-hoverable is-fullwidth">
-    <thead>
-      <tr>
-        <th>Job ID</th>
-        <th>Company</th>
-        <th>Position</th>
-        <th>Location</th>
-        <th>Employer Rank</th>
-        <th>Their Rank</th>
-      </tr>
-    </thead>
-    <% @myRankings.each do |ranking| %>
-      <tr>
-        <td><%= ranking.job.jobId %></td>
-        <td><%= ranking.job.company %></td>
-        <td><%= ranking.job.position %></td>
-        <td><%= ranking.job.location %></td>
-        <td><%= ranking.employerRank %></td>
-        <td><%= ranking.yourRank %></td>
-      </tr>
-      <% ranking.job.rankings.each do |other| %>
-        <tr>
-          <td><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></td>
-          <td><%= other.employerRank %></td>
-          <td><%= other.yourRank %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </table>
+  <% @myRankings.each do |ranking| %>
+    <%= render partial: 'layouts/fetchRankings', locals: { :job => ranking.job } %>
+  <% end %>
 </div>
