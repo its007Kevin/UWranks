@@ -24,9 +24,7 @@ Rails.application.routes.draw do
 
   get '/home' => 'pages#home'
   get '/user/:id' => 'pages#profile'
-  get '/explore' => 'pages#explore'
   get '/index' => 'pages#index'
-  get '/login' => 'pages#login'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'

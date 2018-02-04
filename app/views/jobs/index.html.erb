@@ -25,7 +25,7 @@
         </tr>
       <% end %>
     </table>
-    <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success" %>
+    <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success is-rounded" %>
   <% end %>
   <div id="addJobForm"></div>
   <hr>
@@ -54,12 +54,12 @@
             <td><%= ranking.employerRank %></td>
             <td><%= ranking.yourRank %></td>
             <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
-            <td><%= button_to 'Remove', ranking_path(ranking), method: :delete, :class => "button is-danger is-small" %></td>
+            <td><%= button_to 'Remove', ranking_path(ranking), method: :delete, :class => "button is-danger is-rounded is-small" %></td>
           </tr>
         <% end %>
       </table>
     <% end %>
-  <%= link_to "Finish", home_path, :class => "button is-primary is-medium" %>
-  <br>
-  <br>
+  <%= link_to "Finish", home_path, :class => "button is-primary is-rounded" %>
+  <br />
+  <br />
 </div>

@@ -1,31 +1,9 @@
 <div class="container is-fluid margins">
   <p class="header">Search Results</p>
   <% if @jobs.any? %>
-    <table class="table is-hoverable is-fullwidth">
-      <thead>
-        <tr>
-          <th>Job ID</th>
-          <th>Company</th>
-          <th>Position</th>
-          <th>Location</th>
-        </tr>
-      </thead>
-      <% @jobs.each do |job| %>
-        <tr>
-          <td><%= job.jobId %></td>
-          <td><%= job.company %></td>
-          <td><%= job.position %></td>
-          <td><%= job.location %></td>
-        </tr>
-        <% job.rankings.each do |rankings| %>
-          <tr>
-            <td><a href="/user/<%= rankings.user.username %>"><%= rankings.user.username %></a></td>
-            <td><%= rankings.employerRank %></td>
-            <td><%= rankings.yourRank %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
+    <% @jobs.each do |job| %>
+      <%= render partial: 'layouts/fetchRankings', locals: { :job => job } %>
+    <% end %>
   <% else %>
     <p>Sorry, no results.</p>
   <% end %>

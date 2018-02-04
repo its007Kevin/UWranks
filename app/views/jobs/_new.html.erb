@@ -1,6 +1,6 @@
 <div class="box">
   <div class="field">
-    <h2>Add Job</h2>
+    <p class="header">Add Job</p>
     <%= form_with model: @job, url: jobs_path do |form| %>
 
       <%= form.label :"Job Id", :class => "label" %>
@@ -10,10 +10,10 @@
       <%= form.text_field :company, :class => "input control" %>
 
       <%= form.label :position, :class => "label" %>
-      <%= form.text_field :position, :class => "input control" %>
+      <%= form.text_field :position, :class => "input control", :placeholder => "ex. Software Developer" %>
 
       <%= form.label :location, :class => "label" %>
-      <%= form.text_field :location, :class => "input control" %>
+      <%= form.text_field :location, :class => "input control", :placeholder => "City, Country" %>
 
       <br><br>
       <%= form.submit "Add", :class => "button is-success" %>
