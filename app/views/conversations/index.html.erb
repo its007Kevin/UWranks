@@ -1,47 +1,26 @@
 <div class="container is-fluid margins">
-  <p class="header">Conversations</p>
-  
-  <h1>Inbox</h1>
-
-  <!-- Inbox -->
-  <div class="box">
-    <% @conversations.each do |conversation| %>
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
-          </p>
-        </figure>
-        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-          <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.sender_id) %>
-          <% end %>
-          <%= link_to recipient.username, conversation_messages_path(conversation)%>
+  <div class="row">
+    <div class="col-md-9">
+      <ul id="conversations-list">
+        <% @conversations.each do |conversation| %>
+          <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
         <% end %>
-      </article>
-    <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">User list</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <% @users.each do |user| %>
+              <li><%= link_to user.username, conversations_path(user_id: user), remote: true, method: :post %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
-  <h1> All Users </h1>
-  <div class="box">
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-        <article class="media">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png">
-            </p>
-          </figure>        
-            <div class="item">
-              <%= user.username %> 
-              <p align='right'><%= link_to 'Send a Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-            </div>
-        </article>
-      <% end %>
-    <% end %>
-  </div>
-  
+</div>

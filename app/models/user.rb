@@ -13,6 +13,9 @@ class User < ApplicationRecord
   
   has_many :rankings, dependent: :destroy
 
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
+
   # active_relationships: you are following someone
   # passive_relationships: someone is following you
 

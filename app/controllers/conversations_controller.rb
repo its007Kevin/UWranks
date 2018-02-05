@@ -1,21 +1,37 @@
 class ConversationsController < ApplicationController
+  def create
+    @conversation = Conversation.get(current_user.id, params[:user_id])
+    
+    add_to_conversations unless conversated?
+
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def index
     @users = User.all
     @conversations = Conversation.all
   end
 
-  def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
-    else
-      @conversation = Conversation.create!(conversation_params)
+  def close
+    @conversation = Conversation.find(params[:id])
+ 
+    session[:conversations].delete(@conversation.id)
+ 
+    respond_to do |format|
+      format.js
     end
-    redirect_to conversation_messages_path(@conversation)
   end
 
-private
-  def conversation_params
-    params.permit(:sender_id, :recipient_id)
+  private
+
+  def add_to_conversations
+    session[:conversations] ||= []
+    session[:conversations] << @conversation.id
+  end
+
+  def conversated?
+    session[:conversations].include?(@conversation.id)
   end
 end
