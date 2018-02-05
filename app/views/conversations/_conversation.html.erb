@@ -1,0 +1,21 @@
+<li>
+  <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
+    <div class="panel-heading">
+      <%= link_to conversation.opposed_user(user).email, '', class: 'toggle-window' %>
+      <%= link_to "x", close_conversation_path(conversation), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
+    </div>
+
+    <div class="panel-body" style="display: none;">
+      <div class="messages-list">
+        <ul>
+          <%= render 'conversations/conversation_content', messages: conversation.messages, user: user %>
+        </ul>
+      </div>
+      <%= form_for [conversation, conversation.messages.new], remote: true do |f| %>
+        <%= f.hidden_field :user_id, value: user.id %>
+        <%= f.text_area :body, class: "form-control" %>
+        <%= f.submit "Send", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</li>
