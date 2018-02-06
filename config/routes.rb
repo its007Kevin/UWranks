@@ -16,12 +16,8 @@ Rails.application.routes.draw do
   resources :rankings
   resources :pages
 
-
-  resources :conversations, only: [:create] do
-    member do
-      post :close
-    end
-    resources :messages, only: [:create]
+  resources :conversations do
+    resources :messages
   end
 
   root 'pages#login'
