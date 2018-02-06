@@ -45,9 +45,9 @@ th {
 }
 
 .navbar {
-    -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
-    box-shadow: 0 4px 6px -6px #999;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 4px 6px -6px #999;
 
   padding-left: 14%;
 	padding-right: 14%;
@@ -55,21 +55,6 @@ th {
 
 .rounded-corners {
 	border-radius: 10%;
-}
-
-.sign-in-panel {
-	margin-top: 15%;
-	margin-left: 60%;
-	height: 400px;
-	width: 300px;
-}
-
-.sign-in-panel2 {
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 340px;
-	width: 300px;
 }
 
 .password-reset-panel {
@@ -95,14 +80,56 @@ th {
 	margin-left: 30px;
 }
 
-.index {
-	background-color: #ecf0f1;
-	padding-top: 2%;
-	padding-bottom: 5%;
-}
-
 .margins {
 	margin-top: 70px;
 	padding-left: 12%;
 	padding-right: 12%;
+}
+
+// Landing Page
+
+.index {
+	background-image: url("/bg.svg");
+	background-size: cover;
+	background-position: center;
+	padding-top: 6%;
+	padding-bottom: 6%;
+}
+
+.sign-in-panel {
+	margin-top: 20%;
+	margin-left: 20%;
+	height: 400px;
+	width: 300px;
+}
+
+.sign-in-panel2 {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 340px;
+	width: 300px;
+}
+
+.desc {
+	margin-top: 40%;
+	margin-left: 40%;
+}
+
+.landingPages {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.footer {
+	color: white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	background-color: #E8EAEE;
 }

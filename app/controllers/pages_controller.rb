@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     session[:return_to] = request.fullpath
   end
 
+  def explore
+    @jobs = Job.all
+  end
+
   def profile
   	if (User.find_by_username(params[:id]))
   		@username = params[:id]

@@ -1,7 +1,6 @@
 <div class="container is-fluid margins">
-  <p class="header">Search and Add Jobs</p>
-  <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
-    <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
-    <%= f.submit "Search", :class => "button is-info" %>
+  <p class="header">Explore Rankings</p>
+  <% @jobs.each do |job| %>
+    <%= render partial: 'layouts/fetchRankings', locals: { job: job } %>
   <% end %>
 </div>
