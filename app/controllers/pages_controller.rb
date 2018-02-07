@@ -31,8 +31,4 @@ class PagesController < ApplicationController
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
-
-  def explore
-  	@search = Job.ransack(params[:q])
-  end
 end

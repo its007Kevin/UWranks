@@ -1,48 +1,36 @@
-<div class="column is-12">
-  <article class="media box">
-    <div class="column is-3">
-      <div class="media-left">
-        <div class="content">
-          <p class="title is-4">
-            <%= job.company %>
-          </p>
-          <p class="subtitle is-6">
-            (<%= job.jobId %>) <%= job.position %>
-            <br />
-            <%= job.location %>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="column is-9">
-      <div class="media-content columns is-multiline" style="margin-left: 30px">
-          <% job.rankings.each do |other| %>
-            <% if other.user.username != current_user.username %>
-              <div class="column is-4">
-                <article class="media">
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
-                        <br />
-                        <% if other.employerRank == "Offer" %>
-                          <span class="button is-rounded is-success"><%= other.employerRank %></span>
-                        <% else %>
-                          <span class="button is-rounded is-info"><%= other.employerRank %></span>
-                        <% end %>
-                        <span class="button is-rounded"><%= other.yourRank %></span>
-                        <br>
-                        <small>Last Updated at</small><br />
-                        <small><%= other.updated_at.strftime("%a, %b %d | %l:%M %p") %></small><br />
-                        <small><a>Message</a></small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            <% end %>
+<div class="box">
+  <p class="title is-4">
+    <%= job.company %>
+  </p>
+  <p class="subtitle is-6">
+    (<%= job.jobId %>) <%= job.position %>
+    <br />
+    <%= job.location %>
+  </p>
+  <div class="column is-12">
+    <div class="columns is-multiline">
+        <% job.rankings.each do |other| %>
+          <% if other.user.username != current_user.username %>
+            <div class="column is-3">
+              <p>
+                <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
+                <br />
+                <% if other.employerRank == "Offer" %>
+                  <span class="button is-rounded is-success"><%= other.employerRank %></span>
+                <% else %>
+                  <span class="button is-rounded is-info"><%= other.employerRank %></span>
+                <% end %>
+                <span class="button is-rounded"><%= other.yourRank %></span>
+                <br>
+                <small>Last Updated at</small><br />
+                <small><%= other.updated_at.strftime("%a, %b %d | %l:%M %p") %></small><br />
+                <small><a>Message</a></small>
+              </p>
+            </div>
           <% end %>
-      </div>
+        <% end %>
     </div>
-  </article>
+  </div>
+  <%= render partial: 'components/post_form', locals: { :job_id => job.id } %>
+  <%= render partial: '/layouts/content', locals: { :posts => job.posts } %>
 </div>

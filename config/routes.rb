@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
-  #get 'post/login'
-
   resources :relationships
   resources :users do
   	member do
@@ -16,9 +14,6 @@ Rails.application.routes.draw do
   resources :rankings
   resources :pages
   
-
-
-
   resources :conversations, only: [:create] do
     member do
       post :close
