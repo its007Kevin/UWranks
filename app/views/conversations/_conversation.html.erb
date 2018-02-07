@@ -11,11 +11,12 @@
           <%= render 'conversations/conversation_content', messages: conversation.messages, user: user %>
         </ul>
       </div>
-      <%= form_for [conversation, conversation.messages.new], remote: true do |f| %>
-        <%= f.hidden_field :user_id, value: user.id %>
-        <%= f.text_area :body, class: "form-control" %>
-        <%= f.submit "Send", class: "btn btn-success" %>
-      <% end %>
+      <form class="new_message">
+        <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
+        <input name="user_id" type="hidden" value="<%= user.id %>">
+        <textarea name="body" class="form-control"></textarea>
+        <input type="submit" class="btn btn-success" value="Send">
+      </form>
     </div>
   </div>
 </li>

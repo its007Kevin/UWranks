@@ -15,9 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
 
 (function() {
   $(document).on('click', '.toggle-window', function(e) {
