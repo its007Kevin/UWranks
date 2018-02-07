@@ -1,11 +1,6 @@
 <% posts.each do |post| %>
   <br />
   <article class="media">
-    <figure class="media-left">
-      <p class="image is-64x64">
-
-      </p>
-    </figure>
     <div class="media-content">
       <div class="content">
         <p>
@@ -19,9 +14,6 @@
         <% post.comments.each do |comment| %>
           <article class="media">
             <figure class="media-left">
-              <p class="image is-64x64">
-
-              </p>
             </figure>
             <div class="media-content">
               <div class="content">
@@ -31,7 +23,6 @@
                   <br>
                   <%= comment.body %>
                   <br>
-                  <small><a>Like</a></small>
                 </p>
               </div>
             </div>
