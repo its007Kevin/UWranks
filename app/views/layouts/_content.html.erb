@@ -1,73 +1,52 @@
 <% posts.each do |post| %>
-  <div class="box">
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <img src="https://bulma.io/images/placeholders/128x128.png">
+  <br />
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <a href="/user/<%= User.find(post.user_id).username %>"><%= User.find(post.user_id).username %></a>
+          <small><%= post.created_at.to_formatted_s(:short) %></small>
+          <br>
+          <%= post.content %>
+          <br>
         </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <a href="/user/<%= User.find(post.user_id).username %>"><%= User.find(post.user_id).username %></a>
-            <small><%= post.created_at.to_formatted_s(:short) %></small>
-            <br>
-            <%= post.content %>
-            <br>
-            <small><a>Like</a></small>
-          </p>
-        </div>
-
-        <% if post.comments.any? %>
-          <a id="commentsToggle">Show Comments</a>
-        <% end %>
-        <div class="comments">
-          <% post.comments.each do |comment| %>
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png">
+      </div>
+        <% post.comments.each do |comment| %>
+          <article class="media">
+            <figure class="media-left">
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
+                  <small><%= comment.created_at.to_formatted_s(:short) %></small>
+                  <br>
+                  <%= comment.body %>
+                  <br>
                 </p>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
-                    <small><%= comment.created_at.to_formatted_s(:short) %></small>
-                    <br>
-                    <%= comment.body %>
-                    <br>
-                    <small><a>Like</a></small>
-                  </p>
-                </div>
               </div>
-            </article>
-          <% end %>
-          <br />
-        </div>
-    </article>
-    <!-- Comment Form -->
-    <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
+            </div>
+          </article>
+        <% end %>
+    </div>
+  </article>
+  <br />
+  <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
+    <article class="media">
+      <div class="media-content">
+        <div class="field">
+          <%= form.hidden_field :commenter, :value => current_user.username %>
+          <p class="control">
+            <%= form.text_area :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
           </p>
-        </figure>
-        <div class="media-content">
-          <div class="field">
-            <%= form.hidden_field :commenter, :value => current_user.username %>
-            <p class="control">
-              <%= form.text_area :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
-            </p>
-          </div>
-          <div class="field">
-            <p class="control">
-              <%= form.submit "Post Comment", class: "button"%>
-            </p>
-          </div>
         </div>
-      </article>
-    <% end %>
-  </div>
+        <div class="field">
+          <p class="control">
+            <%= form.submit "Post Comment", class: "button"%>
+          </p>
+        </div>
+      </div>
+    </article>
+  <% end %>
+  <br />
 <% end %>
