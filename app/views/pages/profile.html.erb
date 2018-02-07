@@ -34,11 +34,6 @@
           <% end %>
         </table>
       </div>
-      <p class="header">Posts</p>
-      <% if current_user.username == @username %>
-       <%= render '/components/post_form' %>
-      <% end %>
-			<%= render partial: 'layouts/content', locals: { :posts => @posts } %>
 		</div>
 	</div>
 </div>
