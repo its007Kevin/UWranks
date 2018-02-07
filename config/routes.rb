@@ -33,10 +33,9 @@ Rails.application.routes.draw do
   get '/explore' => 'pages#explore'
   get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
-  get '/msgtest' => 'home#index'
+  get '/conversations' => 'home#index'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
   post '/rankings/new' => 'rankings#new'
-  get '/conversations' => 'conversations#index'
 end

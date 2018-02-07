@@ -16,7 +16,7 @@
         <div class="panel-body">
           <ul>
             <% @users.each do |user| %>
-              <li><%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %></li>
+              <li><%= link_to user.username, conversations_path(user_id: user), remote: true, method: :post %></li>
             <% end %>
           </ul>
         </div>
