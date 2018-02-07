@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class InboxController < ApplicationController
   def index
     session[:conversations] ||= []
 
