@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def index
-      @jobs = if params[:search]
-        Job.where('UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', search: "%#{params[:search]}%")
-      else
-        Job.all
-      end
+    @jobs = if params[:search]
+      Job.where('UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', search: "%#{params[:search]}%")
+    else
+      Job.all
+    end
   end
 
   def home
