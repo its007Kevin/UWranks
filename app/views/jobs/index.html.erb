@@ -34,7 +34,7 @@
   <div id="addJobForm"></div>
   <hr>
   <p class="header">Your Rankings</p>
-  <% if @rankings.empty? %>
+  <% if !@rankings.any? %>
     <h2>You have no rankings yet, use the search bar to add some</h2>
     <br />
   <% else %>
