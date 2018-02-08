@@ -91,6 +91,26 @@ th {
 	padding-right: 22%;
 }
 
+// Mobile 
+
+@media (max-width: 480px) {
+	.margins {
+		margin-top: 70px;
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	.navbar {
+		-webkit-box-shadow: 0 8px 6px -6px #999;
+		-moz-box-shadow: 0 8px 6px -6px #999;
+		box-shadow: 0 4px 6px -6px #999;
+		padding-left: 0%;
+		padding-right: 0%;
+	}
+	.desc {
+  	padding-top: 60%;
+	}
+}
+
 // Landing Page
 
 .index {
