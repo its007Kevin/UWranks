@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :rankings
   resources :pages
-  
+
   resources :conversations, only: [:create] do
     member do
       post :close
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  root 'pages#login'
+  root 'pages#sign_up'
 
   get '/home' => 'pages#home'
   get '/explore' => 'pages#explore'
