@@ -1,53 +1,40 @@
 <div class="container is-fluid margins">
 
-<h1 class="title is-4">Sign Up</h1>
+<h1 class="header-text">Sign Up for UWranks</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <label class="label">Username</label>
-    <div class="control has-icons-left">
-      <%= f.text_field :username, autofocus: true, class: "input" %>
-      <span class="icon is-small is-left">
-        <i class="fa fa-user"></i>
-      </span>
+<div class="sign-in-panel2 box">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control has-icons-left">
+        <%= f.text_field :username, autofocus: true, class: "input", :placeholder => "Pick a username" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </div>
     </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control has-icons-left">
-      <%= f.email_field :email, class: "input", :type => "email1" %>
-      <span class="icon is-small is-left">
-        <i class="fa fa-envelope"></i>
-      </span>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control has-icons-left">
+        <%= f.email_field :email, class: "input", :type => "email", :placeholder => "you@example.com" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+      </div>
     </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Password<% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    </label>
-    <div class="control has-icons-left">
-      <%= f.password_field :password, autocomplete: "off", class: "input", :type => "password" %>
-      <span class="icon is-small is-left">
-        <i class="fa fa-lock"></i>
-      </span>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left">
+        <%= f.password_field :password, autocomplete: "off", class: "input", :type => "password", :placeholder => "Create a password" %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+        <small>Password must be at least 6 characters.</small>
+      </div>
     </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Password Confirmation</label>
-    <div class="control">
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", :type => "password" %>
+    <div class="field">
+      <%= f.submit "Sign up", class: "button is-fullwidth is-medium is-primary" %>
     </div>
-  </div>
-
-  <div class="field">
-    <%= f.submit "Next", class: "button is-primary" %>
-  </div>
-<% end %>
-
+  <% end %>
 </div>

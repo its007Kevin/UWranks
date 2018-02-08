@@ -1,0 +1,90 @@
+<% if !user_signed_in? %>
+	<div class="index">
+		<div class="columns">
+			<div class="column is-6">
+				<div class="desc">
+					<p class="title is-1">Didn't get the offer?</p>
+					<p class="subtitle">See how others are ranking the job.</p>
+					<p class="subtitle">Scroll down to learn more.</p>
+				</div>
+			</div>
+			<div class="column is-6">
+				<div class="sign-up box">
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+						<div class="field">
+							<label class="label">Username</label>
+							<div class="control has-icons-left">
+								<%= f.text_field :username, class: "input", :placeholder => "Pick a username" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-user"></i>
+								</span>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control has-icons-left">
+								<%= f.email_field :email, class: "input", :type => "email", :placeholder => "you@example.com" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-envelope"></i>
+								</span>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Password</label>
+							<div class="control has-icons-left">
+								<%= f.password_field :password, autocomplete: "off", class: "input", :type => "password", :placeholder => "Create a password" %>
+								<span class="icon is-small is-left">
+									<i class="fa fa-lock"></i>
+								</span>
+							</div>
+							<small>Password must be at least 6 characters.</small>
+						</div>
+						<div class="field">
+							<%= f.submit "Sign up", class: "button is-medium is-fullwidth is-primary" %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="landingPages">
+		<p class="text-center title">
+			<br />
+			<br />
+			<br />
+			Create an Account
+			<br />
+			<br />
+			<br />
+			<%= link_to "Sign up", new_registration_path(:user), :class =>"button is-success is-rounded is-large" %>
+			<br />
+			<br />
+			<br />
+		</p>
+	</div>
+	<hr />
+	<div class="landingPages">
+		<p class="text-center title">
+			Tell us how you would rank your jobs
+			<br />
+			<br />
+			<img class="rounded-corners" src="/demo1.png" width="60%"/>
+		</p>
+	</div>
+	<hr />
+	<div class="landingPages">
+		<p class="text-center title">
+			We'll tell you how other people ranked it
+			<br />
+			<br />
+			<br />
+			<img class="rounded-corners" src="/demo2.png" width="60%"/>
+		</p>
+	</div>
+	<footer class="footer">
+	</footer>
+<% else %>
+	<script>
+		document.location = "/home"
+	</script>
+<% end %>
