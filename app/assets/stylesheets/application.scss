@@ -54,8 +54,8 @@ th {
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 4px 6px -6px #999;
 
-  padding-left: 14%;
-	padding-right: 14%;
+  padding-left: 22%;
+	padding-right: 22%;
 }
 
 .rounded-corners {
@@ -87,8 +87,8 @@ th {
 
 .margins {
 	margin-top: 70px;
-	padding-left: 12%;
-	padding-right: 12%;
+	padding-left: 20%;
+	padding-right: 20%;
 }
 
 // Landing Page
@@ -97,16 +97,16 @@ th {
 	background-image: url("/bg.svg");
 	background-size: cover;
 	background-position: center;
-	padding-top: 6%;
-	padding-bottom: 6%;
+	padding-top: 8%;
+	padding-bottom: 8%;
 }
 
 .sign-up {
-  margin-top: 20%;
+  margin-top: 30%;
   margin-left: auto;
   margin-right: auto;
 	height: auto;
-	width: 350px;
+	max-width: 350px;
 }
 
 .sign-in-panel2 {
@@ -118,7 +118,9 @@ th {
 }
 
 .desc {
-  margin-top: 35%;
+  margin-top: 40%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .landingPages {
@@ -126,6 +128,11 @@ th {
 	padding-bottom: 100px;
 	padding-left: 40px;
 	padding-right: 40px;
+}
+
+.landingMargins {
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 .text-center {
