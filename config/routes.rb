@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
   get '/conversations' => 'inbox#index'
+  get '/help' => 'pages#help'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
