@@ -1,5 +1,5 @@
 <div class="container is-fluid margins">
-  <p class="header">Explore Rankings</p>
+  <p class="header">Explore</p>
   <% @jobs.each do |job| %>
     <%= render partial: 'layouts/fetchRankings', locals: { job: job } %>
   <% end %>
