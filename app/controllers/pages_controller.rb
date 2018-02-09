@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     else
       Job.all
     end
+    @newPosts = Post.new
   end
 
   def home
@@ -16,6 +17,7 @@ class PagesController < ApplicationController
 
   def explore
     @jobs = Job.all
+    @newPosts = Post.new
   end
 
   def profile
