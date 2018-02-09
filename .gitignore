@@ -1,3 +1,2 @@
-tmp
-tmp/**/*
-log/*.log
+/log
+/tmp
