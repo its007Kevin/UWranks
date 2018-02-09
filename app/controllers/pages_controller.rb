@@ -20,6 +20,9 @@ class PagesController < ApplicationController
     @newPosts = Post.new
   end
 
+  def help
+  end
+
   def profile
   	if (User.find_by_username(params[:id]))
   		@username = params[:id]
