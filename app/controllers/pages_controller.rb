@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def explore
-    @jobs = Job.all
+    @jobs = Job.all.order(created_at: :desc)
     @newPosts = Post.new
   end
 

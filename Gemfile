@@ -7,6 +7,8 @@ end
 
 ruby "2.5.0"
 
+# Time Conversion
+gem 'local_time'
 # For Search forms
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # Using Devise gem for authentication and user accounts

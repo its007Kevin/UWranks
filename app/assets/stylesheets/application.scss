@@ -70,6 +70,10 @@ th {
 	width: 300px;
 }
 
+.time-style {
+  opacity: 0.8;
+}
+
 .header-text {
 	margin-top: 50px;
 	text-align: center;
@@ -91,7 +95,7 @@ th {
 	padding-right: 22%;
 }
 
-// Mobile 
+// Mobile
 
 @media (max-width: 480px) {
 	.margins {
@@ -166,6 +170,11 @@ th {
 	background-color: #E8EAEE;
 }
 
+.post-form {
+  // background-color: #F7F7F7;
+  padding-top: 20px;
+}
+
 // Messaging
 
  .messageContainer {
@@ -236,6 +245,3 @@ th {
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
 	}
-
-
-
