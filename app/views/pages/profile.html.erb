@@ -1,39 +1,29 @@
 <div class="container is-fluid margins">
-	<div class="columns is-3">
-		<div class="column">
-        <p class="image is-square">
-          <img src="https://bulma.io/images/placeholders/480x480.png">
-        </p>
-      <br>
-			<h3 style="font-weight: bold"><%= @username %></h3>
-			<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
-			<h6>Posts: <%= User.find_by_username(params[:id]).posts.count %></h6>
-			<h6>Followers: <%= User.find_by_username(params[:id]).followers.count %></h6>
-		</div>
-		<div class="column is-9">
-      <p class="header">Rankings</p>
-      <div class="box">
-        <table class="table is-hoveratatble">
-          <tr>
-            <th>Job ID</th>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Location</th>
-            <th>Employer Rank</th>
-            <th>Their Rank</th>
-          </tr>
-          <% @rankings.each do |ranking| %>
-            <tr>
-              <td><%= ranking.job.jobId %></td>
-              <td><%= ranking.job.company %></td>
-              <td><%= ranking.job.position %></td>
-              <td><%= ranking.job.location %></td>
-              <td><%= ranking.employerRank %></td>
-              <td><%= ranking.yourRank %></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-		</div>
-	</div>
+  <p class="header"><%= @username %>'s Rankings</p>
+  <div class="box">
+    <table class="table is-hoveratatble">
+      <tr>
+        <th>Job ID</th>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Location</th>
+        <th>Employer Rank</th>
+        <th>Their Rank</th>
+      </tr>
+      <% @rankings.each do |ranking| %>
+        <tr>
+          <td><%= ranking.job.jobId %></td>
+          <td><%= ranking.job.company %></td>
+          <td><%= ranking.job.position %></td>
+          <td><%= ranking.job.location %></td>
+          <td><%= ranking.employerRank %></td>
+          <td><%= ranking.yourRank %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+	<p class="header"><%= @username %>'s Posts</p>
+	<% @rankings.each do |ranking| %>
+		<%= render partial: 'layouts/fetchRankings', locals: { :job => ranking.job } %>
+	<% end %>
 </div>

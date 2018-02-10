@@ -21,8 +21,10 @@
               <% end %>
               <span class="button is-rounded"><%= other.yourRank %></span>
               <br>
-              <small>Last Updated at</small><br />
-              <small><%= other.updated_at.strftime("%a, %b %d | %l:%M %p") %></small><br />
+              <div class="time-style">
+                <small>Last Updated:</small><br />
+                <small><%= local_time_ago(other.updated_at) %></small><br />
+              </div>
               <small><a>Message</a></small>
             </p>
           </div>

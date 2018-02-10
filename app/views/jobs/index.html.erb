@@ -6,7 +6,7 @@
     <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
     <%= f.submit "Search", :class => "button is-info" %>
   <% end %>
-
+  
   <% if !@emptyQuery %>
     <table class="table is-hoverable is-fullwidth">
       <thead>
@@ -38,7 +38,7 @@
     <h2>You have no rankings yet, use the search bar to add some</h2>
     <br />
   <% else %>
-    <table class="table is-hoverable">
+    <table class="table is-hoverable is-fullwidth">
       <thead>
         <tr>
           <th>Job ID</th>

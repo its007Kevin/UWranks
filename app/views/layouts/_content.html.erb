@@ -5,48 +5,48 @@
       <div class="content">
         <p>
           <a href="/user/<%= User.find(post.user_id).username %>"><%= User.find(post.user_id).username %></a>
-          <small><%= post.created_at.to_formatted_s(:short) %></small>
+          ·
+          <small class="time-style"><%= local_time_ago(post.created_at) %></small>
           <br>
           <%= post.content %>
           <br>
         </p>
       </div>
-        <% post.comments.each do |comment| %>
+      <% post.comments.each do |comment| %>
+        <article class="media">
+          <figure class="media-left">
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
+                ·
+                <small class="time-style"><%= local_time_ago(comment.created_at) %></small>
+                <br>
+                <%= comment.body %>
+                <br>
+              </p>
+            </div>
+          </div>
+        </article>
+      <% end %>
+      <div id="replyForm">
+        <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
           <article class="media">
-            <figure class="media-left">
-            </figure>
             <div class="media-content">
-              <div class="content">
-                <p>
-                  <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
-                  <small><%= comment.created_at.to_formatted_s(:short) %></small>
-                  <br>
-                  <%= comment.body %>
-                  <br>
-                </p>
+              <div class="field has-addons">
+                <%= form.hidden_field :commenter, :value => current_user.username %>
+                <div class="control is-expanded">
+                  <%= form.text_field :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
+                </div>
+                <div class="control">
+                  <%= form.submit "Reply", class: "button is-info"%>
+                </div>
               </div>
             </div>
           </article>
         <% end %>
+      </div>
     </div>
   </article>
-  <br />
-  <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-    <article class="media">
-      <div class="media-content">
-        <div class="field">
-          <%= form.hidden_field :commenter, :value => current_user.username %>
-          <p class="control">
-            <%= form.text_area :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control">
-            <%= form.submit "Post Comment", class: "button"%>
-          </p>
-        </div>
-      </div>
-    </article>
-  <% end %>
-  <br />
 <% end %>
