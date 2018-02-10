@@ -1,70 +1,13 @@
-<style type="text/css">
-
-	.other{
-	  background: #eee;
-	  float: left;
-	  display:inline-block;
-	  clear: both;
-	  padding: 20px;
-	  border-radius: 30px;
-	  margin-bottom: 2px;
-	  font-family: Helvetica, Arial, sans-serif;
-	}
-
-	.me{
-	  float: right;
-	  background: #0084ff;
-	  color: #fff;
-	  display:inline-block;
-	  clear: both;
-	  padding: 20px;
-	  border-radius: 30px;
-	  margin-bottom: 2px;
-	  font-family: Helvetica, Arial, sans-serif;
-	}
-
-	.other + .me{
-	  border-bottom-right-radius: 5px;
-	  display:inline-block;
-	  clear: both;
-	  padding: 20px;
-	  border-radius: 30px;
-	  margin-bottom: 2px;
-	  font-family: Helvetica, Arial, sans-serif;
-	}
-
-	.me + .me{
-	  border-top-right-radius: 5px;
-	  border-bottom-right-radius: 5px;
-	  display:inline-block;
-	  clear: both;
-	  padding: 20px;
-	  border-radius: 30px;
-	  margin-bottom: 2px;
-	  font-family: Helvetica, Arial, sans-serif;
-	}
-
-	.me:last-of-type {
-	  border-bottom-right-radius: 30px;
-	  display:inline-block;
-	  clear: both;
-	  padding: 20px;
-	  border-radius: 30px;
-	  margin-bottom: 2px;
-	  font-family: Helvetica, Arial, sans-serif;
-	}
-
-</style>
 <% if user.id == message.user_id %>
-<li class="me"> 
-    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
-      <%= message.body %>
-    </div>
-</li>
+	<li class="me"> 
+	    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
+	      <%= message.body %>
+	    </div>
+	</li>
 <% else %>
-<li class="other"> 
-    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
-      <%= message.body %>
-    </div>
-</li>
+	<li class="other"> 
+	    <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
+	      <%= message.body %>
+	    </div>
+	</li>
 <% end %>
