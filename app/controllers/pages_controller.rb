@@ -6,6 +6,7 @@ class PagesController < ApplicationController
       Job.all
     end
     @newPosts = Post.new
+    session[:return_to] = request.fullpath
   end
 
   def home
@@ -18,6 +19,7 @@ class PagesController < ApplicationController
   def explore
     @jobs = Job.all.order(created_at: :desc)
     @newPosts = Post.new
+    session[:return_to] = request.fullpath
   end
 
   def help
