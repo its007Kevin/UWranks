@@ -7,8 +7,11 @@ class PostsController < ApplicationController
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
 		@post.save
-		redirect_to session[:return_to]
-    session[:return_to] = nil
+
+    respond_to do |format|
+      format.html { redirect_to session[:return_to] }
+      format.js
+    end
 	end
 
 	private

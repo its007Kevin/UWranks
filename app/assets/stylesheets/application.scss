@@ -59,7 +59,19 @@ th {
 }
 
 .rounded-corners {
-	border-radius: 10%;
+	border-radius: 10px;
+}
+
+.comments {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.rankings {
+  border: 1px solid #DADADA;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .password-reset-panel {
@@ -70,8 +82,8 @@ th {
 	width: 300px;
 }
 
-.time-style {
-  opacity: 0.8;
+.faded {
+  opacity: 0.7;
 }
 
 .header-text {

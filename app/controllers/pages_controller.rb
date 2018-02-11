@@ -10,7 +10,6 @@ class PagesController < ApplicationController
   end
 
   def home
-  	@posts = Post.all
     @newPosts = Post.new
     @myRankings = Ranking.all.where("user_id = ?", current_user.id)
     session[:return_to] = request.fullpath
