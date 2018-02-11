@@ -19,7 +19,7 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <a href="/user/<%= comment.commenter %>" align = "top" ><%= comment.commenter %></a>
+                <a href="/user/<%= comment.user.username %>" align = "top" ><%= comment.user.username %></a>
                 ·
                 <small class="time-style"><%= local_time_ago(comment.created_at) %></small>
                 <br>
@@ -30,23 +30,7 @@
           </div>
         </article>
       <% end %>
-      <div id="replyForm">
-        <%= form_with(model: [ post, post.comments.build ], local: true) do |form| %>
-          <article class="media">
-            <div class="media-content">
-              <div class="field has-addons">
-                <%= form.hidden_field :commenter, :value => current_user.username %>
-                <div class="control is-expanded">
-                  <%= form.text_field :body, autofocus: false,  placeholder: 'Add a Comment', class: 'input'%>
-                </div>
-                <div class="control">
-                  <%= form.submit "Reply", class: "button is-info"%>
-                </div>
-              </div>
-            </div>
-          </article>
-        <% end %>
-      </div>
+      <%= render partial: 'layouts/comment_form', locals: { post: post } %>
     </div>
   </article>
 <% end %>

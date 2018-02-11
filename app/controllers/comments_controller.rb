@@ -2,7 +2,10 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to home_path(@post)
+    respond_to do |format|
+      format.html { redirect_to root_path}
+      format.js
+    end
   end
 
   def destroy
@@ -11,9 +14,9 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to home_path(@post)
   end
- 
+
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body)
+      params.require(:comment).permit(:body, :user_id)
     end
 end
