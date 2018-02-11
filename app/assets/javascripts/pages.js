@@ -1,14 +1,3 @@
-// $(function () {
-//   $('#commentsToggle').click(function () {
-//     if ($(this).text() === "Show Comments") {
-//       $(this).text("Hide Comments");
-//     } else {
-//       $(this).text("Show Comments");
-//     }
-//     $('.comments').toggle();
-//  });
-// });
-
 document.addEventListener("turbolinks:load", function() {
   // Get all "navbar-burger" elements
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

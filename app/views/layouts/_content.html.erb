@@ -1,36 +1,3 @@
-<% posts.each do |post| %>
-  <br />
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <a href="/user/<%= User.find(post.user_id).username %>"><%= User.find(post.user_id).username %></a>
-          ·
-          <small class="time-style"><%= local_time_ago(post.created_at) %></small>
-          <br>
-          <%= post.content %>
-          <br>
-        </p>
-      </div>
-      <% post.comments.each do |comment| %>
-        <article class="media">
-          <figure class="media-left">
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <a href="/user/<%= comment.user.username %>" align = "top" ><%= comment.user.username %></a>
-                ·
-                <small class="time-style"><%= local_time_ago(comment.created_at) %></small>
-                <br>
-                <%= comment.body %>
-                <br>
-              </p>
-            </div>
-          </div>
-        </article>
-      <% end %>
-      <%= render partial: 'layouts/comment_form', locals: { post: post } %>
-    </div>
-  </article>
-<% end %>
+<div id="posts_<%= job_id %>">
+  <%= render posts %>
+</div>
