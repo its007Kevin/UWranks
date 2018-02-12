@@ -1,10 +1,8 @@
-     <div class="messageContainer">
-      <div class="panel-heading" style="background: #1496ED; color: #FFFFFF">
-        <h3>Active Conversations</h3>
-      </div>     
-      <ul id="conversations-list">
-        
-          <%= render 'conversations/conversation', conversation: @conversation, user: current_user %>
-        
-      </ul>
-  </div>
+<div class="messageContainer">
+    <div class="panel-heading" style="background: #1496ED; color: #FFFFFF">
+	    <h3>Active Conversations</h3>
+    </div>     
+    <ul id="conversations-list"> 
+    	<%= render 'conversations/conversation', conversation: @conversation, user: current_user %>  
+    </ul>
+</div>
