@@ -27,7 +27,7 @@
                   <small>Last Updated:</small><br />
                   <small><%= local_time_ago(other.updated_at) %></small><br />
                 </div>
-                <small><a href="/conversations">Message</a></small>
+                <small><%= link_to "Message", messages_path(user_id: other.user.id), method: :get %></small>
               </p>
             </div>
           </div>
