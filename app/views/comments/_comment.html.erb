@@ -1,14 +1,8 @@
-<article class="media">
-  <figure class="media-left">
-  </figure>
-  <div class="media-content">
-    <div class="content comments">
-      <p>
-        <a href="/user/<%= comment.user.username %>" align = "top" ><strong><%= comment.user.username %></strong></a>
-        <small class="faded" style="margin-left: 10px"><%= local_time_ago(comment.created_at) %></small>
-        <br>
-        <%= comment.body %>
-      </p>
-    </div>
-  </div>
-</article>
+<div class="rounded-grey-box comments">
+  <p>
+    <a href="/user/<%= comment.user.username %>" align = "top" ><strong><%= comment.user.username %></strong></a>
+    <small class="faded" style="margin-left: 10px"><%= local_time_ago(comment.created_at) %></small>
+    <br>
+    <%= comment.body %>
+  </p>
+</div>
