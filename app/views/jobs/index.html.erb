@@ -1,67 +1,69 @@
 <div class="container is-fluid margins">
   <p class="header">Search and Add Jobs</p>
-  <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
-    <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
-    <%= f.submit "Search", :class => "button is-info" %>
-  <% end %>
-  <% if !@emptyQuery %>
-    <table class="table is-hoverable is-fullwidth">
-      <thead>
-        <tr>
-          <th>Job<br />ID</th>
-          <th>Company</th>
-          <th>Position</th>
-          <th>Location</th>
-          <th colspan="2">Ranking</th>
-        </tr>
-      </thead>
-      <% @results.each do |job| %>
-        <tr>
-          <td><%= job.jobId %></td>
-          <td><%= job.company %></td>
-          <td><%= job.position %></td>
-          <td><%= job.location %></td>
-          <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
-        </tr>
-      <% end %>
-    </table>
-    <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success is-rounded" %>
-  <% end %>
-
-  <div id="addJobForm"></div>
-  <hr>
+  <div class="box rounded-corners">
+    <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
+      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
+      <%= f.submit "Search", :class => "button is-info" %>
+    <% end %>
+    <% if !@emptyQuery %>
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Job<br />ID</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th colspan="2">Ranking</th>
+          </tr>
+        </thead>
+        <% @results.each do |job| %>
+          <tr>
+            <td><%= job.jobId %></td>
+            <td><%= job.company %></td>
+            <td><%= job.position %></td>
+            <td><%= job.location %></td>
+            <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= link_to "Add new Job", new_job_path, id: "newJob", remote: true, :class => "button is-success is-rounded" %>
+    <% end %>
+    <div id="addJobForm"></div>
+  </div>
   <p class="header">Your Rankings</p>
-  <% if !@rankings.any? %>
-    <h2>You have no rankings yet, use the search bar to add some</h2>
-    <br />
-  <% else %>
-    <table class="table is-hoverable is-fullwidth">
-      <thead>
-        <tr>
-          <th>Job<br />ID</th>
-          <th>Company</th>
-          <th>Position</th>
-          <th>Location</th>
-          <th>Employer<br />Rank</th>
-          <th>Your<br /> Rank</th>
-          <th colspan="2">Edit</th>
-        </tr>
-      </thead>
-      <% @rankings.each do |ranking| %>
-        <tr class="jobs">
-          <td><%= ranking.job.jobId %></td>
-          <td><%= ranking.job.company %></td>
-          <td><%= ranking.job.position %></td>
-          <td><%= ranking.job.location %></td>
-          <td><%= ranking.employerRank %></td>
-          <td><%= ranking.yourRank %></td>
-          <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
-          <td><%= button_to 'Remove', ranking_path(ranking), method: :delete, :class => "button is-danger is-rounded is-small" %></td>
-        </tr>
-      <% end %>
-    </table>
-  <% end %>
-  <%= link_to "Finish", home_path, :class => "button is-primary is-rounded" %>
-  <br />
-  <br />
+  <div class="box rounded-corners">
+    <% if !@rankings.any? %>
+      <h2>You have no rankings yet, use the search bar to add some</h2>
+      <br />
+    <% else %>
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th>Job<br />ID</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Employer<br />Rank</th>
+            <th>Your<br /> Rank</th>
+            <th colspan="2">Edit</th>
+          </tr>
+        </thead>
+        <% @rankings.each do |ranking| %>
+          <tr class="jobs">
+            <td><%= ranking.job.jobId %></td>
+            <td><%= ranking.job.company %></td>
+            <td><%= ranking.job.position %></td>
+            <td><%= ranking.job.location %></td>
+            <td><%= ranking.employerRank %></td>
+            <td><%= ranking.yourRank %></td>
+            <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
+            <td><%= button_to 'Remove', ranking_path(ranking), method: :delete, :class => "button is-danger is-rounded is-small" %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+    <%= link_to "Finish", home_path, :class => "button is-primary is-rounded" %>
+  </div>
+  <br>
+  <br>
 </div>

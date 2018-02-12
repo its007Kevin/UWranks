@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box rounded-corners">
   <p class="title is-3">
     <%= job.company %>
   </p>
@@ -12,7 +12,7 @@
       <% job.rankings.each do |other| %>
         <% if other.user.username != current_user.username %>
           <div class="column is-3">
-            <div class="rankings">
+            <div class="rounded-white-box">
               <p>
                 <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
                 <br />

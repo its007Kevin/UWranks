@@ -59,18 +59,23 @@ th {
 }
 
 .rounded-corners {
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
 .comments {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.rounded-grey-box {
   background-color: #F8F8F8;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 20px;
 }
 
-.rankings {
+.rounded-white-box {
   border: 1px solid #DADADA;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 20px;
 }
 
