@@ -1,4 +1,4 @@
-<div class="rounded-grey-box" style="margin-top: 20px">
+<div style="margin-top: 20px; margin-left: 10px">
   <p>
     <a href="/user/<%= User.find(post.user_id).username %>"><strong><%= User.find(post.user_id).username %></strong></a>
     <small class="faded" style="margin-left: 10px"><%= local_time_ago(post.created_at) %></small>
