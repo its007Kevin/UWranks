@@ -15,7 +15,7 @@
                     <img src="https://bulma.io/images/placeholders/128x128.png">
                   </p>
                 </figure>
-                <li><%= link_to user.username, conversations_path(user_id: user), remote: true, method: :post %></li>
+                <li><%= link_to user.username, messages_path(user_id: user), method: :get %></li>
               </article>
             <% end %>
           </ul>
