@@ -14,6 +14,10 @@
 @import "bulma";
 @import "pages";
 
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 ul {
   padding-left: 0px;
   list-style: none;
