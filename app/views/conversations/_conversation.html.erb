@@ -1,8 +1,7 @@
 <li>
   <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
     <div class="panel-heading">
-      <%= link_to conversation.opposed_user(user).username, '', class: 'toggle-window' %>
-      <small><%= link_to "Close", close_conversation_path(conversation), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %></small>
+      <header><%= conversation.opposed_user(user).username %></header>
     </div>
 
     <div class="panel-body">
