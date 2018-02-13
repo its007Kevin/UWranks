@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  
+
   root 'pages#sign_up'
 
   get '/home' => 'pages#home'
