@@ -71,14 +71,17 @@ th {
   margin-left: 40px;
 }
 
-.rounded-grey-box {
-  background-color: #F8F8F8;
-  border-radius: 15px;
-  padding: 20px;
+.box {
+  -webkit-box-shadow: 0 0px 20px -6px #999;
+  -moz-box-shadow: 0 0px 20px -6px #999;
+  box-shadow: 0 0px 20px -7px #999;
 }
 
 .rounded-white-box {
-  border: 1px solid #DADADA;
+  -webkit-box-shadow: 0 0px 20px -6px #999;
+  -moz-box-shadow: 0 0px 20px -6px #999;
+  box-shadow: 0 0px 20px -7px #999;
+
   border-radius: 15px;
   padding: 20px;
 }
