@@ -12,7 +12,7 @@
       <% job.rankings.each do |other| %>
         <% if other.user.username != current_user.username %>
           <div class="column is-3">
-            <div class="rounded-white-box">
+            <div class="box rounded-corners">
               <p>
                 <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
                 <br />
