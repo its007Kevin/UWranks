@@ -11,8 +11,9 @@ class RankingsController < ApplicationController
   def create
     @ranking = Ranking.new(ranking_params_create)
     @ranking.save
-    redirect_to session[:return_to]
-    session[:return_to] = nil
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
@@ -22,16 +23,18 @@ class RankingsController < ApplicationController
   def update
     @ranking = Ranking.find(params[:id])
     @ranking.update(ranking_params_update)
-    redirect_to session[:return_to]
-    session[:return_to] = nil
+    respond_to do |format|
+      format.js
+    end
   end
 
 
   def destroy
     @ranking = Ranking.find(params[:id])
     @ranking.destroy
-    redirect_to session[:return_to]
-    session[:return_to] = nil
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

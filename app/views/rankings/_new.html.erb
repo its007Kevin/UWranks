@@ -1,5 +1,5 @@
 <div class="columns">
-  <%= form_with model: @ranking, url: rankings_path, :html => {:class => "field is-horizontal"} do |form| %>
+  <%= form_with model: @ranking, url: rankings_path, :html => {:class => "field is-horizontal"}, remote: true do |form| %>
   <div class="column">
     <div class="select is-fullwidth">
       <%= form.select :employerRank, ['Ranked', 'Offer'], prompt: "Employer Rank" %>

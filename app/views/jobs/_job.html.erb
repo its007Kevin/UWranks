@@ -1,0 +1,7 @@
+<tr>
+  <td><%= job.jobId %></td>
+  <td><%= job.company %></td>
+  <td><%= job.position %></td>
+  <td><%= job.location %></td>
+  <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
+</tr>

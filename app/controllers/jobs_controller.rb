@@ -10,8 +10,7 @@ class JobsController < ApplicationController
     else
       @emptyQuery = false
     end
-    @results = @search.result
-    # Store the url to allow page refresh after creating a job
+    @jobs = @search.result
     session[:return_to] = request.fullpath
   end
 
@@ -24,8 +23,9 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.save
-    redirect_to session[:return_to]
-    session[:return_to] = nil
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

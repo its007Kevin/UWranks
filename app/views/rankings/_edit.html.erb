@@ -1,5 +1,5 @@
 <div class="columns">
-  <%= form_for(ranking, :html => {:class => "field is-horizontal"}) do |form| %>
+  <%= form_for(ranking, :html => {:class => "field is-horizontal"}, remote: true) do |form| %>
   <div class="column">
     <%= form.hidden_field :employerRank, :value => ranking.employerRank %>
     <div class="select is-fullwidth">
