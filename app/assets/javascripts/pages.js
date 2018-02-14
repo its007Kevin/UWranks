@@ -16,3 +16,28 @@ document.addEventListener("turbolinks:load", function() {
     });
   }
 });
+
+$(function () {
+  $('.toggle_job_comments').click(function () {
+    $(this).siblings('.job_comments').toggle();
+    toggleLabel($(this), 'Hide', 'Show');
+  });
+  
+	$('.toggle_post_comments').click(function () {
+    $(this).closest('.post').find('.post_comments').toggle();
+    toggleLabel($(this), 'Hide', 'Show');
+  });
+  
+  $('.reply_post').click(function () {
+    $(this).closest('.post').find('.reply').toggle();
+    toggleLabel($(this), 'Reply', 'Cancel');
+  });
+});
+
+function toggleLabel(link, label1, label2) {
+  if (link.html() === label1) {
+    link.html(label2);
+  } else {
+    link.html(label1);
+  }
+}

@@ -1,24 +1,32 @@
-<div style="margin-top: 20px; margin-left: 10px">
-  <p>
-    <a href="/user/<%= User.find(post.user_id).username %>"><strong><%= User.find(post.user_id).username %></strong></a>
-    <small class="faded" style="margin-left: 10px"><%= local_time_ago(post.created_at) %></small>
-    <br>
-    <%= post.content %>
-    <br>
-  </p>
-</div>
-<div id="comments_<%= post.id %>">
-  <%= render post.comments %>
-</div>
-<br>
-<%= form_with(model: [ post, post.comments.build ], remote: true) do |f| %>
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <div class="control is-expanded">
-      <%= f.text_field :body, autofocus: false,  placeholder: "Write a Comment", class: "input rounded-corners", id: "comments_#{post.id}_form" %>
+<div class="post">
+  <div style="margin-top: 20px; margin-left: 10px">
+    <p>
+      <a href="/user/<%= User.find(post.user_id).username %>"><strong><%= User.find(post.user_id).username %></strong></a>
+      <small class="faded" style="margin-left: 10px"><%= local_time_ago(post.created_at) %></small>
+      <br>
+      <%= post.content %>
+      <br>
+      <small><a class="reply_post">Reply</a></small>
+      <small><a class="toggle_post_comments" style="margin-left: 10px;">Hide</a></small>
+    </p>
+  </div>
+  <div class="post_comments">
+    <div id="comments_<%= post.id %>">
+      <%= render post.comments %>
     </div>
-    <div class="control">
-      <%= f.submit "Reply", class: "button is-info", style: "display: none" %>
+    <br>
+    <div class="reply" style="display: none">
+      <%= form_with(model: [ post, post.comments.build ], remote: true) do |f| %>
+        <div class="field">
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <div class="control is-expanded">
+            <%= f.text_field :body, autofocus: false,  placeholder: "Write a Comment", class: "input rounded-corners", id: "comments_#{post.id}_form" %>
+          </div>
+          <div class="control">
+            <%= f.submit "Reply", class: "button is-info", style: "display: none" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>

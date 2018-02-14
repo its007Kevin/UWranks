@@ -1,7 +1,6 @@
 <nav class="navbar is-transparent is-fixed-top">
   <div class="navbar-brand">
     <a class="navbar-item" href="/home">
-<!--       <p class="title is-5"><strong>UW</strong><button class="button is-info is-rounded">Ranks</button></p> -->
       <img src="/logo.svg">
     </a>
     <div class="navbar-burger" data-target="navMenu">
@@ -13,11 +12,13 @@
   <div id="navMenu" class="navbar-menu">
     <div class="navbar-start">
       <div class="navbar-item">
-        <div class="field has-addon">
+        <div class="control has-icons-right">
           <%= form_tag pages_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search], :class => "input", :style => "width: auto", :placeholder => "Search companies, positions, locations" %>
-              <%= submit_tag 'Search', :class => "button is-info" %>
+            <%= text_field_tag :search, params[:search], :class => "input is-rounded", :placeholder => "Search Rankings" %>
           <% end %>
+            <span class="icon is-small is-right">
+              <i class="fa fa-search"></i>
+            </span>
         </div>
       </div>
     </div>
