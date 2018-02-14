@@ -1,9 +1,13 @@
 <div class="container is-fluid margins">
   <p class="header">Search and Add Jobs</p>
-  <div class="box rounded-corners">
-    <%= search_form_for @search, :html => {:class => "field has-addons"} do |f| %>
-      <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input control" %>
-      <%= f.submit "Search", :class => "button is-info" %>
+  <div class="box rounded-corners min-box">
+    <%= search_form_for @search, :html => {:class => "field"} do |f| %>
+      <p class="control has-icons-right">
+        <%= f.search_field :company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input is-rounded" %>
+        <span class="icon is-small is-right">
+          <i class="fa fa-search"></i>
+        </span>
+      </p>
     <% end %>
     <% if !@emptyQuery %>
       <table class="table is-hoverable is-fullwidth" id="jobs">
@@ -49,7 +53,7 @@
     </div>
   </div>
   <p class="header">Your Rankings</p>
-  <div class="box rounded-corners">
+  <div class="box rounded-corners min-box">
     <table class="table is-hoverable is-fullwidth" id="rankings">
       <thead>
         <tr>

@@ -72,9 +72,9 @@ th {
 }
 
 .box {
-  -webkit-box-shadow: 0 0px 20px -8px #999;
-  -moz-box-shadow: 0 0px 20px -8px #999;
-  box-shadow: 0 0px 20px -8px #999;
+  -webkit-box-shadow: 0 0px 30px -9px #999;
+  -moz-box-shadow: 0 0px 30px -9px #999;
+  box-shadow: 0 0px 30px -9px #999;
 }
 
 .password-reset-panel {
@@ -115,8 +115,8 @@ th {
 @media (max-width: 480px) {
 	.margins {
 		margin-top: 70px;
-		padding-left: 5%;
-		padding-right: 5%;
+		padding-left: 2%;
+		padding-right: 2%;
 	}
 	.navbar {
 		-webkit-box-shadow: 0 8px 6px -6px #999;
@@ -128,6 +128,10 @@ th {
 	.desc {
   	padding-top: 60%;
 	}
+}
+
+.min-box {
+	min-width: 900px;
 }
 
 // Landing Page
