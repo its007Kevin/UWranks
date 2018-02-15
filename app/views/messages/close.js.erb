@@ -1,1 +1,0 @@
-$('#conversations-list').find("[data-conversation-id='" + "<%= @conversation.id %>" + "']").parent().remove();
