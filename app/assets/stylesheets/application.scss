@@ -206,7 +206,7 @@ th {
 
 
 .messages-list {
-  max-height: 350px;
+  max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -220,6 +220,8 @@ th {
 	  border-radius: 30px;
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
+	  max-width: 700px;
+	  word-wrap: break-word;
 	}
 
 	.me{
@@ -232,6 +234,8 @@ th {
 	  border-radius: 30px;
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
+	  max-width: 700px;
+	  word-wrap: break-word;
 	}
 
 	.other + .me{
@@ -242,6 +246,8 @@ th {
 	  border-radius: 30px;
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
+	  max-width: 700px;
+	  word-wrap: break-word;
 	}
 
 	.me + .me{
@@ -253,6 +259,8 @@ th {
 	  border-radius: 30px;
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
+	  max-width: 700px;
+	  word-wrap: break-word;
 	}
 
 	.me:last-of-type {
@@ -263,4 +271,6 @@ th {
 	  border-radius: 30px;
 	  margin-bottom: 2px;
 	  font-family: Helvetica, Arial, sans-serif;
+	  max-width: 700px;
+	  word-wrap: break-word;
 	}
