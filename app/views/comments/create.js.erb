@@ -1,2 +1,3 @@
 $('#comments_<%= @comment.post_id %>').append('<%= j render @comment %>');
 $('#comments_<%= @comment.post_id %>_form').val('');
+$('#comments_<%= @comment.post_id %>_form').closest('.reply').toggle();

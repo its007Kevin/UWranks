@@ -1,4 +1,4 @@
-<div class="job box rounded-corners">
+<div class="box rounded-corners">
   <p class="title is-3">
     <%= job.company %>
   </p>
@@ -42,8 +42,6 @@
   <hr>
   <%= render partial: 'posts/post_form', locals: { :job_id => job.id } %>
   <hr>
-  <span class="title is-5">Comments</span><a class="toggle_job_comments" style="margin-left: 20px">Hide</a>
-  <div class="job_comments">
-    <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
-  </div>
+  <span class="title is-5">Comments</span>
+  <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
 </div>
