@@ -18,26 +18,41 @@ document.addEventListener("turbolinks:load", function() {
 });
 
 $(function () {
-  $('.toggle_job_comments').click(function () {
-    $(this).siblings('.job_comments').toggle();
-    toggleLabel($(this), 'Hide', 'Show');
-  });
-  
+  var placeholder;
+
 	$('.toggle_post_comments').click(function () {
     $(this).closest('.post').find('.post_comments').toggle();
-    toggleLabel($(this), 'Hide', 'Show');
+    if ($(this).html() === 'Hide') {
+      $(this).html(placeholder);
+    } else {
+      placeholder = $(this).html();
+      $(this).html('Hide');
+    }
   });
   
   $('.reply_post').click(function () {
+    var comments = $(this).closest('.post').find('.post_comments');
+    if (comments.css('display') == 'none') {
+      comments.toggle(); // Show replies if they are not already being shown
+    }
+    $(this).closest('.post').find('.reply').toggle(); // Show reply form
+
+    // Get user your replying to in the input form
+    var replying_to = $(this).closest('.post').find('.post_user').html();
+    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
+
+    // Change Label if there was one
+    $(this).closest('.post').find('.toggle_post_comments').html('Hide');    
+  });
+
+  $('.reply_comment').click(function () {
     $(this).closest('.post').find('.reply').toggle();
-    toggleLabel($(this), 'Reply', 'Cancel');
+    var replying_to = $(this).closest('.comment').find('.comment_user').html();
+    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
+  });
+
+  $('.cancel').click(function () {
+    $(this).closest('.reply').find('.reply_field').val('');
+    $(this).closest('.reply').toggle();
   });
 });
-
-function toggleLabel(link, label1, label2) {
-  if (link.html() === label1) {
-    link.html(label2);
-  } else {
-    link.html(label1);
-  }
-}
