@@ -15,12 +15,10 @@ document.addEventListener("turbolinks:load", function() {
       });
     });
   }
-});
-
-$(function () {
+  // Comment Reply System
   var placeholder;
 
-	$('.toggle_post_comments').click(function () {
+  $('.toggle_post_comments').click(function () {
     $(this).closest('.post').find('.post_comments').toggle();
     if ($(this).html() === 'Hide') {
       $(this).html(placeholder);

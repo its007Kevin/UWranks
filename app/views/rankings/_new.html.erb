@@ -1,10 +1,10 @@
 <div class="columns">
   <%= form_with model: @ranking, url: rankings_path, :html => {:class => "field is-horizontal"}, remote: true do |form| %>
   <div class="column">
-    <div class="select is-fullwidth">
+    <div class="select is-fullwidth" style="width: 170px">
       <%= form.select :employerRank, ['Ranked', 'Offer'], prompt: "Employer Rank" %>
     </div>
-    <div class="select is-fullwidth">
+    <div class="select is-fullwidth" style="width: 170px">
       <%= form.select :yourRank, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Your Rank" %>
     </div>
     <%= form.hidden_field :user_id, :value => current_user.id%>
