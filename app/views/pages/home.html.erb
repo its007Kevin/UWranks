@@ -1,6 +1,11 @@
 <div class="container is-fluid margins">
   <p class="header">Home Feed</p>
+  <% if @myRankings.any? %>
   <% @myRankings.each do |ranking| %>
     <%= render partial: 'layouts/fetchRankings', locals: { :job => ranking.job } %>
+  <% end %>
+  <% else %>
+    <p>This is an empty looking home feed! Go to your <%= link_to "My Rankings", jobs_path %> section to add some jobs.
+    </p>
   <% end %>
 </div>

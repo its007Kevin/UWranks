@@ -1,5 +1,6 @@
+<br>
 <h1 class="header-text">Reset your password</h1>
-<div class="password-reset-panel box">
+<div class="password-reset-panel box rounded-corners">
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 	  <%= devise_error_messages! %>
 	  <div class="field">
@@ -12,7 +13,7 @@
 		</div>
 	  </div>
 	  <div class="field is-grouped is-grouped-centered">
-	    <%= f.submit "Send password reset email", class: "button is-primary", :style => "width: 400px" %>
+	    <%= f.submit "Send password reset email", class: "button is-primary is-rounded", :style => "width: 400px" %>
 	  </div>
 	<% end %>
 </div>

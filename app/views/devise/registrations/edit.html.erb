@@ -2,55 +2,52 @@
 
   <p class="header">Account Settings</p>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+  <div class="box rounded-corners">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control has-icons-left">
-        <%= f.email_field :email, class: "input", :type => "email1" %>
-        <span class="icon is-small is-left">
-          <i class="fa fa-envelope"></i>
-        </span>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <%= f.email_field :email, class: "input is-rounded", :type => "email" %>
+        </div>
       </div>
-    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <p class="header">Change Password</p>
+
+      <div class="field">
+        <label class="label">Password
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </label>
+        <div class="control">
+          <%= f.password_field :password, autocomplete: "off", class: "input is-rounded" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password Confirmation</label>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "input is-rounded" %>
+      </div>
+
+      <div class="field">
+        <label class="label">Current Password</label>
+        <%= f.password_field :current_password, autocomplete: "off", class: "input is-rounded" %>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.submit "Update", class: "button is-info is-rounded" %>
+        </div>
+      </div>
     <% end %>
-
-    <p class="header">Change Password</p>
-
-    <div class="field">
-      <label class="label">Password
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-      </label>
-      <div class="control has-icons-left">
-        <%= f.password_field :password, autocomplete: "off", class: "input" %>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Password Confirmation</label>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
-    </div>
-
-    <div class="field">
-      <label class="label">Current Password</label>
-      <%= f.password_field :current_password, autocomplete: "off", class: "input" %>
-    </div>
-
-    <div class="field">
-      <div class="control">
-        <%= f.submit "Update", class: "button is-primary" %>
-      </div>
-    </div>
-  <% end %>
-
-  </br>
-  <small><%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :style => "color: red"%></small>
-  </br>
+    <br>
+    <small><%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :style => "color: red"%></small>
+  </div>
 
 </div>
