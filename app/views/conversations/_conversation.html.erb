@@ -1,3 +1,16 @@
+<script>
+$(function() {
+    $("#msg").keypress(function (e) {
+        if(e.which == 13 && !e.shiftKey) {
+            $(this).closest("form").submit();
+            e.preventDefault();
+            return false;;
+        }
+    });
+});
+</script>
+
+
 <li>
   <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
     <div class="panel-heading">
@@ -13,7 +26,7 @@
       <form class="new_message">
         <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
         <input name="user_id" type="hidden" value="<%= user.id %>">
-        <textarea name="body" class="input" placeholder="Send a Message"></textarea>
+        <textarea name="body" class="input" id="msg" placeholder="Send a Message"></textarea>
         <input type="submit" class="button is-info" value="Send">
       </form>
     </div>
