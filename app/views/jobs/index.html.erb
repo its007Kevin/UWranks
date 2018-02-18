@@ -1,4 +1,4 @@
-<div class="container is-fluid margins">
+<div class="container is-fluid margins" id="outside">
   <p class="header">Search and Add Jobs</p>
   <div class="box rounded-corners min-box">
     <%= search_form_for @search, :html => {:class => "field"} do |f| %>
@@ -24,30 +24,33 @@
           <%= render @jobs %>
         </tbody>
       </table>
-      <button class="button is-success is-rounded" id="addJob">Add new Job</button>
+      <a class="button is-success is-rounded" id="addJob">Add new Job</a>
     <% end %>
-    <div id="addJobForm" style="display: none">
-      <br>
-      <div class="box">
-        <div class="field">
-          <p class="header">Add Job</p>
-          <%= form_with model: @job, url: jobs_path, remote: true do |form| %>
+    <div id="addJobForm" class="modal">
+      <div class="modal-background" id="background"></div>
+      <div class="modal-content">
+        <button class="modal-close is-large" id="closeModal"></button>
+        <div class="box">
+          <div class="field">
+            <p class="header">Add Job</p>
+            <%= form_with model: @job, url: jobs_path, remote: true do |form| %>
 
-            <%= form.label :"Job Id", :class => "label" %>
-            <%= form.text_field :jobId, :class=> "input control" %>
+              <%= form.label :"Job Id", :class => "label" %>
+              <%= form.text_field :jobId, autocomplete: "off", :class=> "input control" %>
 
-            <%= form.label :company, :class => "label" %>
-            <%= form.text_field :company, :class => "input control" %>
+              <%= form.label :company, :class => "label" %>
+              <%= form.text_field :company, autocomplete: "off", :class => "input control" %>
 
-            <%= form.label :position, :class => "label" %>
-            <%= form.text_field :position, :class => "input control", :placeholder => "ex. Software Developer" %>
+              <%= form.label :position, :class => "label" %>
+              <%= form.text_field :position, :class => "input control", autocomplete: "off", :placeholder => "ex. Software Developer" %>
 
-            <%= form.label :location, :class => "label" %>
-            <%= form.text_field :location, :class => "input control", :placeholder => "City, Country" %>
+              <%= form.label :location, :class => "label" %>
+              <%= form.text_field :location, :class => "input control", autocomplete: "off", :placeholder => "City, Province/State" %>
 
-            <br><br>
-            <%= form.submit "Add", :class => "button is-success" %>
-          <% end %>
+              <br><br>
+              <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
