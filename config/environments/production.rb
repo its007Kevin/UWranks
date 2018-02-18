@@ -1,6 +1,6 @@
 Rails.application.configure do
   # devise
-  config.action_mailer.default_url_options = { :host => 'www.uwranks.com' }
+  config.action_mailer.default_url_options = { :host => 'https://www.uwranks.com' }
   # Settings specified here will take precedence over those in config/application.rb.
   config.force_ssl = true
   # Code is not reloaded between requests.
@@ -30,7 +30,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
