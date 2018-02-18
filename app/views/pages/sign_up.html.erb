@@ -10,11 +10,11 @@
 			</div>
 			<div class="column is-6">
 				<div class="sign-up box is-hidden-mobile rounded-corners">
-					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { autocomplete: 'off'}) do |f| %>
 						<div class="field">
 							<label class="label">Username</label>
 							<div class="control has-icons-left">
-								<%= f.text_field :username, autocomplete: "off", class: "input", :placeholder => "Pick a username" %>
+								<%= f.text_field :username, class: "input", :placeholder => "Pick a username" %>
 								<span class="icon is-small is-left">
 									<i class="fa fa-user"></i>
 								</span>
@@ -23,7 +23,7 @@
 						<div class="field">
 							<label class="label">Email</label>
 							<div class="control has-icons-left">
-								<%= f.email_field :email, autocomplete: "off", class: "input", :type => "email", :placeholder => "you@example.com" %>
+								<%= f.email_field :email, class: "input", :type => "email", :placeholder => "you@example.com" %>
 								<span class="icon is-small is-left">
 									<i class="fa fa-envelope"></i>
 								</span>
@@ -32,7 +32,7 @@
 						<div class="field">
 							<label class="label">Password</label>
 							<div class="control has-icons-left">
-								<%= f.password_field :password, autocomplete: "off", class: "input", :type => "password", :placeholder => "Create a password" %>
+								<%= f.password_field :password, class: "input", :type => "password", :placeholder => "Create a password" %>
 								<span class="icon is-small is-left">
 									<i class="fa fa-lock"></i>
 								</span>
