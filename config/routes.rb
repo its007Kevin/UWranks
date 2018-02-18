@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+
+  resources :notifications, only: [:index]
   
 
   root 'pages#sign_up'

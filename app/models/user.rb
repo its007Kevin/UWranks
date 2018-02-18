@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
+
+  has_many :notifications, foreign_key: :recipient_id
 end
