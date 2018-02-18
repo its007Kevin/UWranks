@@ -20,7 +20,7 @@
       <p class="header">Change Password</p>
 
       <div class="field">
-        <label class="label">Password
+        <label class="label">New Password
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>
@@ -31,7 +31,7 @@
       </div>
 
       <div class="field">
-        <label class="label">Password Confirmation</label>
+        <label class="label">New Password Confirmation</label>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "input is-rounded" %>
       </div>
 
