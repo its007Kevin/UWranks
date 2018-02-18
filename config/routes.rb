@@ -23,7 +23,12 @@ Rails.application.routes.draw do
   end
 
 
-  resources :notifications, only: [:index]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   
 
   root 'pages#sign_up'
