@@ -25,7 +25,20 @@
     <div class="navbar-end">
       <a class="navbar-item" href="/home">Home</a></li>
       <a class="navbar-item" href="/explore">Explore</a></li>
-      <a class="navbar-item" href="#">Notifications</a></li>
+
+
+      <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
+        <div class="navbar-link" data-behavior="notifications-link">
+          Notifications
+        </div>
+        <span data-behavior="unread-count"></span>
+        <div class="navbar-dropdown is-right" data-behavior="notification-items">
+           <!-- Will be populated through the js file -->
+        </div>
+      </div> 
+
+
+
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">
           <%= current_user.username %>
