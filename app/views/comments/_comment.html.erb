@@ -1,6 +1,12 @@
 <div class="comment">
   <p>
-    <a href="/user/<%= comment.user.username %>" align = "top" ><strong class="comment_user"><%= comment.user.username %></strong></a>
+    <small>
+      <a href="/user/<%= comment.user.username %>" align = "top">
+        <strong class="comment_user">
+          <%= comment.user.username %>
+        </strong>
+      </a>
+    </small>
     <small class="faded" style="margin-left: 10px"><%= local_time_ago(comment.created_at) %></small>
     <br>
     <%= comment.body %>

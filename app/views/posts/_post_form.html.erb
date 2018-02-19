@@ -2,7 +2,7 @@
   <%= form_for(@newPosts, remote: true) do |f| %>
     <div class="field">
       <div class="control is-expanded">
-        <%= f.text_field :content, class: "input rounded-corners", :placeholder => "Ask a question about this job", id: "posts_#{job_id}_form" %>
+        <%= f.text_field :content, class: "input", :placeholder => "Ask a question about this job", id: "posts_#{job_id}_form" %>
       </div>
     </div>
     <%= f.hidden_field :job_id, :value => job_id %>

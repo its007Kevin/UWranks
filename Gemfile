@@ -7,6 +7,8 @@ end
 
 ruby "2.5.0"
 
+# Infinite Scrolling
+gem 'will_paginate'
 # Time Conversion
 gem 'local_time'
 # For Search forms

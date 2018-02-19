@@ -9,7 +9,7 @@
       <div class="field">
         <label class="label">Email</label>
         <div class="control">
-          <%= f.email_field :email, class: "input is-rounded", :type => "email" %>
+          <%= f.email_field :email, class: "input", :type => "email" %>
         </div>
       </div>
 
@@ -26,18 +26,18 @@
           <% end %>
         </label>
         <div class="control">
-          <%= f.password_field :password, autocomplete: "off", class: "input is-rounded" %>
+          <%= f.password_field :password, autocomplete: "off", class: "input" %>
         </div>
       </div>
 
       <div class="field">
         <label class="label">New Password Confirmation</label>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "input is-rounded" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
       </div>
 
       <div class="field">
         <label class="label">Current Password</label>
-        <%= f.password_field :current_password, autocomplete: "off", class: "input is-rounded" %>
+        <%= f.password_field :current_password, autocomplete: "off", class: "input" %>
       </div>
 
       <div class="field">
@@ -46,6 +46,8 @@
         </div>
       </div>
     <% end %>
+    <br>
+    <br>
     <br>
     <small><%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :style => "color: red"%></small>
   </div>

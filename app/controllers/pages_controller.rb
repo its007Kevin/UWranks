@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def explore
-    @jobs = Job.all.order(created_at: :desc)
+    @jobs = Job.paginate(page: params[:page], per_page: 10).order('created_at DESC')
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
