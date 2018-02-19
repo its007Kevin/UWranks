@@ -22,7 +22,6 @@
       <% end %>
     </table>
   </div>
-	<p class="header"><%= @username %>'s Posts</p>
 	<% @rankings.each do |ranking| %>
 		<%= render partial: 'layouts/fetchRankings', locals: { :job => ranking.job } %>
 	<% end %>

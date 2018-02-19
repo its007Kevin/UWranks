@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
     <% if Rails.env.production? %>
       <script type="text/javascript">
@@ -19,9 +19,9 @@
     <% end %>
   </head>
   <body>
-  	<%= render '/layouts/nav' %>
+    <%= render '/layouts/nav' %>
     <span class="alert"><%= alert %></span>
-  	<%= yield %>
+    <%= yield %>
   </body>
   <div class="footer-padding"></div>
 </html>

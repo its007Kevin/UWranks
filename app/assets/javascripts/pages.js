@@ -36,7 +36,7 @@ document.addEventListener("turbolinks:load", function() {
     $(this).closest('.post').find('.reply').toggle(); // Show reply form
     // Get user your replying to in the input form
     var replying_to = $(this).closest('.post').find('.post_user').html();
-    $(this).closest('.post').find('.reply_field').val(`@${replying_to}`).focus();
+    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
     // Change Label if there was one
     $(this).closest('.post').find('.toggle_post_comments').html('Hide');    
   });
@@ -44,7 +44,7 @@ document.addEventListener("turbolinks:load", function() {
   $('.reply_comment').click(function () {
     $(this).closest('.post').find('.reply').toggle();
     var replying_to = $(this).closest('.comment').find('.comment_user').html();
-    $(this).closest('.post').find('.reply_field').val(`@${replying_to}`).focus();
+    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
   });
 
   $('.cancel').click(function () {
