@@ -7,6 +7,9 @@ end
 
 ruby "2.5.0"
 
+
+gem "font-awesome-rails"
+
 # Infinite Scrolling
 gem 'will_paginate'
 # Time Conversion

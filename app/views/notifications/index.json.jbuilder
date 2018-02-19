@@ -8,5 +8,5 @@ json.array! @notifications do |notification|
 	json.notifiable do
 		json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
 	end
-	json.url messages_path(user_id: notification.actor.id)   #not sure about this one, needs to link to the correct conversation
+	json.url messages_path(user_id: notification.actor.id)   
 end
