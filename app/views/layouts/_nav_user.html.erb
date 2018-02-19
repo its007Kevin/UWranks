@@ -29,9 +29,10 @@
 
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
-          Notifications
+          <%= fa_icon "bell" %>
+          <span data-behavior="unread-count"></span>
         </div>
-        <span data-behavior="unread-count"></span>
+        
         <div class="navbar-dropdown is-right" data-behavior="notification-items">
            <!-- Will be populated through the js file -->
         </div>
