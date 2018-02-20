@@ -30,11 +30,20 @@ class Notifications
 	handleSuccess: (data) =>
 		items = $.map data, (notification) ->
 			"<div class='navbar-item'>
-				<a href='#{notification.url}'>#{notification.actor} #{notification.action} #{notification.notifiable.type}</a>
-			</div"
+				<a href='#{notification.url}'>#{notification.actor} #{notification.action} you!</a>
+			</div>"
+
+		if items.length == 0 
+			$("[data-behavior='notification-items']").html(
+				"<div class='navbar-item'>
+					<p>You have no new notifications</p>
+				</div>")
+		else 
+			$("[data-behavior='notification-items']").html(items)
+		
 
 		$("[data-behavior='unread-count']").text(items.length)
-		$("[data-behavior='notification-items']").html(items)
+		
 
 jQuery -> 
 	new Notifications 
