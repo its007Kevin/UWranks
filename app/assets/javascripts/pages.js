@@ -29,22 +29,29 @@ document.addEventListener("turbolinks:load", function() {
   });
   
   $('.reply_post').click(function () {
-    var comments = $(this).closest('.post').find('.post_comments');
-    if (comments.css('display') == 'none') {
-      comments.toggle(); // Show replies if they are not already being shown
-    }
     $(this).closest('.post').find('.reply').toggle(); // Show reply form
     // Get user your replying to in the input form
     var replying_to = $(this).closest('.post').find('.post_user').html();
-    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
-    // Change Label if there was one
-    $(this).closest('.post').find('.toggle_post_comments').html('Hide');    
+    $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();  
   });
 
   $('.reply_comment').click(function () {
     $(this).closest('.post').find('.reply').toggle();
     var replying_to = $(this).closest('.comment').find('.comment_user').html();
     $(this).closest('.post').find('.reply_field').val(`@${replying_to} `).focus();
+  });
+
+  $('.submit_reply').click(function () {
+    var numReplies;
+    var label = $(this).closest('.post').find('.toggle_post_comments');
+    if (label.html() === 'Hide') {
+      numReplies = placeholder.substring(0, 1);
+      placeholder = ++numReplies + ' Replies';
+      console.log(placeholder);
+    } else {
+      numReplies = label.html().substring(0, 1);
+      label.html(`${++numReplies} Replies`);
+    }
   });
 
   $('.cancel').click(function () {

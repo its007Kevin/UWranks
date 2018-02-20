@@ -3,9 +3,7 @@
     <p>
       <small>
         <a href="/user/<%= User.find(post.user_id).username%>">
-          <strong class="post_user">
-            <%= User.find(post.user_id).username %>
-          </strong>
+          <strong class="post_user"><%= User.find(post.user_id).username %></strong>
         </a>
       </small>
       <small class="faded" style="margin-left: 10px"><%= local_time_ago(post.created_at) %></small>
@@ -30,7 +28,7 @@
           <%= f.text_field :body, autofocus: true, class: "input rounded-corners reply_field", id: "comments_#{post.id}_form" %>
         </p>
         <p class="control">
-            <%= f.submit "Reply", class: "button is-info is-rounded" %>
+            <%= f.submit "Reply", class: "button is-info is-rounded submit_reply" %>
           </p>
         <p class="control">
           <a class="cancel button is-light is-rounded">Cancel</a>
