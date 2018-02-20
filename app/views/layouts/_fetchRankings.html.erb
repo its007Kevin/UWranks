@@ -6,7 +6,6 @@
     (<%= job.jobId %>) <%= job.position %><br />
     <%= job.location %>
   </p>
-  <hr>
   <div class="column is-12">
     <div class="columns is-multiline">
       <% if job.rankings.length == 1 %>
@@ -39,9 +38,7 @@
       <% end %>
     </div>
   </div>
-  <hr>
+  <br>
   <%= render partial: 'posts/post_form', locals: { :job_id => job.id } %>
-  <hr>
-  <span class="title is-5">Comments</span>
   <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
 </div>
