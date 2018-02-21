@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
     #To fill: 
     #recipient: person who should get the notification
-    #sender: person who sent notification
+    #actor: person who sent notification
     #notifiable: thing you want to link to when you click (not sure if you want to link to @comment or @post)
     Notification.create(recipient: recipient, actor: sender, action: "commented", notifiable: @comment)
 
