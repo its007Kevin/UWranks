@@ -11,7 +11,7 @@ class MessageBroadcastJob < ApplicationJob
     #Create notifications for users
 
     #:actor could be current_user
-    #:notifiable is what you want to link to when you click notification
+    
     Notification.create(recipient: recipient, actor: sender, action: "messaged", notifiable: message.conversation)
 
   end
