@@ -1,6 +1,10 @@
 <br>
 <h1 class="header-text">Sign in to UWranks</h1>
-<p class="alert"><%= alert %></p>
+<% if alert %>
+  <div class="notification is-danger alert rounded-corners">
+    <%= alert %>
+  </div>
+<% end %>
 <div class="sign-in-panel2 box rounded-corners">
   <%= form_for(:user, :url => session_path(:user)) do |f| %>
     <div class="field">
