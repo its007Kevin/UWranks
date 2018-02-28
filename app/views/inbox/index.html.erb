@@ -3,6 +3,11 @@
     <div class="panel-heading" style="background: #1496ED; color: #FFFFFF">
       <h3>Users</h3>
     </div>
+
+    <%= form_tag(conversations_path, method: :get) do %>
+      <%= text_field_tag :user, params[:user], :placeholder => "Search For a Conversation"  %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
     <div class="box">
       <div class="panel-body">
         <ul>
