@@ -11,7 +11,7 @@ json.array! @notifications do |notification|
 
 	if notification.action == "messaged"
 		json.url messages_path(user_id: notification.actor.id)   
-	elsif notification.action == "commented"
-		json.url #path for comments
+	#elsif notification.action == "commented"
+	#	json.url "" 
 	end	
 end
