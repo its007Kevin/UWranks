@@ -1,1 +1,8 @@
-$('#jobs tr:last').after('<%= j render @job %>');
+<% if @job.errors.any? %>
+	$('#error_messages').html("<div class='notification is-danger'><%= @job.errors.full_messages.join('<br>').html_safe %></div>");
+<% else %>
+	$('#addJobForm').removeClass('is-active');
+	$('#error_messages').empty();
+  $('.jobForm').val('');	
+	$('#jobs tr:last').after('<%= j render @job %>');
+<% end %>
