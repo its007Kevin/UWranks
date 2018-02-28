@@ -31,21 +31,22 @@
       <div class="modal-content">
         <button class="modal-close is-large" id="closeModal"></button>
         <div class="box">
+          <span id="error_messages"></span>
           <div class="field">
             <p class="header">Add Job</p>
             <%= form_with model: @job, url: jobs_path, remote: true, html: { autocomplete: 'off' } do |form| %>
 
               <%= form.label :"Job Id", :class => "label" %>
-              <%= form.text_field :jobId, :class=> "input control" %>
+              <%= form.text_field :jobId, :class=> "input control jobForm" %>
 
               <%= form.label :company, :class => "label" %>
-              <%= form.text_field :company, :class => "input control" %>
+              <%= form.text_field :company, :class => "input control jobForm" %>
 
               <%= form.label :position, :class => "label" %>
-              <%= form.text_field :position, :class => "input control", :placeholder => "ex. Software Developer" %>
+              <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer" %>
 
               <%= form.label :location, :class => "label" %>
-              <%= form.text_field :location, :class => "input control", :placeholder => "City, Province/State" %>
+              <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State" %>
 
               <br><br>
               <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
