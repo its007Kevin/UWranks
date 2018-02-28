@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
 
-
     #To fill: 
     #recipient: person who should get the notification
     #actor: person who sent notification
