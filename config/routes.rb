@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
+  resources :feedbacks
   resources :relationships
   resources :users do
   	member do

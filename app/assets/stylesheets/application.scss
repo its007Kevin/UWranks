@@ -12,12 +12,7 @@
  *
  */
 @import "bulma";
-@import "pages";
 @import "font-awesome";
-
-html {
-  font-family: 'Ubuntu', sans-serif;
-}
 
 ul {
   padding-left: 0px;
@@ -43,10 +38,12 @@ th {
 }
 
 .alert {
-  color: red;
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px
 }
 
 .header {
