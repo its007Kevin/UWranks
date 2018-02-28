@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get '/conversations' => 'inbox#index'
   get '/help' => 'pages#help'
   get '/messages' => 'messages#index'
+  get '/terms_and_conditions' => 'pages#terms_and_conditions'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
