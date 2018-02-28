@@ -36,4 +36,7 @@ class PagesController < ApplicationController
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
+
+  def terms_and_conditions
+  end
 end
