@@ -60,6 +60,9 @@
           <div class="navbar-item">
             <a href="/help">Help</a>
           </div>
+          <div class="navbar-item">
+            <%= link_to('Feedback', new_feedback_path) %>
+          </div>  
           <hr class="navbar-divider">
           <div class="navbar-item">
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>

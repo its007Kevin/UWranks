@@ -1,1 +1,1 @@
-app/assets/stylesheets/* linguist-vendored
+*.css linguist-vendored
