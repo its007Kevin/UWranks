@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" href="/home"><i class="fa fa-home" style="margin-right: 10px"></i>Home</a></li>
-      <a class="navbar-item" href="/explore"><i class="fa fa-search" style="margin-right: 10px"></i>Explore</a></li>
+      <a class="navbar-item" href="/home">Home</a>
+      <a class="navbar-item" href="/explore">Explore</a>
 
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
@@ -39,7 +39,7 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">
-          <i class="fa fa-user" style="margin-right: 10px"></i><%= current_user.username %>
+          <%= current_user.username %>
         </div>
         <div class="navbar-dropdown is-right">
           <div class="navbar-item">
