@@ -144,52 +144,50 @@ th {
 	min-width: 900px;
 }
 
-// Landing Page
-
 .index {
-	background-image: url("/bg.svg");
-	background-size: cover;
-	background-position: center;
-	padding-top: 10%;
-	padding-bottom: 10%;
+  background-image: url("/bg.svg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
 .sign-up {
-  margin-top: 30%;
+  margin-top: 15%;
   margin-left: auto;
   margin-right: auto;
-	height: auto;
-	width: auto;
+  height: auto;
+  width: auto;
 }
 
 .sign-in-panel2 {
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	width: 300px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 300px;
 }
 
 .desc {
-  margin-top: 40%;
-	margin-left: auto;
-	margin-right: auto;
+  margin-top: 35%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .landingPages {
-	padding-top: 100px;
-	padding-bottom: 100px;
-	padding-left: 40px;
-	padding-right: 40px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .landingMargins {
-	margin-left: 25%;
-	margin-right: 25%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .text-center {
-	text-align: center;
+  text-align: center;
 }
 
 .footer-padding {
@@ -198,78 +196,5 @@ th {
 }
 
 .post-form {
-  // background-color: #F7F7F7;
   padding-top: 20px;
-}
-
-// Messaging
-
-.messages-list {
-  max-height: 415px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.other{
-  background: #eee;
-  float: left;
-  display:inline-block;
-  clear: both;
-  padding: 5px 10px 5px 10px;
-  border-radius: 30px;
-  margin-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.me{
-  float: right;
-  background: #0084ff;
-  color: #fff;
-  display:inline-block;
-  clear: both;
-  padding: 5px 10px 5px 10px;
-  border-radius: 30px;
-  margin-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.other + .me{
-  border-bottom-right-radius: 5px;
-  display:inline-block;
-  clear: both;
-  padding: 5px 10px 5px 10px;
-  border-radius: 30px;
-  margin-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.me + .me{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  display:inline-block;
-  clear: both;
-  padding: 5px 10px 5px 10px;
-  border-radius: 30px;
-  margin-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.me:last-of-type {
-  border-bottom-right-radius: 30px;
-  display:inline-block;
-  clear: both;
-  padding: 5px 10px 5px 10px;
-  border-radius: 30px;
-  margin-bottom: 2px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
 }
