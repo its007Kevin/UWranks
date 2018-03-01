@@ -23,7 +23,7 @@ class Notifications
 			dataType: "JSON"
 			method: "POST"
 			success: ->
-				$("[data-behavior='unread-count']").text(0)
+				$("[data-behavior='unread-count']").text("")
 		)
 
 
@@ -38,11 +38,13 @@ class Notifications
 				"<div class='navbar-item'>
 					<p>You have no new notifications</p>
 				</div>")
+			$("[data-behavior='unread-count']").text("")
 		else 
 			$("[data-behavior='notification-items']").html(items)
+			$("[data-behavior='unread-count']").text(items.length)
 		
 
-		$("[data-behavior='unread-count']").text(items.length)
+		
 		
 
 jQuery -> 
