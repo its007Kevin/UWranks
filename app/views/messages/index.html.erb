@@ -1,31 +1,6 @@
-<div class="messageContainer">
-
-	<button onclick="goBack()" class="button is-info">Back to Conversations</button>
-	
-	<br>
-	<br>
-
-    <div class="panel-heading" style="background: #1496ED; color: #FFFFFF">
-	    <h3>Active Conversations</h3>
-    </div>     
-    <ul id="conversations-list"> 
-    	<%= render 'conversations/conversation', conversation: @conversation, user: current_user %>  
-    </ul>
+<div class="container is-fluid margins">
+  <br>
+  <ul id="conversations-list"> 
+  	<%= render 'conversations/conversation', conversation: @conversation, user: current_user %>  
+  </ul>
 </div>
-
-
-<!-- Scroll to bottom of conversation -->
-<script>
-  var conversations = $('#conversations-list');
-  var conversation = conversations.find("[data-conversation-id='" + "<%= @conversation.id %>" + "']");
-  var messages_list = conversation.find('.messages-list');
-  var height = messages_list[0].scrollHeight;
-  messages_list.scrollTop(height);
-
-
-function goBack() {
-	window.history.back();
-}
-
-
-</script>

@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
 
     #To fill: 
     #recipient: person who should get the notification

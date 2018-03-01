@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :jobs
   resources :rankings
   resources :pages
-
   resources :conversations, only: [:create] do
     member do
       post :close
@@ -23,14 +22,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-
   resources :notifications do
     collection do
       post :mark_as_read
     end
   end
-
-  
 
   root 'pages#sign_up'
 

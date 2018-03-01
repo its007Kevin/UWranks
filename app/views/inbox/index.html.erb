@@ -1,23 +1,20 @@
-<div class="messageContainer">
+<div class="container is-fluid margins">
   <div class="column">  
-    <div class="panel-heading" style="background: #1496ED; color: #FFFFFF">
-      <h3>Users</h3>
+    <h3 class="title">Messages</h3>
+    <div class="control has-icons-right">
+      <%= form_tag(conversations_path, method: :get) do %>
+        <%= text_field_tag :user, params[:user], :class => "input is-rounded", :placeholder => "Search For a Conversation"  %>
+        <span class="icon is-small is-right">
+          <i class="fa fa-search"></i>
+        </span>
+      <% end %>
     </div>
-
-    <%= form_tag(conversations_path, method: :get) do %>
-      <%= text_field_tag :user, params[:user], :placeholder => "Search For a Conversation"  %>
-      <%= submit_tag 'Search', name: nil %>
-    <% end %>
-    <div class="box">
+    <br>
+    <div class="box rounded-corners">
       <div class="panel-body">
         <ul>
           <% @users.each do |user| %>
             <article class="media">
-              <!-- <figure class="media-left">
-                <p class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png">
-                </p>
-              </figure> -->
               <li><%= link_to user.username, messages_path(user_id: user), method: :get %></li>
             </article>
           <% end %>

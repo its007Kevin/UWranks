@@ -16,20 +16,19 @@
           <%= form_tag pages_path, :method => 'get' do %>
             <%= text_field_tag :search, params[:search], :class => "input is-rounded", :placeholder => "Search Rankings" %>
           <% end %>
-            <span class="icon is-small is-right">
-              <i class="fa fa-search"></i>
-            </span>
+          <span class="icon is-small is-right">
+            <i class="fa fa-search"></i>
+          </span>
         </div>
       </div>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" href="/home">Home</a></li>
-      <a class="navbar-item" href="/explore">Explore</a></li>
-
+      <a class="navbar-item" href="/home"><i class="fa fa-home" style="margin-right: 10px"></i>Home</a></li>
+      <a class="navbar-item" href="/explore"><i class="fa fa-search" style="margin-right: 10px"></i>Explore</a></li>
 
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
-          <%= fa_icon "bell" %>
+          <i class="fa fa-bell" style="margin-right: 10px"></i>
           <span data-behavior="unread-count"></span>
         </div>
         
@@ -38,11 +37,9 @@
         </div>
       </div> 
 
-
-
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">
-          <%= current_user.username %>
+          <i class="fa fa-user" style="margin-right: 10px"></i><%= current_user.username %>
         </div>
         <div class="navbar-dropdown is-right">
           <div class="navbar-item">
