@@ -1,23 +1,25 @@
 <div class="container is-fluid margins">
 	<p class="title is-4">
-		Feedback Form
+		Feedback
 	</p>
-	<% if flash[:notice] %>
-		<div class="notification is-success">
-			<%= flash[:notice] %>
-		</div>
-	<% end %>
-	<%= form_with scope: :feedback, url: feedbacks_path, local: true do |f| %>
-		<div class='field'>
-			<div class="control">
-				<%= f.text_area :body, class: "textarea", placeholder: "Tell us how we can make UW Ranks better!" %>
+	<div class="box rounded-corners">
+		<% if flash[:notice] %>
+			<div class="notification is-success">
+				<%= flash[:notice] %>
 			</div>
-			<small>Your identity is kept anonymous</small>
-		</div>
-		<div class='field'>
-			<div class="control">
-				<%= f.submit 'Submit', class: 'button is-link' %>
+		<% end %>
+		<%= form_with scope: :feedback, url: feedbacks_path, local: true do |f| %>
+			<div class='field'>
+				<div class="control">
+					<%= f.text_area :body, class: "textarea", placeholder: "Tell us how we can make UW Ranks better!" %>
+				</div>
+				<small>Your identity is kept anonymous</small>
 			</div>
-		</div>
-	<% end %>
+			<div class='field'>
+				<div class="control">
+					<%= f.submit 'Submit', class: 'button is-link is-rounded' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
 </div>

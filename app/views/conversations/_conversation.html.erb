@@ -1,35 +1,24 @@
-<script>
-$(function() {
-    $("#msg").keypress(function (e) {
-        if(e.which == 13 && !e.shiftKey) {
-            $(this).closest("form").submit();
-            e.preventDefault();
-            return false;;
-        }
-    });
-});
-</script>
-
-
 <li>
-  <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
-    <div class="panel-heading">
-      <header><%= conversation.opposed_user(user).username %></header>
-    </div>
-
-    <div class="panel-body">
-      <div class="messages-list">
-        <ul> 
-          <%= render 'conversations/conversation_content', messages: conversation.messages, user: user %> 
-       </ul>
+  <div class="box rounded-corners" data-conversation-id="<%= conversation.id %>">
+    <div class="columns">
+      <div class="column is-1">
+        <a><i onclick="goBack()" class="fa fa-chevron-left"></i></a>
       </div>
-      <form class="new_message">
-        <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
-        <input name="user_id" type="hidden" value="<%= user.id %>">
-        <textarea name="body" class="input" id="msg" placeholder="Send a Message"></textarea>
-        <input type="submit" class="button is-info" value="Send">
-      </form>
+      <div class="column is-11">
+        <h1 class="title is-4" style="text-align: center;"><%= conversation.opposed_user(user).username %></h1>
+      </div>
     </div>
+    <div class="messages-list">
+      <ul> 
+        <%= render 'conversations/conversation_content', messages: conversation.messages, user: user %> 
+     </ul>
+    </div>
+    <br>
+    <form class="new_message">
+      <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
+      <input name="user_id" type="hidden" value="<%= user.id %>">
+      <input name="body" class="input is-rounded" id="msg" placeholder="Send a Message"></input>
+    </form>
   </div>
 </li>
 
