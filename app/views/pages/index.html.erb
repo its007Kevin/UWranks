@@ -4,6 +4,8 @@
     <% @jobs.each do |job| %>
       <%= render partial: 'layouts/fetchRankings', locals: { :job => job } %>
     <% end %>
+    <br>
+    <%= will_paginate @jobs %>
   <% else %>
     <p>Sorry, no results.</p>
   <% end %>
