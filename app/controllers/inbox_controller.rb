@@ -7,7 +7,7 @@ class InboxController < ApplicationController
 
 
     @users = if params[:user]
-    User.where('username LIKE ?', "%#{params[:user]}%")
+    User.where('username LIKE ?', params[:user])
   else
     User.all.where.not(id: current_user)
   end
