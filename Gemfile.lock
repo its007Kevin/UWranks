@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rubycas/rubycas-client.git
+  revision: 7b67c8f1b5515ee4e28479d640d2da0a5aadfbe0
+  specs:
+    rubycas-client (2.3.10.rc1)
+      activesupport
+
+GIT
   remote: https://github.com/activerecord-hackery/ransack.git
   revision: 0f1bff977022bf93df7e1edeb6a82e21625cae58
   specs:
@@ -233,6 +240,7 @@ DEPENDENCIES
   rails_12factor
   ransack!
   redis (~> 3.0)
+  rubycas-client!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
