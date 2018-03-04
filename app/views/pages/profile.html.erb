@@ -23,6 +23,6 @@
     </table>
   </div>
 	<% @rankings.each do |ranking| %>
-		<%= render partial: 'layouts/fetchRankings', locals: { :job => ranking.job } %>
+		<%= render partial: 'layouts/fetchOtherRankings', locals: { :job => ranking.job } %>
 	<% end %>
 </div>

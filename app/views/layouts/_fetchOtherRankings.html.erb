@@ -1,0 +1,42 @@
+<div class="box rounded-corners">
+  <p class="title is-3">
+    <%= job.company %>
+  </p>
+  <p class="subtitle is-6 faded">
+    (<%= job.jobId %>) <%= job.position %><br />
+    <%= job.location %>
+  </p>
+  <div class="column is-12">
+    <div class="columns is-multiline">
+      <% if job.rankings.length == 0 %>
+        <p>No rankings for this job yet</p>
+      <% else %>
+        <% job.rankings.each do |other| %>
+          <div class="column is-3">
+            <div class="box rounded-corners">
+              <p>
+                <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
+                <br />
+                <% if other.employerRank == "Offer" %>
+                  <span class="button is-rounded is-success"><%= other.employerRank %></span>
+                <% else %>
+                  <span class="button is-rounded is-info"><%= other.employerRank %></span>
+                <% end %>
+                <span class="button is-rounded"><%= other.yourRank %></span>
+                <br>
+                <div class="time-style">
+                  <small>Last Updated</small>
+                  <small><%= local_time_ago(other.updated_at) %></small><br />
+                </div>
+                <small><%= link_to "Message", messages_path(user_id: other.user.id), method: :get %></small>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <%= render partial: 'posts/post_form', locals: { :job_id => job.id } %>
+  <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
+</div>
