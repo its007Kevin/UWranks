@@ -1,51 +1,11 @@
 <% if !user_signed_in? %>
 	<div class="index">
 		<div class="columns landingMargins">
-			<div class="column is-6">
+			<div class="column is-12">
 				<div class="desc has-text-centered-mobile">
 					<p class="title is-1">Didn't get the offer?</p>
 					<p class="subtitle">See how others are ranking the job.</p>
 					<p class="subtitle">Scroll down to learn more.</p>
-				</div>
-			</div>
-			<div class="column is-6">
-				<div class="sign-up box is-hidden-mobile rounded-corners">
-					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { autocomplete: 'off'}) do |f| %>
-						<div class="field">
-							<label class="label">Username</label>
-							<div class="control has-icons-left">
-								<%= f.text_field :username, class: "input", :placeholder => "Pick a username" %>
-								<span class="icon is-small is-left">
-									<i class="fa fa-user"></i>
-								</span>
-							</div>
-						</div>
-						<div class="field">
-							<label class="label">Email</label>
-							<div class="control has-icons-left">
-								<%= f.email_field :email, class: "input", :type => "email", :placeholder => "you@example.com" %>
-								<span class="icon is-small is-left">
-									<i class="fa fa-envelope"></i>
-								</span>
-							</div>
-						</div>
-						<div class="field">
-							<label class="label">Password</label>
-							<div class="control has-icons-left">
-								<%= f.password_field :password, class: "input", :type => "password", :placeholder => "Create a password" %>
-								<span class="icon is-small is-left">
-									<i class="fa fa-lock"></i>
-								</span>
-							</div>
-						</div>
-						<div class="field">
-							<%= f.submit "Sign up", class: "button is-medium is-fullwidth is-success" %>
-						</div>
-					  <div class="disclaimer">
-							<small>By signing up, you agree to our <a href="terms_and_conditions">Terms and Conditions.</a></small>
-							<small>We cannot guarantee the integrity of our data or be held responsible for your match results.</small>
-						</div>
-					<% end %>
 				</div>
 			</div>
 		</div>
@@ -55,11 +15,11 @@
 			<br />
 			<br />
 			<br />
-			Create an Account
+			Sign in with your UW Account
 			<br />
 			<br />
 			<br />
-			<%= link_to "Sign up", new_registration_path(:user), :class =>"button is-success is-rounded is-large" %>
+			<%= link_to "Sign in", new_user_session_path, :class =>"button is-success is-rounded is-large" %>
 			<br />
 			<br />
 			<br />
