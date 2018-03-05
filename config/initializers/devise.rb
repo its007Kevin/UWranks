@@ -5,6 +5,9 @@
 Devise.setup do |config|
   # CAS
   config.cas_base_url = "https://cas.uwaterloo.ca/cas"
+  config.cas_login_url = "https://cas.uwaterloo.ca/cas/login"
+  config.cas_logout_url = "https://cas.uwaterloo.ca/cas/logout"
+  config.cas_validate_url = "https://cas.uwaterloo.ca/cas/serviceValidate"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
