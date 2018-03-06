@@ -10,6 +10,8 @@ ruby "2.5.0"
 
 gem "font-awesome-rails"
 
+gem "brakeman"
+
 # Infinite Scrolling
 gem 'will_paginate'
 # Time Conversion
