@@ -13,7 +13,7 @@ class InboxController < ApplicationController
       @users = User.where("username LIKE ? AND username != ?", "%#{params[:user]}%", current_user.username)
     else
       @isSearch = false
-      @users = Conversation.where("recipient_id = ? OR sender_id = ?", current_user.id, current_user.id) #and the length of its messages is not 0
+      @users = Conversation.where("recipient_id = :id OR sender_id = :id", :id => current_user.id) #and the length of its messages is not 0
       #@users = User.all.where.not(id: current_user)
     end
 
