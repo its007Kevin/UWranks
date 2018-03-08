@@ -5,7 +5,7 @@
       <%= render partial: 'layouts/fetchOtherRankings', locals: { :job => job } %>
     <% end %>
     <br>
-    <%= will_paginate @jobs %>
+
   <% else %>
     <p>Sorry, no results.</p>
   <% end %>
