@@ -12,12 +12,12 @@
     <br>
     <div class="box rounded-corners">
       <div class="panel-body">
-        <ul>
-          <% @users.each do |user| %>
-            <article class="media">
-              <li><%= link_to user.username, messages_path(user_id: user), method: :get %></li>
-            </article>
-          <% end %>
+        <ul>      
+            <% @users.each do |user| %>
+              <article class="media">
+                <li><%= link_to user.username, messages_path(user_id: user), method: :get %></li>
+              </article>
+            <% end %>
         </ul>
       </div>
     </div>

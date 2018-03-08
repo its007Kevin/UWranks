@@ -11,6 +11,8 @@ gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 
 gem "font-awesome-rails"
 
+gem "brakeman"
+
 # Infinite Scrolling
 gem 'will_paginate'
 # Time Conversion
