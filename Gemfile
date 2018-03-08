@@ -19,8 +19,7 @@ gem 'local_time'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # Using Devise gem for authentication and user accounts
 gem 'devise'
-# Boostrap
-# gem 'bootstrap-sass', '~> 3.3.7'
+gem 'devise_cas_authenticatable'
 # Bulma
 gem 'bulma-rails', '~> 0.6.2'
 # jQuery

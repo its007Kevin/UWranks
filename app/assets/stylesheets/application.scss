@@ -139,8 +139,8 @@ th {
 @media (max-width: 480px) {
 	.margins {
 		margin-top: 70px;
-		padding-left: 2%;
-		padding-right: 2%;
+		padding-left: 3%;
+		padding-right: 3%;
 	}
 	.navbar {
 		-webkit-box-shadow: 0 8px 6px -6px #999;
@@ -149,9 +149,10 @@ th {
 		padding-left: 0%;
 		padding-right: 0%;
 	}
-	.desc {
-  	padding-top: 60%;
-	}
+  .slogan {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 .min-box {
@@ -162,30 +163,8 @@ th {
   background-image: url("/bg.svg");
   background-size: cover;
   background-position: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
-}
-
-.sign-up {
-  margin-top: 15%;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  width: auto;
-}
-
-.sign-in-panel2 {
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  height: auto;
-  width: 300px;
-}
-
-.desc {
-  margin-top: 35%;
-  margin-left: auto;
-  margin-right: auto;
+  padding-top: 22%;
+  padding-bottom: 22%;
 }
 
 .landingPages {
@@ -193,11 +172,6 @@ th {
   padding-bottom: 100px;
   padding-left: 40px;
   padding-right: 40px;
-}
-
-.landingMargins {
-  margin-left: 20%;
-  margin-right: 20%;
 }
 
 .text-center {
