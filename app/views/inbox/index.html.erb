@@ -12,20 +12,12 @@
     <br>
     <div class="box rounded-corners">
       <div class="panel-body">
-        <ul>
-          <% if (@isSearch  == true) %>
+        <ul>      
             <% @users.each do |user| %>
               <article class="media">
                 <li><%= link_to user.username, messages_path(user_id: user), method: :get %></li>
               </article>
             <% end %>
-          <% else %>
-            <% @users.each do |user| %>
-              <article class="media">
-                <li><%= link_to user.opposed_user(current_user).username, messages_path(user_id: user.opposed_user(current_user)), method: :get %></li>
-              </article>
-            <% end %>
-          <% end %>
         </ul>
       </div>
     </div>
