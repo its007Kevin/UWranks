@@ -26,13 +26,10 @@ ActiveRecord::Schema.define(version: 20180303215513) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.integer "recipient_id"
     t.integer "sender_id"
+    t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
-    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
-    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -52,8 +49,9 @@ ActiveRecord::Schema.define(version: 20180303215513) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "conversation_id"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
