@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def index
     @jobs = if params[:search]
-      Job.where('"jobId" LIKE UPPER(:search) OR UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:search]}%").order('company ASC') #.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+      Job.where('"jobId" LIKE UPPER(:search) OR UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:search]}%").order('company ASC').paginate(page: params[:page], per_page: 10).order('created_at DESC')
     else
       Job.all.order('company ASC')
     end
@@ -20,8 +20,7 @@ class PagesController < ApplicationController
   end
 
   def explore
-    #@jobs = Job.paginate(page: params[:page], per_page: 10).order('created_at DESC')
-    @jobs = Job.all.order('company ASC')
+    @jobs = Job.paginate(page: params[:page], per_page: 10).order('company ASC')
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
