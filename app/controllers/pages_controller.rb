@@ -1,7 +1,4 @@
 class PagesController < ApplicationController  
-
-  # before_action CASClient::Frameworks::Rails::Filter
-
   def index
     @jobs = if params[:search]
       Job.where('"jobId" LIKE UPPER(:search) OR UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:search]}%").order('company ASC').paginate(page: params[:page], per_page: 10).order('created_at DESC')
@@ -39,8 +36,5 @@ class PagesController < ApplicationController
     @rankings = Ranking.all.where("user_id = ?", User.find_by_username(params[:id]))
     @newPosts = Post.new
     session[:return_to] = request.fullpath
-  end
-
-  def terms_and_conditions
   end
 end
