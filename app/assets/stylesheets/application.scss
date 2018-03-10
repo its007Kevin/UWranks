@@ -166,16 +166,16 @@ th {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
 
-  .ui-menu-item > a.ui-corner-all {
+  .ui-menu-item-wrapper {
     display: block;
     padding: 3px 15px;
     clear: both;
@@ -184,10 +184,10 @@ th {
     color: #555555;
     white-space: nowrap;
 
-    &.ui-state-hover, &.ui-state-active {
+    &:hover, &.ui-state-focus, &.ui-state-active {
       color: #ffffff;
       text-decoration: none;
-      background-color: #0088cc;
+      background-color: #358BF2;
       border-radius: 0px;
       -webkit-border-radius: 0px;
       -moz-border-radius: 0px;
