@@ -14,7 +14,8 @@
       <div class="navbar-item">
         <div class="control has-icons-right">
           <%= form_tag pages_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], :class => "input is-rounded", :placeholder => "Search Rankings" %>
+            <%= text_field_tag :search, params[:search], class: "input is-rounded", placeholder: "Search Jobs, Postions, Locations ... ", id: 'nav_search',  
+            data: { autocomplete_source: autocompleteJobs_path } %>
           <% end %>
           <span class="icon is-small is-right">
             <i class="fa fa-search search-icon-margin"></i>

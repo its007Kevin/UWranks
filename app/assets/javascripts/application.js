@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
 //= require local-time
 
-
-(function() {
+document.addEventListener("turbolinks:load", function() {
   $(document).on('click', '.toggle-window', function(e) {
     e.preventDefault();
     var panel = $(this).parent().parent();
@@ -31,4 +31,21 @@
       messages_list.scrollTop(height);
     }
   });
-})();
+  addJobsAutoComplete('#nav_search');
+  addJobsAutoComplete('#add_job_search');
+});
+
+function addJobsAutoComplete(element) {
+  $(element).autocomplete({
+    source: $(element).data('autocomplete-source'),
+    select: function(event, ui) {
+        //assign value back to the form element
+        if(ui.item){
+            $(event.target).val(ui.item.value);
+        }
+        //submit the form
+        $(event.target.form).submit();
+    }
+  });
+
+}

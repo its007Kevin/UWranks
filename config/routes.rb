@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get '/conversations' => 'inbox#index'
   get '/help' => 'pages#help'
   get '/messages' => 'messages#index'
+  get '/autocompleteJobs' => 'pages#autocompleteJobs'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'

@@ -37,4 +37,9 @@ class PagesController < ApplicationController
     @newPosts = Post.new
     session[:return_to] = request.fullpath
   end
+
+  def autocompleteJobs
+    @jobs = Job.where('"jobId" LIKE UPPER(:search) OR UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:term]}%").order('company ASC').limit(10)
+    render json: @jobs.map(&:company)
+  end
 end
