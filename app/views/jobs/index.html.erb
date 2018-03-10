@@ -37,9 +37,8 @@
           <div class="field">
             <p class="header">Add Job</p>
             <%= form_with model: @job, url: jobs_path, remote: true, html: { autocomplete: 'off' } do |form| %>
-
               <%= form.label :"Job Id", :class => "label" %>
-              <%= form.text_field :jobId, :class=> "input control jobForm" %>
+              <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
 
               <%= form.label :company, :class => "label" %>
               <%= form.text_field :company, :class => "input control jobForm" %>
@@ -49,7 +48,6 @@
 
               <%= form.label :location, :class => "label" %>
               <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State" %>
-
               <br><br>
               <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
             <% end %>

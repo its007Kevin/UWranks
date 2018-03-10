@@ -29,11 +29,10 @@
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
           Notifications
+          <span data-behavior="unread-count" style="margin-left: 5px"></span>
         </div>
-        <span data-behavior="unread-count" style="margin-left: 5px"></span>
-
         <div class="navbar-dropdown is-right" data-behavior="notification-items">
-           <!-- Will be populated through the js file -->
+           <!-- Will be populated through the notifications.js.coffee file -->
         </div>
       </div> 
 
@@ -42,25 +41,25 @@
           <%= current_user.username %>
         </div>
         <div class="navbar-dropdown is-right">
-          <div class="user-dropdown">
-            <a href="/user/<%= current_user.username %>">Profile</a>
-          </div>
-          <div class="user-dropdown">
-            <%= link_to('Rankings', jobs_path) %>
-          </div>
-          <div class="user-dropdown">
-            <%= link_to('Messages', conversations_path) %>
-          </div>
-          <div class="user-dropdown">
-            <%= link_to('Feedback', new_feedback_path) %>
-          </div>
-          <div class="user-dropdown">
-            <a href="/help">Help</a>
-          </div>
+          <a href="/user/<%= current_user.username %>">
+            <div class="user-dropdown">Profile</div>
+          </a>
+          <a href=<%= jobs_path %>>
+            <div class="user-dropdown">Rankings</div>
+          </a>
+          <a href=<%= conversations_path %>>
+            <div class="user-dropdown">Messages</div>
+          </a>
+          <a href=<%= new_feedback_path %>>
+            <div class="user-dropdown">Feedback</div>
+          </a>
+          <a href="/help">
+            <div class="user-dropdown">Help</div>
+          </a>
           <hr class="navbar-divider">
-          <div class="user-dropdown">
-            <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
-          </div>
+          <a href=<%= destroy_user_session_path %> rel="nofollow" data-method="delete">
+            <div class="user-dropdown">Log Out</div>
+          </a>
         </div>
       </div>
     </div>

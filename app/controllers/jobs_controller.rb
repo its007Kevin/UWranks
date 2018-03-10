@@ -5,13 +5,12 @@ class JobsController < ApplicationController
   def index
     @rankings = Ranking.all.where("user_id = ?", current_user.id)
     @search = Job.ransack(params[:q])
-    if params[:q].nil?
-      @emptyQuery = true
-    else
+    if params[:q] && params[:q].values.reject(&:blank?).any?
       @emptyQuery = false
+      @jobs = @search.result
+    else
+      @emptyQuery = true
     end
-    @jobs = @search.result
-    session[:return_to] = request.fullpath
   end
 
   def new

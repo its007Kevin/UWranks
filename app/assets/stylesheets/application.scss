@@ -20,7 +20,7 @@ button,
 input,
 select,
 textarea {
-	font-family: 'Ubuntu'
+	font-family: 'Ubuntu', sans-serif;
 }
 
 ul {
@@ -82,19 +82,14 @@ th {
 }
 
 .user-dropdown {
-  padding: 8px;
-  a {
-    text-decoration: none;
-    color: #4B4B67;
-    margin: 11px;
-  }
+  padding: 10px 10px 10px 20px;
+  text-decoration: none;
+  color: #4B4B67;
 }
 
 .user-dropdown:hover {
   background-color: #358BF2;
-  a {
-    color: white;
-  }
+  color: white;
 }
 
 .search-icon-margin {
@@ -116,21 +111,8 @@ th {
   box-shadow: 0 0px 7px -2px #999;
 }
 
-.password-reset-panel {
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	width: 300px;
-}
-
 .faded {
   opacity: 0.7;
-}
-
-.disclaimer {
-	opacity: 0.8;
-	font-size: 90%;
 }
 
 .header-text {
@@ -196,11 +178,6 @@ th {
 
 .text-center {
   text-align: center;
-}
-
-.footer-padding {
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .post-form {

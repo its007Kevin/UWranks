@@ -3,7 +3,6 @@ class Notifications
 		@notifications = $("[data-behavior='notifications']")
 		@setup() if @notifications.length > 0
 
-
 	setup: ->
 
 		$("[data-behavior='notifications-link']").on "click", @handleClick
@@ -13,9 +12,7 @@ class Notifications
 			dataType: "JSON"
 			method: "GET"
 			success: @handleSuccess
-
 		)
-
 
 	handleClick: (e) =>
 		$.ajax(
@@ -25,7 +22,6 @@ class Notifications
 			success: ->
 				$("[data-behavior='unread-count']").text("")
 		)
-
 
 	handleSuccess: (data) =>
 		items = $.map data, (notification) ->
@@ -41,11 +37,7 @@ class Notifications
 			$("[data-behavior='unread-count']").text("")
 		else 
 			$("[data-behavior='notification-items']").html(items)
-			$("[data-behavior='unread-count']").text(items.length)
+			$("[data-behavior='unread-count']").html("<div class='button is-info is-rounded is-small'>#{items.length}</div>")
 		
-
-		
-		
-
 jQuery -> 
 	new Notifications 
