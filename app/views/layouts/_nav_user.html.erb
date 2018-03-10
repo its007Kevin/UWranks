@@ -17,7 +17,7 @@
             <%= text_field_tag :search, params[:search], :class => "input is-rounded", :placeholder => "Search Rankings" %>
           <% end %>
           <span class="icon is-small is-right">
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search search-icon-margin"></i>
           </span>
         </div>
       </div>
@@ -28,10 +28,10 @@
 
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
-          <i class="fa fa-bell" style="margin-right: 10px"></i>
-          <span data-behavior="unread-count"></span>
+          Notifications
         </div>
-        
+        <span data-behavior="unread-count" style="margin-left: 5px"></span>
+
         <div class="navbar-dropdown is-right" data-behavior="notification-items">
            <!-- Will be populated through the js file -->
         </div>
@@ -42,23 +42,23 @@
           <%= current_user.username %>
         </div>
         <div class="navbar-dropdown is-right">
-          <div class="navbar-item">
-            <a href="/user/<%= current_user.username %>">My Profile</a>
+          <div class="user-dropdown">
+            <a href="/user/<%= current_user.username %>">Profile</a>
           </div>
-          <div class="navbar-item">
+          <div class="user-dropdown">
+            <%= link_to('Rankings', jobs_path) %>
+          </div>
+          <div class="user-dropdown">
             <%= link_to('Messages', conversations_path) %>
           </div>
-          <div class="navbar-item">
-            <%= link_to('My Rankings', jobs_path) %>
+          <div class="user-dropdown">
+            <%= link_to('Feedback', new_feedback_path) %>
           </div>
-          <div class="navbar-item">
+          <div class="user-dropdown">
             <a href="/help">Help</a>
           </div>
-          <div class="navbar-item">
-            <%= link_to('Feedback', new_feedback_path) %>
-          </div>  
           <hr class="navbar-divider">
-          <div class="navbar-item">
+          <div class="user-dropdown">
             <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
           </div>
         </div>

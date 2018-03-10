@@ -6,41 +6,25 @@
 			<p class="subtitle">Scroll down to learn more.</p>
 		</div>
 	</div>
-	<div class="landingPages">
-		<p class="text-center title">
-			<br />
-			<br />
-			<br />
-			Sign in with your UW Account
-			<br />
-			<br />
-			<br />
-			<%= link_to "Sign in", new_user_session_path, :class =>"button is-success is-rounded is-large" %>
-			<br />
-			<br />
-			<br />
-		</p>
+	<div class="landingPages text-center" style="margin: 100px 0px 180px 0px">
+		<p class="title">Sign in with your UW Account</p>
+		<%= link_to "Sign in", new_user_session_path, :class =>"button is-success is-rounded is-large" %>
 	</div>
 	<hr />
-	<div class="landingPages">
-		<p class="text-center title">
+	<div class="landingPages text-center">
+		<p class="title">
 			Tell us how you would rank your jobs
-			<br />
-			<br />
-			<img class="rounded-corners is-hidden-touch" src="/demo1.png" width="60%"/>
-			<img class="rounded-corners is-hidden-desktop" src="/mobile_demo2.jpg"/>
 		</p>
+		<img class="rounded-corners is-hidden-touch" src="/demo1.png" width="60%"/>
+		<img class="rounded-corners is-hidden-desktop" src="/mobile_demo2.jpg"/>
 	</div>
 	<hr />
-	<div class="landingPages">
-		<p class="text-center title">
+	<div class="landingPages text-center">
+		<p class="title">
 			We'll tell you how other people ranked it
-			<br />
-			<br />
-			<br />
-			<img class="rounded-corners is-hidden-touch" src="/demo2.png" width="60%"/>
-			<img class="rounded-corners is-hidden-desktop" src="/mobile_demo1.jpg"/>
 		</p>
+		<img class="rounded-corners is-hidden-touch" src="/demo2.png" width="60%"/>
+		<img class="rounded-corners is-hidden-desktop" src="/mobile_demo1.jpg"/>
 	</div>
 <% else %>
 	<script>

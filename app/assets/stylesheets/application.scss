@@ -81,6 +81,26 @@ th {
 	padding-right: 15%;
 }
 
+.user-dropdown {
+  padding: 8px;
+  a {
+    text-decoration: none;
+    color: #4B4B67;
+    margin: 11px;
+  }
+}
+
+.user-dropdown:hover {
+  background-color: #358BF2;
+  a {
+    color: white;
+  }
+}
+
+.search-icon-margin {
+  margin-bottom: 2px;
+}
+
 .rounded-corners {
 	border-radius: 15px;
 }
@@ -164,7 +184,7 @@ th {
   background-size: cover;
   background-position: center;
   padding-top: 22%;
-  padding-bottom: 22%;
+  padding-bottom: 42%;
 }
 
 .landingPages {
