@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_self
+ *= require_tree .
  */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
 @import "bulma";
@@ -136,46 +138,6 @@ th {
   padding-right: 15%;
 }
 
-// Mobile
-
-@media (max-width: 480px) {
-	.margins {
-		margin-top: 70px;
-		padding-left: 3%;
-		padding-right: 3%;
-	}
-	.navbar {
-		-webkit-box-shadow: 0 8px 6px -6px #999;
-		-moz-box-shadow: 0 8px 6px -6px #999;
-		box-shadow: 0 4px 6px -6px #999;
-		padding-left: 0%;
-		padding-right: 0%;
-	}
-  .slogan {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-.min-box {
-	min-width: 900px;
-}
-
-.index {
-  background-image: url("/bg.svg");
-  background-size: cover;
-  background-position: center;
-  padding-top: 22%;
-  padding-bottom: 42%;
-}
-
-.landingPages {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
 .text-center {
   text-align: center;
 }
@@ -184,74 +146,25 @@ th {
   padding-top: 20px;
 }
 
-// Messages
+// Mobile
 
-.messages-list {
-  max-height: 485px;
-  overflow-y: auto;
-  overflow-x: hidden;
+@media (max-width: 480px) {
+  .margins {
+    margin-top: 70px;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  .navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 4px 6px -6px #999;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .slogan {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
-.other{
-  background: #eee;
-  float: left;
-  display:inline-block;
-  clear: both;
-  padding: 3px 10px 3px 10px;
-  border-radius: 30px;
-  margin-bottom: 4px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
 
-.me{
-  float: right;
-  background: #0084ff;
-  color: #fff;
-  display:inline-block;
-  clear: both;
-  padding: 3px 10px 3px 10px;
-  border-radius: 30px;
-  margin-bottom: 4px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.other + .me{
-  border-bottom-right-radius: 5px;
-  display:inline-block;
-  clear: both;
-  padding: 3px 10px 3px 10px;
-  border-radius: 30px;
-  margin-bottom: 4px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.me + .me{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  display:inline-block;
-  clear: both;
-  padding: 3px 10px 3px 10px;
-  border-radius: 30px;
-  margin-bottom: 4px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}
-
-.me:last-of-type {
-  border-bottom-right-radius: 30px;
-  display:inline-block;
-  clear: both;
-  padding: 3px 10px 3px 10px;
-  border-radius: 30px;
-  margin-bottom: 4px;
-  font-family: Helvetica, Arial, sans-serif;
-  max-width: 700px;
-  word-wrap: break-word;
-}

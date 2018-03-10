@@ -37,7 +37,7 @@ class Notifications
 			$("[data-behavior='unread-count']").text("")
 		else 
 			$("[data-behavior='notification-items']").html(items)
-			$("[data-behavior='unread-count']").html("<div class='button is-info is-rounded is-small'>#{items.length}</div>")
+			$("[data-behavior='unread-count']").html('<div class="button is-info is-rounded is-small">' + items.length + '</div>')
 		
 jQuery -> 
 	new Notifications 
