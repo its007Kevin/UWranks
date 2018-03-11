@@ -1,0 +1,19 @@
+I"ù(function() {
+  jQuery(function() {
+    if (true) {
+      return $(window).on('scroll', function() {
+        var more_posts_url;
+        more_posts_url = $('.pagination .next_page a').attr('href');
+        alert($('#infinite-scrolling').size());
+        if (true) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(more_posts_url);
+          alert("Hello");
+        }
+        return;
+      });
+    }
+  });
+
+}).call(this);
+:ET

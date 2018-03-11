@@ -1,0 +1,17 @@
+I"ð(function() {
+  jQuery(function() {
+    if ($('#infinite-scrolling').size() > 0) {
+      return $(window).on('scroll', function() {
+        var url;
+        url = $('.pagination .next_page a').attr('href');
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+          $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />');
+          $.getScript(url);
+        }
+        return;
+      });
+    }
+  });
+
+}).call(this);
+:ET
