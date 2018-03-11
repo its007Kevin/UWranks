@@ -1,0 +1,1349 @@
+Started GET "/" for 127.0.0.1 at 2018-03-11 14:02:01 -0400
+  [1m[35m (24.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#sign_up as HTML
+  Rendering pages/sign_up.html.erb within layouts/application
+  Rendered pages/sign_up.html.erb within layouts/application (17.2ms)
+  Rendered layouts/_nav_guest.html.erb (1.8ms)
+  Rendered layouts/_nav.html.erb (44.6ms)
+Completed 200 OK in 31851ms (Views: 31787.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:02:48 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:50 -0400
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:51 -0400
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-03-11 14:02:57 -0400
+Processing by Devise::CasSessionsController#new as HTML
+Redirected to https://cas.uwaterloo.ca/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fservice
+Completed 302 Found in 402ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-03-11 14:02:58 -0400
+Processing by Devise::CasSessionsController#new as HTML
+Redirected to https://cas.uwaterloo.ca/cas/login?service=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fservice
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:02:59 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:59 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+An unauthorized connection attempt was rejected
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:59 -0400
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:02:59 -0400
+Started GET "/users/service?ticket=ST-5516554-tbH6Zb7r21DYEzXjlbu3-cas" for 127.0.0.1 at 2018-03-11 14:03:07 -0400
+Processing by Devise::CasSessionsController#service as HTML
+  Parameters: {"ticket"=>"ST-5516554-tbH6Zb7r21DYEzXjlbu3-cas"}
+Requesting CAS response for URI https://cas.uwaterloo.ca/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fservice&ticket=ST-5516554-tbH6Zb7r21DYEzXjlbu3-cas
+CAS server responded with #<Net::HTTPOK 200 OK readbody=true>:
+<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+	<cas:authenticationSuccess>
+		<cas:user>ejwang</cas:user>
+
+
+	</cas:authenticationSuccess>
+</cas:serviceResponse>
+Using conditions {username => ejwang} to find the User
+  [1m[36mUser Load (62.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "ejwang"], ["LIMIT", 1]]
+  [1m[35m (3.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "ejwang"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1547ms (ActiveRecord: 317.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-11 14:03:09 -0400
+Processing by PagesController#sign_up as HTML
+  Rendering pages/sign_up.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered pages/sign_up.html.erb within layouts/application (21.8ms)
+  Rendered layouts/_nav_user.html.erb (8.2ms)
+  Rendered layouts/_nav.html.erb (25.5ms)
+Completed 200 OK in 1589ms (Views: 1570.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:03:13 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:03:13 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:03:13 -0400
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:03:14 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:03:14 -0400
+  [1m[36mRanking Exists (38.7ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+Processing by NotificationsController#index as JSON
+  [1m[36mRanking Load (35.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mJob Load (20.1ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNotification Load (95.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (204.9ms)
+Completed 200 OK in 572ms (Views: 100.8ms | ActiveRecord: 172.3ms)
+
+
+  [1m[36mRanking Load (0.5ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (61.1ms)
+  [1m[36mPost Load (30.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (34.1ms)
+  Rendered layouts/_fetchRankings.html.erb (242.5ms)
+  Rendered pages/home.html.erb within layouts/application (879.5ms)
+  Rendered layouts/_nav_user.html.erb (7.4ms)
+  Rendered layouts/_nav.html.erb (14.3ms)
+Completed 200 OK in 1746ms (Views: 1301.5ms | ActiveRecord: 194.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:03:17 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:03:17 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:03:17 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (2.2ms)
+Completed 200 OK in 33ms (Views: 21.1ms | ActiveRecord: 3.2ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:07:51 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=3" for 127.0.0.1 at 2018-03-11 14:07:52 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"+M1U75cLlYkHLeHyhftVlpuTVOgYRMj4hbsI9qK7wbn5ChbQLuqECHbqWPjVYZwzTe4mei3ip+L43JxCEiXHLg==", "user_id"=>"3"}
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `belongs_to :sender, class_name: 'User'` (called from <class:Conversation> at /home/eric/UWranks/app/models/conversation.rb:3)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `belongs_to :recipient, class_name: 'User'` (called from <class:Conversation> at /home/eric/UWranks/app/models/conversation.rb:4)
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (9.3ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 3], ["sender_id", 3], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (61.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  Rendered messages/_message.html.erb (1.4ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered conversations/_conversation_content.html.erb (169.9ms)
+  Rendered conversations/_conversation.html.erb (228.6ms)
+  Rendered messages/index.html.erb within layouts/application (246.1ms)
+  Rendered layouts/_nav_user.html.erb (6.1ms)
+  Rendered layouts/_nav.html.erb (10.4ms)
+Completed 200 OK in 1210ms (Views: 950.2ms | ActiveRecord: 112.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:07:54 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:07:54 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:07:54 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (3.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (4.7ms)
+Completed 200 OK in 42ms (Views: 25.3ms | ActiveRecord: 6.3ms)
+
+
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"4"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"notificaiton"}]})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.9ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (22.2ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "notificaiton"], ["user_id", 4], ["conversation_id", 4], ["created_at", "2018-03-11 18:07:59.752931"], ["updated_at", "2018-03-11 18:07:59.752931"]]
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 95a75433-690c-48d1-9201-ee7c9d7ec35c) to Async(default) with arguments: #<GlobalID:0x00007f33a08a4d20 @uri=#<URI::GID gid://myapp/Message/12>>
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c] Performing MessageBroadcastJob (Job ID: 95a75433-690c-48d1-9201-ee7c9d7ec35c) from Async(default) with arguments: #<GlobalID:0x00007f33a08e70a8 @uri=#<URI::GID gid://myapp/Message/12>>
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mConversation Load (0.4ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.8ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      notificaiton\n    </div>\n\t</li>\n", :conversation_id=>4}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      notificaiton\n    </div>\n\t</li>\n", "conversation_id"=>4} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mMessage Load (2.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (1.0ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.1ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.1ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.1ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.1ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered conversations/_conversation_content.html.erb (133.1ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered conversations/_conversation.html.erb (162.6ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   Rendered messages/_message.html.erb (0.3ms)
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c] [ActionCable] Broadcasting to conversations-3: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"4\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"other\">\n    <div class=\"message-received\">\n      hey man\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      hi\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      bro\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      hello\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      hey\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      hi\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      notificaiton\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"4\">\n      <input name=\"user_id\" type=\"hidden\" value=\"3\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"other\">\n    <div class=\"message-received\">\n      notificaiton\n    </div>\n\t</li>\n", :conversation_id=>4}
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35mSQL (9.1ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 3], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 4], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:08:00.743065"], ["updated_at", "2018-03-11 18:08:00.743065"]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mConversation Load (0.6ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 3)[0m
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[36mConversation Exists (11.3ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 4], ["recipient_id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35mSQL (16.7ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:08:00.756221"], ["id", 4]]
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c]   [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [95a75433-690c-48d1-9201-ee7c9d7ec35c] Performed MessageBroadcastJob (Job ID: 95a75433-690c-48d1-9201-ee7c9d7ec35c) from Async(default) in 815.76ms
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:18:08 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (4.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (1.9ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (0.8ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (44.8ms)
+  [1m[36mPost Load (6.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (24.5ms)
+  Rendered layouts/_fetchRankings.html.erb (346.0ms)
+  Rendered pages/home.html.erb within layouts/application (819.4ms)
+  Rendered layouts/_nav_user.html.erb (7.8ms)
+  Rendered layouts/_nav.html.erb (21.8ms)
+Completed 200 OK in 7071ms (Views: 6318.0ms | ActiveRecord: 169.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:18:18 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:18:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:18:20 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (6.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (53.2ms)
+Completed 200 OK in 196ms (Views: 81.8ms | ActiveRecord: 20.5ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:18:30 -0400
+Processing by InboxController#index as HTML
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `belongs_to :sender, class_name: 'User'` (called from <class:Conversation> at /home/eric/UWranks/app/models/conversation.rb:3)
+DEPRECATION WARNING: Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string: `belongs_to :recipient, class_name: 'User'` (called from <class:Conversation> at /home/eric/UWranks/app/models/conversation.rb:4)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (12.7ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMessage Load (10.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_nav_user.html.erb (8.3ms)
+  Rendered layouts/_nav.html.erb (20.8ms)
+Completed 200 OK in 2105ms (Views: 1587.2ms | ActiveRecord: 95.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:18:35 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=1" for 127.0.0.1 at 2018-03-11 14:18:35 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"w+GyEVJDR0tmP663w9TiWGTmp2J+54GpwSSgDNLeZj7CJvAu66JWyhf4F72TTiv9spvV8EtB7rO8QzS4YkBgqQ==", "user_id"=>"1"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (6.4ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 1], ["sender_id", 1], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (4.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  Rendered messages/_message.html.erb (10.1ms)
+  Rendered conversations/_conversation_content.html.erb (76.1ms)
+  Rendered conversations/_conversation.html.erb (117.4ms)
+  Rendered messages/index.html.erb within layouts/application (127.7ms)
+  Rendered layouts/_nav_user.html.erb (20.4ms)
+  Rendered layouts/_nav.html.erb (153.3ms)
+Completed 200 OK in 2460ms (Views: 2403.2ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:18:43 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:18:43 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:18:44 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (9.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (16.7ms)
+Completed 200 OK in 97ms (Views: 49.6ms | ActiveRecord: 12.9ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"5"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"get to the top"}]})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.8ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "get to the top"], ["user_id", 4], ["conversation_id", 5], ["created_at", "2018-03-11 18:18:48.108359"], ["updated_at", "2018-03-11 18:18:48.108359"]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: c1ab59ca-4a77-494e-b1d9-80278105792d) to Async(default) with arguments: #<GlobalID:0x00007f7ed20e1660 @uri=#<URI::GID gid://myapp/Message/13>>
+  [1m[36mMessage Load (4.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d] Performing MessageBroadcastJob (Job ID: c1ab59ca-4a77-494e-b1d9-80278105792d) from Async(default) with arguments: #<GlobalID:0x00007f7ed1bbf218 @uri=#<URI::GID gid://myapp/Message/13>>
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mConversation Load (0.8ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered messages/_message.html.erb (9.0ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      get to the top\n    </div>\n\t</li>\n", :conversation_id=>5}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      get to the top\n    </div>\n\t</li>\n", "conversation_id"=>5} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mMessage Load (9.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered messages/_message.html.erb (1.0ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered conversations/_conversation_content.html.erb (105.2ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered conversations/_conversation.html.erb (173.2ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   Rendered messages/_message.html.erb (1.6ms)
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d] [ActionCable] Broadcasting to conversations-1: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"5\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"other\">\n    <div class=\"message-received\">\n      much early\n    </div>\n\t</li>\n\n  \t<li class=\"other\">\n    <div class=\"message-received\">\n      get to the top\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"5\">\n      <input name=\"user_id\" type=\"hidden\" value=\"1\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"other\">\n    <div class=\"message-received\">\n      get to the top\n    </div>\n\t</li>\n", :conversation_id=>5}
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35mSQL (15.1ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 1], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 5], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:18:49.145521"], ["updated_at", "2018-03-11 18:18:49.145521"]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35m (9.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mConversation Load (5.7ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 1)[0m
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[36mConversation Exists (12.4ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 5], ["recipient_id", 1], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:18:49.194089"], ["id", 5]]
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d]   [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [c1ab59ca-4a77-494e-b1d9-80278105792d] Performed MessageBroadcastJob (Job ID: c1ab59ca-4a77-494e-b1d9-80278105792d) from Async(default) in 914.66ms
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:18:51 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (7.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (5.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (5.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (8.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (22.5ms)
+Completed 200 OK in 1227ms (Views: 1129.5ms | ActiveRecord: 38.2ms)
+
+
+Started GET "/explore" for 127.0.0.1 at 2018-03-11 14:19:06 -0400
+Processing by PagesController#explore as HTML
+  Rendering pages/explore.html.erb within layouts/application
+  [1m[36mJob Load (3.0ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" ORDER BY company ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[36mRanking Load (10.0ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 8]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (19.3ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 8]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (15.2ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (114.8ms)
+  [1m[36mRanking Load (7.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 11]]
+  [1m[36mCACHE User Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (2.5ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 11]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (16.2ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (92.3ms)
+  [1m[36mRanking Load (2.8ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 2]]
+  [1m[36mCACHE User Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (4.5ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 2]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (3.6ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (87.7ms)
+  [1m[36mRanking Load (1.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (10.0ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 6]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (9.5ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (72.0ms)
+  [1m[36mRanking Load (9.0ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (2.4ms)
+  [1m[36mPost Load (6.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (12.0ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (139.9ms)
+  [1m[36mRanking Load (6.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 3]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (9.9ms)
+  [1m[36mPost Load (8.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 3]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered layouts/_content.html.erb (13.3ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (70.8ms)
+  [1m[36mRanking Load (3.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 12]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (1.4ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 12]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered layouts/_content.html.erb (10.4ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (82.2ms)
+  [1m[36mRanking Load (7.4ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 7]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (2.0ms)
+  [1m[36mPost Load (15.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 7]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (17.9ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (85.4ms)
+  [1m[36mRanking Load (0.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 10]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (10.5ms)
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 10]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (14.0ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (108.0ms)
+  [1m[36mRanking Load (9.5ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 5]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (1.5ms)
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 5]]
+  Rendered collection of templates [0 times] (0.2ms)
+  Rendered layouts/_content.html.erb (22.7ms)
+  Rendered layouts/_fetchOtherRankings.html.erb (87.0ms)
+  [1m[35m (93.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  Rendered pages/explore.html.erb within layouts/application (1105.6ms)
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_nav_user.html.erb (13.5ms)
+  Rendered layouts/_nav.html.erb (39.5ms)
+Completed 200 OK in 2291ms (Views: 2052.2ms | ActiveRecord: 207.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:19:16 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:19:17 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"tf51F5W4xb4hwuG85olMc5DAWRLxHu9N9Gpl5nDHWV60OTcoLFnUP1AFWLa2E4XWRr0rgMS4gFeJDfFSwFlfyQ==", "user_id"=>"4"}
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (7.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Exists (7.1ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 LIMIT $3[0m  [["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (13.9ms)[0m  [1m[32mINSERT INTO "conversations" ("recipient_id", "sender_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipient_id", 4], ["sender_id", 4], ["created_at", "2018-03-11 18:19:17.916298"], ["updated_at", "2018-03-11 18:19:17.916298"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mMessage Load (3.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered conversations/_conversation_content.html.erb (19.4ms)
+  Rendered conversations/_conversation.html.erb (40.6ms)
+  Rendered messages/index.html.erb within layouts/application (54.8ms)
+  Rendered layouts/_nav_user.html.erb (8.7ms)
+  Rendered layouts/_nav.html.erb (22.6ms)
+Completed 200 OK in 1591ms (Views: 1457.3ms | ActiveRecord: 53.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:19:22 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:19:22 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:19:22 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (2.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (4.5ms)
+Completed 200 OK in 58ms (Views: 40.9ms | ActiveRecord: 3.8ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"7"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"test"}]})
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.4ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (9.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "test"], ["user_id", 4], ["conversation_id", 7], ["created_at", "2018-03-11 18:19:26.090863"], ["updated_at", "2018-03-11 18:19:26.090863"]]
+  [1m[35m (24.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: f0a3742d-8398-4c70-848f-b185110a903e) to Async(default) with arguments: #<GlobalID:0x00007f7ed1e49380 @uri=#<URI::GID gid://myapp/Message/14>>
+  [1m[36mMessage Load (10.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e] Performing MessageBroadcastJob (Job ID: f0a3742d-8398-4c70-848f-b185110a903e) from Async(default) with arguments: #<GlobalID:0x00007f7ed1e2f4d0 @uri=#<URI::GID gid://myapp/Message/14>>
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mConversation Load (1.1ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   Rendered messages/_message.html.erb (2.0ms)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", "conversation_id"=>7} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   Rendered messages/_message.html.erb (10.9ms)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   Rendered conversations/_conversation_content.html.erb (51.3ms)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   Rendered conversations/_conversation.html.erb (99.3ms)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e] [ActionCable] Broadcasting to conversations-4: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"7\">\n      <input name=\"user_id\" type=\"hidden\" value=\"4\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"window"=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title... (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 4], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 7], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:19:26.554088"], ["updated_at", "2018-03-11 18:19:26.554088"]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mConversation Load (6.7ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 4)[0m
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[36mConversation Exists (6.9ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 7], ["recipient_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35mSQL (11.0ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:19:26.580106"], ["id", 7]]
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e]   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [f0a3742d-8398-4c70-848f-b185110a903e] Performed MessageBroadcastJob (Job ID: f0a3742d-8398-4c70-848f-b185110a903e) from Async(default) in 369.22ms
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"7"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"test"}]})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (5.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "test"], ["user_id", 4], ["conversation_id", 7], ["created_at", "2018-03-11 18:19:30.013866"], ["updated_at", "2018-03-11 18:19:30.013866"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce] Performing MessageBroadcastJob (Job ID: c7d60d9a-ff89-49c8-9225-17d04fff84ce) from Async(default) with arguments: #<GlobalID:0x00007f7ed195fbf8 @uri=#<URI::GID gid://myapp/Message/15>>
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: c7d60d9a-ff89-49c8-9225-17d04fff84ce) to Async(default) with arguments: #<GlobalID:0x00007f7ed196efe0 @uri=#<URI::GID gid://myapp/Message/15>>
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mConversation Load (0.9ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered messages/_message.html.erb (1.7ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", "conversation_id"=>7} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mMessage Load (5.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered messages/_message.html.erb (0.4ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered conversations/_conversation_content.html.erb (80.4ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered conversations/_conversation.html.erb (114.6ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   Rendered messages/_message.html.erb (2.2ms)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce] [ActionCable] Broadcasting to conversations-4: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"7\">\n      <input name=\"user_id\" type=\"hidden\" value=\"4\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"window"=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title... (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35mSQL (10.1ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 4], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 7], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:19:30.323309"], ["updated_at", "2018-03-11 18:19:30.323309"]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mConversation Load (1.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 4)[0m
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35m (4.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[36mConversation Exists (4.5ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 7], ["recipient_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35mSQL (5.7ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:19:30.348050"], ["id", 7]]
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce]   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [c7d60d9a-ff89-49c8-9225-17d04fff84ce] Performed MessageBroadcastJob (Job ID: c7d60d9a-ff89-49c8-9225-17d04fff84ce) from Async(default) in 337.06ms
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:19:33 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (5.0ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (6.3ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (7.0ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (1.5ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (22.3ms)
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (2.5ms)
+  Rendered layouts/_content.html.erb (16.4ms)
+  Rendered layouts/_fetchRankings.html.erb (148.3ms)
+  Rendered pages/home.html.erb within layouts/application (200.9ms)
+  Rendered layouts/_nav_user.html.erb (7.2ms)
+  Rendered layouts/_nav.html.erb (25.1ms)
+Completed 200 OK in 1374ms (Views: 1297.5ms | ActiveRecord: 53.3ms)
+
+
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:20:51 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (6.3ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (13.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (3.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (6.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_nav_user.html.erb (4.7ms)
+  Rendered layouts/_nav.html.erb (14.2ms)
+Completed 200 OK in 1254ms (Views: 1101.4ms | ActiveRecord: 58.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:20:57 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:20:57 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"sEM0ETXBr51lkUlgFWLkz1DLF579ciHVN/oZYoQM5MWxhHYujCC+HBRW8GpF+C1qhrZlDMjUTs9KnY3WNJLiUg==", "user_id"=>"4"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (4.7ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (1.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (10.6ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered conversations/_conversation_content.html.erb (43.8ms)
+  Rendered conversations/_conversation.html.erb (82.7ms)
+  Rendered messages/index.html.erb within layouts/application (95.1ms)
+  Rendered layouts/_nav_user.html.erb (14.1ms)
+  Rendered layouts/_nav.html.erb (25.6ms)
+Completed 200 OK in 1394ms (Views: 1329.4ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:21:03 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:21:03 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:21:04 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (12.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.6ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (0.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered notifications/index.json.jbuilder (62.5ms)
+Completed 200 OK in 134ms (Views: 82.6ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:21:08 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (15.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (11.4ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (6.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (11.1ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered conversations/_conversation_content.html.erb (36.6ms)
+  Rendered conversations/_conversation.html.erb (72.7ms)
+  Rendered messages/index.html.erb within layouts/application (86.5ms)
+  Rendered layouts/_nav_user.html.erb (6.9ms)
+  Rendered layouts/_nav.html.erb (15.2ms)
+Completed 200 OK in 1516ms (Views: 1455.5ms | ActiveRecord: 45.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:21:13 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (7.1ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (2.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (4.2ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (5.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (23.6ms)
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (16.7ms)
+  Rendered layouts/_fetchRankings.html.erb (178.4ms)
+  Rendered pages/home.html.erb within layouts/application (221.3ms)
+  Rendered layouts/_nav_user.html.erb (12.7ms)
+  Rendered layouts/_nav.html.erb (17.1ms)
+Completed 200 OK in 1324ms (Views: 1271.4ms | ActiveRecord: 34.0ms)
+
+
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:21:17 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.6ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (9.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (10.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (3.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (8.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_nav_user.html.erb (8.4ms)
+  Rendered layouts/_nav.html.erb (19.1ms)
+Completed 200 OK in 1487ms (Views: 1307.3ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:21:22 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (0.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (10.6ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (7.3ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (12.7ms)
+  [1m[36mPost Load (3.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered layouts/_content.html.erb (14.4ms)
+  Rendered layouts/_fetchRankings.html.erb (170.0ms)
+  Rendered pages/home.html.erb within layouts/application (207.1ms)
+  Rendered layouts/_nav_user.html.erb (6.2ms)
+  Rendered layouts/_nav.html.erb (23.1ms)
+Completed 200 OK in 1597ms (Views: 1508.6ms | ActiveRecord: 59.3ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:27:51 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (10.5ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (3.3ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (13.2ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (8.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (19.6ms)
+  [1m[36mPost Load (7.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered layouts/_content.html.erb (23.2ms)
+  Rendered layouts/_fetchRankings.html.erb (185.4ms)
+  Rendered pages/home.html.erb within layouts/application (230.1ms)
+  Rendered layouts/_nav_user.html.erb (2.9ms)
+  Rendered layouts/_nav.html.erb (14.0ms)
+Completed 200 OK in 1642ms (Views: 1516.5ms | ActiveRecord: 73.5ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:28:24 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (6.4ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (2.7ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (9.7ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (8.1ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (11.7ms)
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (17.9ms)
+  Rendered layouts/_fetchRankings.html.erb (138.5ms)
+  Rendered pages/home.html.erb within layouts/application (168.1ms)
+  Rendered layouts/_nav_user.html.erb (2.3ms)
+  Rendered layouts/_nav.html.erb (4.9ms)
+Completed 200 OK in 1062ms (Views: 971.7ms | ActiveRecord: 64.7ms)
+
+
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:28:31 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (10.4ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (9.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (9.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (4.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (1.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_nav_user.html.erb (3.0ms)
+  Rendered layouts/_nav.html.erb (6.6ms)
+Completed 200 OK in 1099ms (Views: 936.3ms | ActiveRecord: 66.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:28:34 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:28:34 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"Us2XtULz5jzXa9qa5Ieyfs8JMAKd27ZtBb+TTPj2kj1TCtWK+xL3vaasY5C0HXvbGXRCkKh92Xd42Af4SGiUqg==", "user_id"=>"4"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (3.4ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (13.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (1.9ms)
+  Rendered messages/_message.html.erb (8.7ms)
+  Rendered conversations/_conversation_content.html.erb (55.2ms)
+  Rendered conversations/_conversation.html.erb (109.9ms)
+  Rendered messages/index.html.erb within layouts/application (113.5ms)
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:28:35 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"Us2XtULz5jzXa9qa5Ieyfs8JMAKd27ZtBb+TTPj2kj1TCtWK+xL3vaasY5C0HXvbGXRCkKh92Xd42Af4SGiUqg==", "user_id"=>"4"}
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (26.2ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (29.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (20.9ms)
+  Rendered messages/_message.html.erb (0.3ms)
+  Rendered conversations/_conversation_content.html.erb (138.3ms)
+  Rendered conversations/_conversation.html.erb (221.7ms)
+  Rendered messages/index.html.erb within layouts/application (225.6ms)
+  Rendered layouts/_nav_user.html.erb (11.6ms)
+  Rendered layouts/_nav.html.erb (47.9ms)
+Completed 200 OK in 1893ms (Views: 1844.3ms | ActiveRecord: 22.6ms)
+
+
+  Rendered layouts/_nav_user.html.erb (8.3ms)
+  Rendered layouts/_nav.html.erb (23.8ms)
+Completed 200 OK in 1941ms (Views: 1835.4ms | ActiveRecord: 76.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:28:39 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:28:39 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:28:40 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (4.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.5ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (0.1ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered notifications/index.json.jbuilder (44.1ms)
+Completed 200 OK in 94ms (Views: 65.2ms | ActiveRecord: 12.9ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"7"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"hello"}]})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (2.9ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "hello"], ["user_id", 4], ["conversation_id", 7], ["created_at", "2018-03-11 18:28:44.377032"], ["updated_at", "2018-03-11 18:28:44.377032"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189) to Async(default) with arguments: #<GlobalID:0x00007f7ed42962d8 @uri=#<URI::GID gid://myapp/Message/16>>
+  [1m[36mMessage Load (12.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189] Performing MessageBroadcastJob (Job ID: 0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189) from Async(default) with arguments: #<GlobalID:0x00007f7ed4146068 @uri=#<URI::GID gid://myapp/Message/16>>
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mConversation Load (1.9ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered messages/_message.html.erb (3.2ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hello\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hello\n    </div>\n\t</li>\n", "conversation_id"=>7} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mMessage Load (2.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered messages/_message.html.erb (2.4ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered messages/_message.html.erb (0.3ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered conversations/_conversation_content.html.erb (112.3ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered conversations/_conversation.html.erb (147.6ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   Rendered messages/_message.html.erb (4.4ms)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189] [ActionCable] Broadcasting to conversations-4: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      hello\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"7\">\n      <input name=\"user_id\" type=\"hidden\" value=\"4\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hello\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"window"=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title... (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35m (4.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35mSQL (10.1ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 4], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 7], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:28:44.771343"], ["updated_at", "2018-03-11 18:28:44.771343"]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mConversation Load (1.1ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 4)[0m
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[36mConversation Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 7], ["recipient_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35mSQL (13.6ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:28:44.800611"], ["id", 7]]
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189]   [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189] Performed MessageBroadcastJob (Job ID: 0c7586f8-3ef7-4d2c-a0ed-7b6690ed3189) from Async(default) in 419.16ms
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:28:47 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (16.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (3.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (11.5ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered conversations/_conversation_content.html.erb (60.5ms)
+  Rendered conversations/_conversation.html.erb (105.9ms)
+  Rendered messages/index.html.erb within layouts/application (112.1ms)
+  Rendered layouts/_nav_user.html.erb (3.1ms)
+  Rendered layouts/_nav.html.erb (15.9ms)
+Completed 200 OK in 1526ms (Views: 1472.0ms | ActiveRecord: 27.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:28:53 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (8.4ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (9.0ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (9.4ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (5.8ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (22.1ms)
+  [1m[36mPost Load (8.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (21.5ms)
+  Rendered layouts/_fetchRankings.html.erb (202.2ms)
+  Rendered pages/home.html.erb within layouts/application (244.6ms)
+  Rendered layouts/_nav_user.html.erb (7.9ms)
+  Rendered layouts/_nav.html.erb (15.3ms)
+Completed 200 OK in 1294ms (Views: 1195.7ms | ActiveRecord: 63.7ms)
+
+
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:29:03 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (4.2ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (9.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (5.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (6.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (11.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_nav_user.html.erb (1.8ms)
+  Rendered layouts/_nav.html.erb (9.5ms)
+Completed 200 OK in 1151ms (Views: 973.7ms | ActiveRecord: 62.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:29:07 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:29:08 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"TCDKrTa+Z2SEYTK6hwBrMLKWYykVdxuhVDyoBsP2OVVN54iSj1925fWmi7DXmqKVZOsRuyDRdLspWzyyc2g/wg==", "user_id"=>"4"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (5.7ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (5.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (6.3ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered messages/_message.html.erb (0.3ms)
+  Rendered conversations/_conversation_content.html.erb (64.3ms)
+  Rendered conversations/_conversation.html.erb (101.9ms)
+  Rendered messages/index.html.erb within layouts/application (114.8ms)
+  Rendered layouts/_nav_user.html.erb (21.0ms)
+  Rendered layouts/_nav.html.erb (31.1ms)
+Completed 200 OK in 1662ms (Views: 1615.1ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:29:13 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:29:13 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (12.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:29:14 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (1.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (0.1ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (0.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered notifications/index.json.jbuilder (108.8ms)
+Completed 200 OK in 190ms (Views: 154.0ms | ActiveRecord: 19.4ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:30:42 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (4.9ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (2.9ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (8.6ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (1.1ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (18.9ms)
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (15.3ms)
+  Rendered layouts/_fetchRankings.html.erb (157.6ms)
+  Rendered pages/home.html.erb within layouts/application (192.0ms)
+  Rendered layouts/_nav_user.html.erb (8.1ms)
+  Rendered layouts/_nav.html.erb (24.2ms)
+Completed 200 OK in 6990ms (Views: 6915.4ms | ActiveRecord: 42.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:30:50 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:30:50 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (7.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (3.5ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (6.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (20.3ms)
+  [1m[36mPost Load (9.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (14.2ms)
+  Rendered layouts/_fetchRankings.html.erb (163.2ms)
+  Rendered pages/home.html.erb within layouts/application (213.1ms)
+  Rendered layouts/_nav_user.html.erb (9.4ms)
+  Rendered layouts/_nav.html.erb (20.6ms)
+Completed 200 OK in 1810ms (Views: 1746.3ms | ActiveRecord: 46.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:30:55 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:30:55 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:30:56 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (3.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.5ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (0.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Conversation Load (7.0ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered notifications/index.json.jbuilder (103.3ms)
+Completed 200 OK in 149ms (Views: 117.2ms | ActiveRecord: 16.7ms)
+
+
+Started POST "/notifications/mark_as_read" for 127.0.0.1 at 2018-03-11 14:31:08 -0400
+Processing by NotificationsController#mark_as_read as JSON
+  [1m[36mUser Load (17.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (9.1ms)[0m  [1m[33mUPDATE "notifications" SET "read_at" = '2018-03-11 18:31:08.637512' WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+Completed 200 OK in 39ms (Views: 0.6ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:31:50 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (12.7ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (3.1ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (10.4ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (5.5ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (15.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (14.5ms)
+  [1m[36mPost Load (3.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (19.1ms)
+  Rendered layouts/_fetchRankings.html.erb (203.2ms)
+  Rendered pages/home.html.erb within layouts/application (259.6ms)
+  Rendered layouts/_nav_user.html.erb (1.5ms)
+  Rendered layouts/_nav.html.erb (17.6ms)
+Completed 200 OK in 3385ms (Views: 3290.3ms | ActiveRecord: 78.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:31:54 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:31:54 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (7.5ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (2.5ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (12.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (1.6ms)
+  [1m[36mPost Load (6.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (11.6ms)
+  Rendered layouts/_fetchRankings.html.erb (118.9ms)
+  Rendered pages/home.html.erb within layouts/application (134.0ms)
+  Rendered layouts/_nav_user.html.erb (4.2ms)
+  Rendered layouts/_nav.html.erb (9.5ms)
+Completed 200 OK in 1120ms (Views: 1033.9ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:31:58 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:31:58 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:31:58 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (0.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (8.6ms)
+Completed 200 OK in 61ms (Views: 35.7ms | ActiveRecord: 2.3ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:32:04 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (4.0ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (13.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (8.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (1.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (16.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_nav_user.html.erb (14.7ms)
+  Rendered layouts/_nav.html.erb (27.2ms)
+Completed 200 OK in 1690ms (Views: 1424.6ms | ActiveRecord: 69.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:32:08 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:32:09 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"wYhwSHfsHpH9l832871MsqdFhxv1K5fY/5B+6YnqPEjATzJ3zg0PEIxQdPyjJ4UXcTj1icCN+MKC9+pdOXQ63w==", "user_id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (1.2ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (11.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (1.1ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered conversations/_conversation_content.html.erb (49.1ms)
+  Rendered conversations/_conversation.html.erb (168.7ms)
+  Rendered messages/index.html.erb within layouts/application (171.3ms)
+  Rendered layouts/_nav_user.html.erb (3.4ms)
+  Rendered layouts/_nav.html.erb (6.1ms)
+Completed 200 OK in 1228ms (Views: 1170.9ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:32:14 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:32:14 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:32:14 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (6.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  Rendered notifications/index.json.jbuilder (8.4ms)
+Completed 200 OK in 33ms (Views: 22.5ms | ActiveRecord: 7.4ms)
+
+
+ConversationChannel#speak({"message"=>[{"name"=>"conversation_id", "value"=>"7"}, {"name"=>"user_id", "value"=>"4"}, {"name"=>"body", "value"=>"hi"}]})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (6.6ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "conversation_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "hi"], ["user_id", 4], ["conversation_id", 7], ["created_at", "2018-03-11 18:32:17.680990"], ["updated_at", "2018-03-11 18:32:17.680990"]]
+  [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 5d0f7a2f-a054-4457-adb6-e787ee168a36) to Async(default) with arguments: #<GlobalID:0x00007f7ed1bb01a0 @uri=#<URI::GID gid://myapp/Message/17>>
+  [1m[36mMessage Load (6.7ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36] Performing MessageBroadcastJob (Job ID: 5d0f7a2f-a054-4457-adb6-e787ee168a36) from Async(default) with arguments: #<GlobalID:0x00007f7ed1b828b8 @uri=#<URI::GID gid://myapp/Message/17>>
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mConversation Load (0.7ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (3.4ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36] [ActionCable] Broadcasting to conversations-4: {:message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hi\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"message"=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hi\n    </div>\n\t</li>\n", "conversation_id"=>7} (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mMessage Load (11.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (5.9ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (1.5ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (0.2ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (0.3ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered conversations/_conversation_content.html.erb (164.0ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered conversations/_conversation.html.erb (216.7ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   Rendered messages/_message.html.erb (3.4ms)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36] [ActionCable] Broadcasting to conversations-4: {:window=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title is-4\" style=\"text-align: center;\">ejwang</h1>\n      </div>\n    </div>\n    <div class=\"messages-list\">\n      <ul> \n          \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      test\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      hello\n    </div>\n\t</li>\n\n  \t<li class=\"me\">\n    <div class=\"message-sent\">\n      hi\n    </div>\n\t</li>\n\n \n     </ul>\n    </div>\n    <br>\n    <form class=\"new_message\">\n      <input name=\"conversation_id\" type=\"hidden\" value=\"7\">\n      <input name=\"user_id\" type=\"hidden\" value=\"4\">\n      <input name=\"body\" class=\"input is-rounded\" id=\"msg\" placeholder=\"Send a Message\"></input>\n    </form>\n  </div>\n</li>\n\n\n", :message=>"\t<li class=\"me\">\n    <div class=\"message-sent\">\n      hi\n    </div>\n\t</li>\n", :conversation_id=>7}
+ConversationChannel transmitting {"window"=>"<li>\n  <div class=\"box rounded-corners\" data-conversation-id=\"7\">\n    <div class=\"columns\">\n      <div class=\"column is-1\">\n        <a><i onclick=\"goBack()\" class=\"fa fa-chevron-left\"></i></a>\n      </div>\n      <div class=\"column is-11\">\n        <h1 class=\"title... (via streamed from conversations-4)
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35mSQL (7.8ms)[0m  [1m[32mINSERT INTO "notifications" ("recipient_id", "actor_id", "action", "notifiable_id", "notifiable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["recipient_id", 4], ["actor_id", 4], ["action", "messaged"], ["notifiable_id", 7], ["notifiable_type", "Conversation"], ["created_at", "2018-03-11 18:32:18.172245"], ["updated_at", "2018-03-11 18:32:18.172245"]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35m (115.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mConversation Load (1.0ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (sender_id = 4 AND recipient_id = 4)[0m
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[36mConversation Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."sender_id" = $1 AND ("conversations"."id" != $2) AND "conversations"."recipient_id" = $3 LIMIT $4[0m  [["sender_id", 4], ["id", 7], ["recipient_id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35mSQL (8.5ms)[0m  [1m[33mUPDATE "conversations" SET "updated_at" = $1 WHERE "conversations"."id" = $2[0m  [["updated_at", "2018-03-11 18:32:18.305699"], ["id", 7]]
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36]   [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [MessageBroadcastJob] [5d0f7a2f-a054-4457-adb6-e787ee168a36] Performed MessageBroadcastJob (Job ID: 5d0f7a2f-a054-4457-adb6-e787ee168a36) from Async(default) in 604.7ms
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:32:20 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (9.7ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (3.6ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (5.0ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (4.2ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (6.9ms)
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered layouts/_content.html.erb (5.9ms)
+  Rendered layouts/_fetchRankings.html.erb (134.3ms)
+  Rendered pages/home.html.erb within layouts/application (183.1ms)
+  Rendered layouts/_nav_user.html.erb (4.8ms)
+  Rendered layouts/_nav.html.erb (7.2ms)
+Completed 200 OK in 2310ms (Views: 2231.0ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/conversations" for 127.0.0.1 at 2018-03-11 14:32:35 -0400
+Processing by InboxController#index as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (2.8ms)[0m  [1m[34mSELECT "conversations".* FROM "conversations" WHERE (recipient_id = 4 OR sender_id = 4) ORDER BY updated_at DESC[0m
+  [1m[36mMessage Load (7.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (5.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 5]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMessage Load (7.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 4]]
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mMessage Load (2.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 6]]
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering inbox/index.html.erb within layouts/application
+  Rendered inbox/index.html.erb within layouts/application (26.3ms)
+  Rendered layouts/_nav_user.html.erb (10.8ms)
+  Rendered layouts/_nav.html.erb (63.6ms)
+Completed 200 OK in 3493ms (Views: 3198.8ms | ActiveRecord: 73.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:32:42 -0400
+ConversationChannel stopped streaming from conversations-4
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:32:42 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"authenticity_token"=>"29N2ssvmoq7Ht2FOni0Nt6cV3kpwujwTvqiQ2cfxY43aFDSNcgezL7Zw2ETOt8QScWis2EUcUwnDzwRtd29lGg==", "user_id"=>"4"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (5.3ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (5.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (20.3ms)
+  Rendered messages/_message.html.erb (11.1ms)
+  Rendered messages/_message.html.erb (0.3ms)
+  Rendered messages/_message.html.erb (0.3ms)
+  Rendered conversations/_conversation_content.html.erb (103.3ms)
+  Rendered conversations/_conversation.html.erb (159.2ms)
+  Rendered messages/index.html.erb within layouts/application (202.0ms)
+  Rendered layouts/_nav_user.html.erb (33.9ms)
+  Rendered layouts/_nav.html.erb (39.4ms)
+Completed 200 OK in 2228ms (Views: 2131.7ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-03-11 14:32:53 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-03-11 14:32:53 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Registered connection (Z2lkOi8vbXlhcHAvVXNlci80)
+Started GET "/notifications.json" for 127.0.0.1 at 2018-03-11 14:32:54 -0400
+Processing by NotificationsController#index as JSON
+  [1m[36mUser Load (17.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/index.json.jbuilder
+  [1m[36mNotification Load (0.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (0.6ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE "conversations"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered notifications/index.json.jbuilder (47.1ms)
+Completed 200 OK in 308ms (Views: 76.8ms | ActiveRecord: 22.5ms)
+
+
+ConversationChannel is transmitting the subscription confirmation
+ConversationChannel is streaming from conversations-4
+Started POST "/notifications/mark_as_read" for 127.0.0.1 at 2018-03-11 14:33:08 -0400
+Processing by NotificationsController#mark_as_read as JSON
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (64.0ms)[0m  [1m[33mUPDATE "notifications" SET "read_at" = '2018-03-11 18:33:08.878202' WHERE "notifications"."recipient_id" = 4 AND "notifications"."read_at" IS NULL[0m
+Completed 200 OK in 100ms (Views: 0.4ms | ActiveRecord: 70.7ms)
+
+
+Started GET "/messages?user_id=4" for 127.0.0.1 at 2018-03-11 14:33:09 -0400
+Processing by MessagesController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mConversation Load (13.1ms)[0m  [1m[34mSELECT  "conversations".* FROM "conversations" WHERE ("conversations"."sender_id" = $1 AND "conversations"."recipient_id" = $2 OR "conversations"."sender_id" = $3 AND "conversations"."recipient_id" = $4) ORDER BY "conversations"."id" ASC LIMIT $5[0m  [["sender_id", 4], ["recipient_id", 4], ["sender_id", 4], ["recipient_id", 4], ["LIMIT", 1]]
+  Rendering messages/index.html.erb within layouts/application
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mMessage Load (14.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."conversation_id" = $1[0m  [["conversation_id", 7]]
+  Rendered messages/_message.html.erb (1.1ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered messages/_message.html.erb (0.2ms)
+  Rendered conversations/_conversation_content.html.erb (82.6ms)
+  Rendered conversations/_conversation.html.erb (122.2ms)
+  Rendered messages/index.html.erb within layouts/application (143.9ms)
+  Rendered layouts/_nav_user.html.erb (2.0ms)
+  Rendered layouts/_nav.html.erb (18.2ms)
+Completed 200 OK in 1447ms (Views: 1378.6ms | ActiveRecord: 43.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2018-03-11 14:33:44 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mRanking Exists (55.2ms)[0m  [1m[34mSELECT  1 AS one FROM "rankings" WHERE (user_id = 4) LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRanking Load (0.8ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE (user_id = 4)[0m
+  [1m[36mJob Load (4.4ms)[0m  [1m[34mSELECT  "jobs".* FROM "jobs" WHERE "jobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRanking Load (12.0ms)[0m  [1m[34mSELECT "rankings".* FROM "rankings" WHERE "rankings"."job_id" = $1[0m  [["job_id", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered posts/_post_form.html.erb (8.6ms)
+  [1m[36mPost Load (12.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."job_id" = $1 ORDER BY "posts"."created_at" DESC, "posts"."created_at" ASC[0m  [["job_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered layouts/_content.html.erb (19.0ms)
+  Rendered layouts/_fetchRankings.html.erb (215.3ms)
+  Rendered pages/home.html.erb within layouts/application (311.5ms)
+  Rendered layouts/_nav_user.html.erb (3.1ms)
+  Rendered layouts/_nav.html.erb (21.3ms)
+Completed 200 OK in 2614ms (Views: 2422.9ms | ActiveRecord: 111.2ms)
+
+
