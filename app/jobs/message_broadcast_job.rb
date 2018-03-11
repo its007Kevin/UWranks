@@ -10,6 +10,11 @@ class MessageBroadcastJob < ApplicationJob
 
   
     Notification.create(recipient: recipient, actor: sender, action: "messaged", notifiable: message.conversation)
+    @sender_id = sender.id
+    @recipient_id = recipient.id
+    @current_conversation = Conversation.where("sender_id = ? AND recipient_id = ?", @sender_id, @recipient_id)
+    @current_conversation.update(updated_at: Time.now)
+
 
   end
 
