@@ -1,0 +1,7 @@
+$('#my-posts').append("<% @jobs.each do |job| %> <%= render partial: 'layouts/fetchOtherRankings', locals: { job: job } %> <% end %>");
+<% if @jobs.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @jobs %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>
