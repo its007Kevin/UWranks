@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/help' => 'pages#help'
   get '/messages' => 'messages#index'
   get '/autocompleteJobs' => 'pages#autocompleteJobs'
+  get '/autocompleteLocation' => 'pages#autocompleteLocation'
+  get '/autocompletePosition' => 'pages#autocompletePosition'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'

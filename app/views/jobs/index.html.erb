@@ -3,9 +3,9 @@
   <div class="box rounded-corners min-box">
     <%= search_form_for @search, :html => {:class => "field"} do |f| %>
       <p class="control has-icons-right">
-        <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input is-rounded", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path }%>
+        <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path }%>
         <span class="icon is-small is-right">
-          <i class="fa fa-search search-icon-margin"></i>
+          <a><i class="fa fa-search search-icon-margin"></i></a>
         </span>
       </p>
     <% end %>
@@ -41,13 +41,13 @@
               <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
 
               <%= form.label :company, :class => "label" %>
-              <%= form.text_field :company, :class => "input control jobForm" %>
+              <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
 
               <%= form.label :position, :class => "label" %>
-              <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer" %>
+              <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position', data: { autocomplete_source: autocompletePosition_path } %>
 
               <%= form.label :location, :class => "label" %>
-              <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State" %>
+              <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'add_location', data: { autocomplete_source: autocompleteLocation_path } %>
               <br><br>
               <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
             <% end %>

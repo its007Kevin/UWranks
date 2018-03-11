@@ -31,11 +31,14 @@ document.addEventListener("turbolinks:load", function() {
       messages_list.scrollTop(height);
     }
   });
-  addJobsAutoComplete('#nav_search');
-  addJobsAutoComplete('#add_job_search');
+  addAutoComplete('#nav_search');
+  addAutoComplete('#add_job_search');
+  addAutoComplete("#add_location");
+  addAutoComplete("#add_position");
+  addAutoComplete("#add_company");
 });
 
-function addJobsAutoComplete(element) {
+function addAutoComplete(element) {
   $(element).autocomplete({
     source: $(element).data('autocomplete-source'),
     select: function(event, ui) {
@@ -47,5 +50,4 @@ function addJobsAutoComplete(element) {
         $(event.target.form).submit();
     }
   });
-
 }
