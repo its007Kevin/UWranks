@@ -5,7 +5,7 @@ class Notifications
 
 	setup: ->
 
-		$("[data-behavior='notifications-link']").on "click", @handleClick
+		$("[data-behavior='notification-items']").on "click", @handleClick
 
 		$.ajax(
 			url: "/notifications.json"
