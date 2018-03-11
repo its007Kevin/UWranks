@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/autocompleteJobs' => 'pages#autocompleteJobs'
   get '/autocompleteLocation' => 'pages#autocompleteLocation'
   get '/autocompletePosition' => 'pages#autocompletePosition'
+  get '/autocompleteUser' => 'inbox#autocompleteUser'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'

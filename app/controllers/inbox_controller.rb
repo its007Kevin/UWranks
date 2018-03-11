@@ -5,7 +5,6 @@ class InboxController < ApplicationController
     # @users = User.all.where.not(id: current_user)
     @conversations = Conversation.includes(:recipient, :messages).find(session[:conversations])
 
-
     if params[:user]
       @users = User.where("username LIKE ? AND username != ?", "%#{params[:user]}%", current_user.username)
     else
@@ -17,10 +16,11 @@ class InboxController < ApplicationController
         end
       end
       #@users.sort_by {|user| user.username}
-
     end
+  end
 
-
-
+  def autocompleteUser
+    @users = User.select(:username).where('UPPER(username) LIKE UPPER(?)', "%#{params[:term]}%").limit(10)
+    render json: @users.map(&:username)
   end
 end

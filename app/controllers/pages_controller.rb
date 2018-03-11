@@ -17,8 +17,12 @@ class PagesController < ApplicationController
   end
 
   def explore
-    @jobs = Job.paginate(page: params[:page], per_page: 10).order('company ASC')
-    @newPosts = Post.new
+    @jobs = Job.paginate(page: params[:page], per_page: 10).order('updated_at DESC')
+    @newPosts = Post.new    
+    respond_to do |format|
+      format.js
+      format.html
+    end
     session[:return_to] = request.fullpath
   end
 

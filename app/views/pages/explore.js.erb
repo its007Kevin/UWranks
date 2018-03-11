@@ -1,0 +1,2 @@
+$('#jobs').append("<% @jobs.each do |job| %><%= j render partial: 'layouts/fetchOtherRankings', locals: { job: job } %><% end %>");
+$('.pagination').replaceWith('<%= j will_paginate @jobs %>');

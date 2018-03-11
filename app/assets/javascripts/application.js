@@ -36,6 +36,7 @@ document.addEventListener("turbolinks:load", function() {
   addAutoComplete("#add_location");
   addAutoComplete("#add_position");
   addAutoComplete("#add_company");
+  addAutoComplete("#search_user");
 });
 
 function addAutoComplete(element) {

@@ -58,4 +58,12 @@ document.addEventListener("turbolinks:load", function() {
     $(this).closest('.reply').find('.reply_field').val('');
     $(this).closest('.reply').toggle();
   });
+  // Infinite Scrolling
+  $(window).scroll(function () {
+    var url = $('.pagination .next_page').attr('href');
+    if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 70) {
+      $('.pagination').text('Loading more rankings');
+      $.getScript(url);
+    }
+  });
 });
