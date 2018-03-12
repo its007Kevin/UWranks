@@ -1,6 +1,6 @@
 <div class="container is-fluid margins" id="outside">
   <p class="header">Search and Add Jobs</p>
-  <div class="box rounded-corners min-box">
+  <div class="box rounded-corners min-width">
     <%= search_form_for @search, :html => {:class => "field"} do |f| %>
       <p class="control has-icons-right">
         <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path } %>
@@ -57,7 +57,7 @@
     </div>
   </div>
   <p class="header">Your Rankings</p>
-  <div class="box rounded-corners min-box">
+  <div class="box rounded-corners min-width">
     <table class="table is-hoverable is-fullwidth" id="rankings">
       <thead>
         <tr>
