@@ -174,10 +174,6 @@ th {
   margin: 2px 0 0 0;
   list-style: none;
   background-color: #ffffff;
-  // border-color: #ccc;
-  // border-color: rgba(0, 0, 0, 0.1);
-  // border-style: solid;
-  // border-width: 1px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -228,8 +224,10 @@ th {
     padding-right: 0%;
   }
   .slogan {
+    margin-top: 40%;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 40%;
   }
 }
 
