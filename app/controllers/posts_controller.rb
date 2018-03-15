@@ -11,7 +11,9 @@ class PostsController < ApplicationController
 		
 		@postRankings = @post.job.rankings
 	    @postRankings.each do |postRanking| 
-	      Notification.create(recipient: postRanking.user, actor: current_user, action: "commented on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @post)
+	      if postRanking.user != current_user	
+	     	 Notification.create(recipient: postRanking.user, actor: current_user, action: "commented on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @post)
+	  	  end
 	    end
 
 	    respond_to do |format|
