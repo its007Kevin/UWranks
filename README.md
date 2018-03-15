@@ -1,59 +1,33 @@
 # UWranks
 
-A social network for co op students at the University of Waterloo to discuss about their rankings
+A social network for co op students at the University of Waterloo to discuss about their rankings for each other
 
-## Main purpose people will visit this site
+## Installation
 
-To check their chances of getting a job that they only got a rank for. 
+### Requirements
+```
+Ruby 2.5.0
+Rails 5.1.4
+Postgres 9.5
+```
+### [Setup guide for Ruby on Rails and Postgres](https://gorails.com/setup/ubuntu/16.04)
 
-Users must have an account before they are allowed to use the site to promote that people share their ranking details.
-
-## Profiles (Most Important)
-
-Sign up page
-Asks for:
-- Firstname
-- Lastname
-- Program, Year ex. 3A Computer Science
-- Email Verfication
-
-Most Important Part
-"My Rankings Page"
-- Format: Job ID, Title, Company 
-- Offers: divided into offers I may take and offers I'm not taking 
-- Ranks + "what i would rank it + how well I thought I did on the interview"
-- Ranks that I want 
-
-Additional features
-- Instant Message User
-- Parser so that all a person needs to do is copy paste their rankings page in 
-
-## Search Function
-
-After user create a profile they may search companies, jobs, program clustersd, and or other people
-
-Additional features
-- Instant refresh, suggestions
-- Chance of getting the job calculator: crunches data in database to give a rough probability of getting the job
-
-# Technicalities
-
-### Ruby version
-
-2.50
-
-### Rails version
-
-5.1.4
-
-### System dependencies
-
-Developed on Ubuntu 16.04 LTS
-
-### Database 
-
-Postgre SQL
-
-### Deployment Platform
-
-Heroku
+Start by forking and cloning your fork
+```
+git clone https://github.com/YOUR-USERNAME/UWranks.git
+cd UWranks.git
+```
+Install dependecies
+```
+bundle install
+```
+Setup Local Database
+```
+rake db:create
+rake db:migrate
+```
+Run the Server
+```
+rails server
+```
+Navigate to https://localhost:3000
