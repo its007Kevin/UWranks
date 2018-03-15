@@ -25,9 +25,18 @@ class Notifications
 
 	handleSuccess: (data) =>
 		items = $.map data, (notification) ->
-			"<div class='navbar-item'>
-				<a href='#{notification.url}'>#{notification.actor} #{notification.action} you!</a>
-			</div>"
+			if notification.action == "messaged"
+				"<div class='navbar-item'>
+					<a href='#{notification.url}'>#{notification.actor} #{notification.action} you!</a>
+				</div>"
+			else if /commented/.test notification.action
+				"<div class='navbar-item'>
+					<a href='#{notification.url}'>#{notification.actor} #{notification.action}</a>
+				</div>"
+			else if /replied/.test notification.action
+				"<div class='navbar-item'>
+					<a href='#{notification.url}'>#{notification.actor} #{notification.action}</a>
+				</div>"
 
 		if items.length == 0 
 			$("[data-behavior='notification-items']").html(

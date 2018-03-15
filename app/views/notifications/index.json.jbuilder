@@ -9,9 +9,11 @@ json.array! @notifications do |notification|
 		json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
 	end
 
-	if notification.action == "messaged"
+	if notification.notifiable.class.to_s.underscore.humanize.downcase == "conversation"
 		json.url messages_path(user_id: notification.actor.id)   
-	#elsif notification.action == "commented"
-	#	json.url "" 
+	elsif notification.notifiable.class.to_s.underscore.humanize.downcase == "post"
+		json.url home_path 
+	elsif notification.notifiable.class.to_s.underscore.humanize.downcase == "comment"
+		json.url home_path
 	end	
 end

@@ -4,13 +4,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.user_id = current_user.id
 
-    #To fill: 
-    #recipient: person who should get the notification
-    #actor: person who sent notification
-    #notifiable: thing you want to link to when you click (not sure if you want to link to @comment or @post)
-    #might want to notify everybody who is attached to the posts
-    
-    #Notification.create(recipient: recipient, actor: current.user_id, action: "commented", notifiable: @comment)
+    @user = @post.user
+    Notification.create(recipient: @user, actor: current_user, action: "replied to your comment on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @comment)
+  
 
     respond_to do |format|
       format.html { redirect_to @post }
