@@ -1,33 +1,31 @@
 <div class="container is-fluid margins">
   <p class="header"><%= @username %>'s Rankings</p>
-  <div class="box min-width">
-    <table class="table is-hoverable is-fullwidth">
-      <thead>
-        <th>Job ID</th>
-        <th>Company</th>
-        <th>Position</th>
-        <th>Location</th>
-        <th>Employer Rank</th>
-        <th>Their Rank</th>
-      </thead>
-      <% @rankings.each do |ranking| %>
-        <tr>
-          <td><%= ranking.job.jobId %></td>
-          <td><%= ranking.job.company %></td>
-          <td><%= ranking.job.position %></td>
-          <td><%= ranking.job.location %></td>
-          <td>
-            <% if ranking.employerRank == 'Ranked' %>
-            <span class="button is-rounded is-info is-small"><%= ranking.employerRank %></span>
-            <% else %>
-            <span class="button is-rounded is-success is-small"><%= ranking.employerRank %></span>
-            <% end %>
-          </td>
-          <td><%= ranking.yourRank %></td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
+  <table class="table is-hoverable is-fullwidth">
+    <thead>
+      <th>Job ID</th>
+      <th>Company</th>
+      <th>Position</th>
+      <th>Location</th>
+      <th>Employer Rank</th>
+      <th>Their Rank</th>
+    </thead>
+    <% @rankings.each do |ranking| %>
+      <tr>
+        <td><%= ranking.job.jobId %></td>
+        <td><%= ranking.job.company %></td>
+        <td><%= ranking.job.position %></td>
+        <td><%= ranking.job.location %></td>
+        <td>
+          <% if ranking.employerRank == 'Ranked' %>
+          <span class="button is-rounded is-info is-small"><%= ranking.employerRank %></span>
+          <% else %>
+          <span class="button is-rounded is-success is-small"><%= ranking.employerRank %></span>
+          <% end %>
+        </td>
+        <td><%= ranking.yourRank %></td>
+      </tr>
+    <% end %>
+  </table>
 	<% @rankings.each do |ranking| %>
 		<%= render partial: 'layouts/fetchOtherRankings', locals: { :job => ranking.job } %>
 	<% end %>

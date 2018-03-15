@@ -1,63 +1,62 @@
 <div class="container is-fluid margins" id="outside">
   <p class="header">Search and Add Jobs</p>
-  <div class="box rounded-corners min-width">
-    <%= search_form_for @search, :html => {:class => "field"} do |f| %>
-      <p class="control has-icons-right">
-        <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path } %>
-        <span class="icon is-small is-right">
-          <a><i class="fa fa-search search-icon-margin"></i></a>
-        </span>
-      </p>
-    <% end %>
-    <% if !@emptyQuery %>
-      <table class="table is-hoverable is-fullwidth" id="jobs">
-        <thead>
-          <tr>
-            <th>Job<br />ID</th>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Location</th>
-            <th colspan="2">Ranking</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render @jobs %>
-        </tbody>
-      </table>
-      <small class="faded" style="margin-left: 10px">Job not listed?</small>
-      <br>
-      <a class="button is-success is-rounded" id="addJob">Add Job</a>
-    <% end %>
-    <div id="addJobForm" class="modal">
-      <div class="modal-background" id="background"></div>
-      <div class="modal-content">
-        <button class="modal-close is-large" id="closeModal"></button>
-        <div class="box">
-          <span id="error_messages"></span>
-          <div class="field">
-            <p class="header">Add Job</p>
-            <%= form_with model: @job, url: jobs_path, remote: true, html: { autocomplete: 'off' } do |form| %>
-              <%= form.label :"Job Id", :class => "label" %>
-              <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
+  <%= search_form_for @search, :html => {:class => "field"} do |f| %>
+    <p class="control has-icons-right">
+      <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path } %>
+      <span class="icon is-small is-right">
+        <a><i class="fa fa-search search-icon-margin"></i></a>
+      </span>
+    </p>
+  <% end %>
+  <% if !@emptyQuery %>
+    <table class="table is-hoverable is-fullwidth" id="jobs">
+      <thead>
+        <tr>
+          <th>Job<br />ID</th>
+          <th>Company</th>
+          <th>Position</th>
+          <th>Location</th>
+          <th colspan="2">Ranking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @jobs %>
+      </tbody>
+    </table>
+    <small class="faded" style="margin-left: 10px">Job not listed?</small>
+    <br>
+    <a class="button is-success is-rounded" id="addJob">Add Job</a>
+    <br>
+    <br>
+  <% end %>
+  <div id="addJobForm" class="modal">
+    <div class="modal-background" id="background"></div>
+    <div class="modal-content">
+      <button class="modal-close is-large" id="closeModal"></button>
+      <div class="box">
+        <span id="error_messages"></span>
+        <div class="field">
+          <p class="header">Add Job</p>
+          <%= form_with model: @job, url: jobs_path, remote: true, html: { autocomplete: 'off' } do |form| %>
+            <%= form.label :"Job Id", :class => "label" %>
+            <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
 
-              <%= form.label :company, :class => "label" %>
-              <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
+            <%= form.label :company, :class => "label" %>
+            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
 
-              <%= form.label :position, :class => "label" %>
-              <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position', data: { autocomplete_source: autocompletePosition_path } %>
+            <%= form.label :position, :class => "label" %>
+            <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position', data: { autocomplete_source: autocompletePosition_path } %>
 
-              <%= form.label :location, :class => "label" %>
-              <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'add_location', data: { autocomplete_source: autocompleteLocation_path } %>
-              <br><br>
-              <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
-            <% end %>
-          </div>
+            <%= form.label :location, :class => "label" %>
+            <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'add_location', data: { autocomplete_source: autocompleteLocation_path } %>
+            <br><br>
+            <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
   <p class="header">Your Rankings</p>
-  <div class="box rounded-corners min-width">
     <table class="table is-hoverable is-fullwidth" id="rankings">
       <thead>
         <tr>
@@ -75,7 +74,6 @@
       </tbody>
     </table>
     <%= link_to "Finish", home_path, :class => "button is-primary is-rounded" %>
-  </div>
   <br>
   <br>
 </div>
