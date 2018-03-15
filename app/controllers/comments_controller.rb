@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     @user = @post.user
-    Notification.create(recipient: @user, actor: current_user, action: "replied to your comment on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @comment)
+    if @user != current_user
+      Notification.create(recipient: @user, actor: current_user, action: "replied to your comment on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @comment)
+    end
   
 
     respond_to do |format|
