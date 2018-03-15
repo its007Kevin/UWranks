@@ -1,6 +1,6 @@
 # UWranks
 
-A social network for co op students at the University of Waterloo to discuss about their rankings for each other
+A social network for co op students at the University of Waterloo to discuss about their rankings with each other
 
 ## Installation
 
