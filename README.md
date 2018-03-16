@@ -1,6 +1,6 @@
 # UWranks
 
-A social network for co op students at the University of Waterloo to discuss about their rankings with each other
+A social network for co-op students at the University of Waterloo to discuss their rankings with each other
 
 ## Installation
 
@@ -17,7 +17,7 @@ Start by forking and cloning your fork
 git clone https://github.com/YOUR-USERNAME/UWranks.git
 cd UWranks.git
 ```
-Install dependecies
+Install dependencies
 ```
 bundle install
 ```
