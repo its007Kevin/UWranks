@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
   get '/conversations' => 'inbox#index'
-  get '/help' => 'pages#help'
   get '/messages' => 'messages#index'
   get '/autocompleteJobs' => 'pages#autocompleteJobs'
   get '/autocompleteLocation' => 'pages#autocompleteLocation'
