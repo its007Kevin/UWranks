@@ -1,6 +1,6 @@
 # UWranks
 
-A social network for co op students at the University of Waterloo to discuss about their rankings with each other
+A social network for co op students at the University of Waterloo to discuss about their rankings with each other.
 
 ## Installation
 
@@ -10,7 +10,9 @@ Ruby 2.5.0
 Rails 5.1.4
 Postgres 9.5
 ```
-Start by forking and cloning your fork
+#### [Setup guide for Ruby on Rails](https://gorails.com/setup/ubuntu/16.04)
+
+Start by cloning your fork
 ```
 git clone https://github.com/YOUR-USERNAME/UWranks.git
 cd UWranks.git
