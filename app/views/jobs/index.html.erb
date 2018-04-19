@@ -2,7 +2,7 @@
   <p class="header">Search and Add Jobs</p>
   <%= search_form_for @search, :html => {:class => "field"} do |f| %>
     <p class="control has-icons-right">
-      <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path } %>
+      <%= f.search_field :jobId_or_company_or_position_or_location_cont, :placeholder => "Search by job id, company, position or location", :class => "input is-rounded", id: 'add_job_search', data: { autocomplete_source: autocompleteJobs_path } %>
       <span class="icon is-small is-right">
         <a><i class="fa fa-search search-icon-margin"></i></a>
       </span>

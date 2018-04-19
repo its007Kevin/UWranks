@@ -1,15 +1,18 @@
 <div class="box rounded-corners">
-  <p class="title is-3">
+  <p class="title is-4">
     <%= job.company %>
   </p>
-  <p class="subtitle is-6 faded">
-    (<%= job.jobId %>) <%= job.position %><br />
-    <%= job.location %>
-  </p>
+  <div class="jobDesc">
+    <div class="button is-light is-rounded"><%= job.jobId %></div>
+    <div class="button is-light is-rounded"><%= job.position %></div>
+    <div class="button is-light is-rounded">
+      <i class="fa fa-map-marker iconMargin" style="color: #358BF2"></i><%= job.location %>
+    </div>
+  </div>
   <div class="column is-12">
     <div class="columns is-multiline">
       <% if job.rankings.length == 0 %>
-        <p>No rankings for this job yet</p>
+        <p class="subtitle is-6 faded" style="padding-left: 10px">No rankings for this job yet</p>
       <% else %>
         <% job.rankings.each do |other| %>
           <div class="column is-3">
@@ -25,7 +28,6 @@
                 <span class="button is-rounded"><%= other.yourRank %></span>
                 <br>
                 <div class="time-style faded">
-                  <small>Last Updated</small>
                   <small><%= local_time_ago(other.updated_at) %></small><br />
                 </div>
                 <small><%= link_to "Message", messages_path(user_id: other.user.id), method: :get %></small>

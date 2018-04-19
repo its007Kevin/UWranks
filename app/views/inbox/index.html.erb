@@ -3,7 +3,7 @@
     <h3 class="title">Messages</h3>
     <div class="control has-icons-right">
       <%= form_tag(conversations_path, method: :get) do %>
-        <%= text_field_tag :user, params[:user], class: "input", placeholder: "Search For a User to Talk to", id: 'search_user', data: { autocomplete_source: autocompleteUser_path }  %>
+        <%= text_field_tag :user, params[:user], class: "input is-rounded", placeholder: "Search For a User to Talk to", id: 'search_user', data: { autocomplete_source: autocompleteUser_path }  %>
         <span class="icon is-small is-right">
           <i class="fa fa-search"></i>
         </span>

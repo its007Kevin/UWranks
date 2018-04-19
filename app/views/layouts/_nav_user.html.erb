@@ -14,8 +14,8 @@
       <div class="navbar-item">
         <div class="control has-icons-right">
           <%= form_tag pages_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], class: "input", placeholder: "Search Jobs, Postions, Locations", id: 'nav_search',  
-            data: { autocomplete_source: autocompleteJobs_path }, style: "border-radius: 5px" %>
+            <%= text_field_tag :search, params[:search], class: "input is-rounded", placeholder: "Search Jobs, Postions, Locations", id: 'nav_search',  
+            data: { autocomplete_source: autocompleteJobs_path } %>
           <% end %>
           <span class="icon is-small is-right">
             <i class="fa fa-search search-icon-margin"></i>
@@ -24,12 +24,12 @@
       </div>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" href="/home">Home</a>
-      <a class="navbar-item" href="/explore">Explore</a>
+      <a class="navbar-item" href="/home"><i class="fa fa-home"></i>Home</a>
+      <a class="navbar-item" href="/explore"><i class="fa fa-search"></i>Explore</a>
 
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
-          Notifications
+          <i class="fa fa-bell"></i>Notifications
           <span data-behavior="unread-count" style="margin-left: 5px"></span>
         </div>
         <div class="navbar-dropdown is-right" data-behavior="notification-items">
@@ -46,20 +46,20 @@
         </div>
         <div class="navbar-dropdown is-right">
           <a href="/user/<%= current_user.username %>">
-            <div class="user-dropdown">Profile</div>
+            <div class="user-dropdown"><i class="fa fa-user-circle"></i>Profile</div>
           </a>
           <a href=<%= jobs_path %>>
-            <div class="user-dropdown">Rankings</div>
+            <div class="user-dropdown"><i class="fa fa-list-ol"></i>Rankings</div>
           </a>
           <a href=<%= conversations_path %>>
-            <div class="user-dropdown">Messages</div>
+            <div class="user-dropdown"><i class="fa fa-comments"></i>Messages</div>
           </a>
           <a href=<%= new_feedback_path %>>
-            <div class="user-dropdown">Feedback</div>
+            <div class="user-dropdown"><i class="fa fa-wrench"></i></i>Feedback</div>
           </a>
           <hr class="navbar-divider">
           <a href=<%= destroy_user_session_path %> rel="nofollow" data-method="delete">
-            <div class="user-dropdown">Log Out</div>
+            <div class="user-dropdown"><i class="fa fa-sign-out"></i>Log Out</div>
           </a>
         </div>
       </div>
