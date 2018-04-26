@@ -43,7 +43,7 @@ class PagesController < ApplicationController
   end
 
   def autocompleteJobs
-    @jobs = Job.where('UPPER(company) LIKE UPPER(:search)', :search => "%#{params[:term]}%").distinct.limit(10)
+    @jobs = Job.where('UPPER(company) LIKE UPPER(:search)', :search => "%#{params[:term]}%").select("DISTINCT(company)").limit(10)
     render json: @jobs.map(&:company)
   end
 

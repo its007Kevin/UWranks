@@ -14,7 +14,7 @@
       <div class="navbar-item">
         <div class="control has-icons-right">
           <%= form_tag pages_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], class: "input is-rounded", placeholder: "Search Jobs, Postions, Locations", id: 'nav_search',  
+            <%= text_field_tag :search, params[:search], class: "input is-rounded", placeholder: "Search", id: 'nav_search',  
             data: { autocomplete_source: autocompleteJobs_path } %>
           <% end %>
           <span class="icon is-small is-right">
@@ -55,7 +55,7 @@
             <div class="user-dropdown"><i class="fa fa-comments"></i>Messages</div>
           </a>
           <a href=<%= new_feedback_path %>>
-            <div class="user-dropdown"><i class="fa fa-wrench"></i></i>Feedback</div>
+            <div class="user-dropdown"><i class="fa fa-bullhorn"></i>Feedback</div>
           </a>
           <hr class="navbar-divider">
           <a href=<%= destroy_user_session_path %> rel="nofollow" data-method="delete">

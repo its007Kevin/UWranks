@@ -33,9 +33,6 @@ document.addEventListener("turbolinks:load", function() {
   });
   addAutoComplete('#nav_search');
   addAutoComplete('#add_job_search');
-  addAutoComplete("#add_location");
-  addAutoComplete("#add_position");
-  addAutoComplete("#add_company");
   addAutoComplete("#search_user");
 });
 

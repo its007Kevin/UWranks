@@ -42,13 +42,13 @@
             <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
 
             <%= form.label :company, :class => "label" %>
-            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
+            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company' %>
 
             <%= form.label :position, :class => "label" %>
-            <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position', data: { autocomplete_source: autocompletePosition_path } %>
+            <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position' %>
 
             <%= form.label :location, :class => "label" %>
-            <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'add_location', data: { autocomplete_source: autocompleteLocation_path } %>
+            <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'add_location' %>
             <br><br>
             <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
           <% end %>
