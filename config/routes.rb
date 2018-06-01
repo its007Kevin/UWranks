@@ -32,14 +32,14 @@ Rails.application.routes.draw do
 
   get '/home' => 'pages#home'
   get '/explore' => 'pages#explore'
-  get '/user/:id' => 'pages#profile'
+  # get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
-  get '/conversations' => 'inbox#index'
+  # get '/conversations' => 'inbox#index'
   get '/messages' => 'messages#index'
   get '/autocompleteJobs' => 'pages#autocompleteJobs'
   get '/autocompleteLocation' => 'pages#autocompleteLocation'
   get '/autocompletePosition' => 'pages#autocompletePosition'
-  get '/autocompleteUser' => 'inbox#autocompleteUser'
+  # get '/autocompleteUser' => 'inbox#autocompleteUser'
 
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'

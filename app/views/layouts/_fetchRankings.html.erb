@@ -19,8 +19,8 @@
             <div class="column is-3">
               <div class="box rounded-corners">
                 <p>
-                  <strong><a href="/user/<%= other.user.username %>"><%= other.user.username %></a></strong>
-                  <br />
+                  <strong class="faded"><%= Digest::SHA1.hexdigest(other.user.username)[0, 6] %></strong>
+                  <br>
                   <% if other.employerRank == "Offer" %>
                     <span class="button is-rounded is-success"><%= other.employerRank %></span>
                   <% else %>

@@ -42,17 +42,13 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <div class="navbar-link">
-          <%= current_user.username %>
+          <div class="username_padding">
+            <%= Digest::SHA1.hexdigest(current_user.username)[0, 6] %>
+          </div>
         </div>
         <div class="navbar-dropdown is-right">
-          <a href="/user/<%= current_user.username %>">
-            <div class="user-dropdown"><i class="fa fa-user-circle"></i>Profile</div>
-          </a>
           <a href=<%= jobs_path %>>
             <div class="user-dropdown"><i class="fa fa-list-ol"></i>Rankings</div>
-          </a>
-          <a href=<%= conversations_path %>>
-            <div class="user-dropdown"><i class="fa fa-comments"></i>Messages</div>
           </a>
           <a href=<%= new_feedback_path %>>
             <div class="user-dropdown"><i class="fa fa-bullhorn"></i>Feedback</div>

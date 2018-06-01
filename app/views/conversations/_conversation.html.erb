@@ -5,7 +5,7 @@
         <a><i onclick="goBack()" class="fa fa-chevron-left"></i></a>
       </div>
       <div class="column is-11">
-        <h1 class="title is-4" style="text-align: center;"><%= conversation.opposed_user(user).username %></h1>
+        <h1 class="title is-4" style="text-align: center;"><%= Digest::SHA1.hexdigest(conversation.opposed_user(user).username)[0, 6] %></h1>
       </div>
     </div>
     <div class="messages-list">
