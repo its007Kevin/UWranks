@@ -1,5 +1,5 @@
 <div class="container is-fluid margins">
-  <p class="header"><%= @username %></p>
+  <p class="header"><%= Digest::SHA1.hexdigest(@username)[0, 6] %></p>
   <table class="table is-hoverable is-fullwidth">
     <thead>
       <th>Job ID</th>
