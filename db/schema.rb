@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20180303215513) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false
+    t.string "username"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
