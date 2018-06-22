@@ -47,7 +47,6 @@ document.addEventListener("turbolinks:load", function() {
     if (label.html() === 'Hide') {
       numReplies = placeholder.substring(0, 1);
       placeholder = ++numReplies + ' Replies';
-      console.log(placeholder);
     } else {
       numReplies = label.html().substring(0, 1);
       label.html(`${++numReplies} Replies`);

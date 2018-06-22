@@ -1,9 +1,7 @@
 <div class="comment">
   <p>
     <small>
-      <a href="/user/<%= comment.user.username %>" align = "top">
-        <strong class="comment_user"><%= comment.user.username %></strong>
-      </a>
+      <strong class="comment_user"><%= Digest::SHA1.hexdigest(comment.user.username)[0, 6] %></strong>
     </small>
     <small class="faded" style="margin-left: 10px"><%= local_time_ago(comment.created_at) %></small>
     <br>
