@@ -68,6 +68,12 @@ i {
   padding-right: 2px;
 }
 
+.multiline-button {
+  white-space: normal;
+  text-align: left;
+  height: 100%;
+}
+
 .comment_wrap {
 	width: 300px;
 	word-wrap: break-word;
