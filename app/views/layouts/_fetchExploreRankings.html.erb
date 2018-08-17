@@ -40,5 +40,5 @@
   </div>
   <br>
   <%= render partial: 'posts/post_form', locals: { :job_id => job.id } %>
-  <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
+  <%= render partial: '/layouts/content', locals: { posts: job.posts, job_id: job.id } %>
 </div>

@@ -12,14 +12,14 @@
   <div class="column is-12">
     <div class="columns is-multiline">
       <% if job.rankings.length == 1 %>
-        <p class="subtitle is-6 faded" style="padding-left: 10px">Sorry, we couldn't find any other rankings yet</p>
+        <p class="subtitle is-6 faded" style="padding-left: 10px">Sorry, only you've ranked this job so far</p>
       <% else %>
         <% job.rankings.each do |other| %>
           <% if other.user.username != current_user.username %>
             <div class="column is-3">
               <div class="box rounded-corners">
                 <p>
-                  <strong class="faded"><%= Digest::SHA1.hexdigest(other.user.username)[0, 6] %></strong>
+                  <strong><%= Digest::SHA1.hexdigest(other.user.username)[0, 6] %></strong>
                   <br>
                   <% if other.employerRank == "Offer" %>
                     <span class="button is-rounded is-success"><%= other.employerRank %></span>
@@ -42,5 +42,5 @@
   </div>
   <br>
   <%= render partial: 'posts/post_form', locals: { :job_id => job.id } %>
-  <%= render partial: '/layouts/content', locals: { posts: job.posts.order(created_at: :asc), job_id: job.id } %>
+  <%= render partial: '/layouts/content',  locals: { posts: job.posts, job_id: job.id } %> 
 </div>

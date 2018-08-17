@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 		@post.user_id = current_user.id
 		@post.save
 
-		
 		@postRankings = @post.job.rankings
 	    @postRankings.each do |postRanking| 
 	      if postRanking.user != current_user	

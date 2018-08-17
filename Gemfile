@@ -7,6 +7,8 @@ end
 
 ruby "2.5.0"
 
+gem 'bullet', group: 'development'
+
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 
 gem "font-awesome-rails"

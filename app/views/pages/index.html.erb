@@ -2,7 +2,7 @@
   <p class="header">Search Results</p>
   <% if @jobs.any? %>
     <% @jobs.each do |job| %>
-      <%= render partial: 'layouts/fetchOtherRankings', locals: { :job => job } %>
+      <%= render partial: 'layouts/fetchExploreRankings', locals: { :job => job } %>
     <% end %>
     <br>
     <%= will_paginate @jobs %>
