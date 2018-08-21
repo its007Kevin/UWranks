@@ -6,7 +6,9 @@
     <div class="button is-light is-rounded bottom-margin"><%= job.jobId %></div>
     <div class="button is-light is-rounded bottom-margin multiline-button"><%= job.position %></div>
     <div class="button is-light is-rounded bottom-margin">
-      <i class="fa fa-map-marker" style="color: #358BF2"></i><%= job.location %>
+      <%= link_to controller: "pages", search: job.location do %>
+        <i class="fa fa-map-marker" style="color: #358BF2"></i><%= job.location %>
+      <% end %>
     </div>
   </div>
   <div class="column is-12">

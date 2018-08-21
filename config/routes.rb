@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get '/explore' => 'pages#explore'
   # get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
+  get '/redirect' => 'pages#redirect'
   # get '/conversations' => 'inbox#index'
   get '/messages' => 'messages#index'
   get '/autocompleteJobs' => 'pages#autocompleteJobs'
@@ -44,6 +45,4 @@ Rails.application.routes.draw do
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
   post '/rankings/new' => 'rankings#new'
-
-  get '/redirect' => 'pages#redirect'
 end
