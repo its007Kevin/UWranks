@@ -1,5 +1,7 @@
 class PagesController < ApplicationController  
   def index
+    @num_rankings = Ranking.where("user_id = ?", current_user.id).count  
+    redirect_to :redirect if @num_rankings == 0
     @jobs = if params[:search]
       Job.includes({rankings: :user}, {posts: {comments: :user}}).where('"jobId" LIKE UPPER(:search) OR UPPER(company) LIKE UPPER(:search) OR UPPER(position) LIKE UPPER(:search) OR UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:search]}%").order('company ASC').paginate(page: params[:page], per_page: 10).order('created_at DESC')
     else
@@ -17,6 +19,8 @@ class PagesController < ApplicationController
   end
 
   def explore
+    @num_rankings = Ranking.where("user_id = ?", current_user.id).count  
+    redirect_to :redirect if @num_rankings == 0
     @jobs = Job.includes({rankings: :user}, {posts: {comments: :user}}).paginate(page: params[:page], per_page: 10).order('updated_at DESC')
     @newPosts = Post.new    
     respond_to do |format|
@@ -24,9 +28,6 @@ class PagesController < ApplicationController
       format.html
     end
     session[:return_to] = request.fullpath
-  end
-
-  def help
   end
 
   def profile
@@ -55,5 +56,8 @@ class PagesController < ApplicationController
   def autocompletePosition
     @positions = Job.select(:position).where('UPPER(position) LIKE UPPER(:search)', :search => "%#{params[:term]}%").distinct.limit(5)
     render json: @positions.map(&:position)
+  end
+
+  def redirect
   end
 end

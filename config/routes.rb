@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   # For custom jobs index paths
   post '/jobs' => 'jobs#create'
   post '/rankings/new' => 'rankings#new'
+
+  get '/redirect' => 'pages#redirect'
 end
