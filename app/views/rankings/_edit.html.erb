@@ -9,7 +9,9 @@
     <%= form.hidden_field :job_id, :value => ranking.job.id %>
   </div>
   <div class="column">
-    <%= form.submit "Save", :class => "button is-success is-small is-rounded" %>
+    <%= button_tag(class: "button is-success is-small is-rounded") do %>
+      Save
+    <% end %>
   </div>
   <% end %>
 </div>

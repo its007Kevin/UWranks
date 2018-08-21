@@ -143,6 +143,14 @@ i {
   opacity: 0.6;
 }
 
+.red {
+  color: lightgrey;
+}
+
+.red:hover {
+  color: red;
+}
+
 .header-text {
 	margin-top: 50px;
 	text-align: center;
