@@ -57,7 +57,4 @@ class PagesController < ApplicationController
     @positions = Job.select(:position).where('UPPER(position) LIKE UPPER(:search)', :search => "%#{params[:term]}%").distinct.limit(5)
     render json: @positions.map(&:position)
   end
-
-  def redirect
-  end
 end

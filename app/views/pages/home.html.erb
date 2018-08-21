@@ -2,7 +2,7 @@
   <p class="header">Home Feed</p>
   <% if @myRankings.any? %>
     <% @myRankings.each do |ranking| %>
-      <%= render partial: 'layouts/fetchHomeRankings', locals: { :job => ranking.job } %>
+      <%= render partial: 'layouts/getRankings', locals: { :job => ranking.job } %>
     <% end %>
   <% else %>
     <p>This is an empty looking home feed! Go to your <%= link_to "Rankings", jobs_path %> page to add some jobs.</p>

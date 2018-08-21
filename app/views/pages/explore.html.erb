@@ -2,7 +2,7 @@
   <p class="header">Explore</p>
   <div id="jobs">
     <% @jobs.each do |job| %>
-      <%= render partial: 'layouts/fetchExploreRankings', locals: { job: job } %>
+      <%= render partial: 'layouts/getRankings', locals: { job: job } %>
     <% end %>
   </div>
   <br>
