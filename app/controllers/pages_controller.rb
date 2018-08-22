@@ -8,6 +8,10 @@ class PagesController < ApplicationController
       Job.includes({rankings: :user}, {posts: {comments: :user}}).order('company ASC')
     end
     @newPosts = Post.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
     session[:return_to] = request.fullpath
   end
 
