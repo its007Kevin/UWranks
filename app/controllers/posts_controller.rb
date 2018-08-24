@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 	    @postRankings.each do |postRanking| 
 	      if postRanking.user != current_user	
 	        Notification.create(recipient: postRanking.user, actor: current_user, action: "commented on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @post)
-	  	  	ApplicationMailer.sample_email(postRanking.user, postRanking).deliver
+	  	  	ApplicationMailer.comment_email(postRanking.user, postRanking).deliver
 	  	  end
 	    end
 

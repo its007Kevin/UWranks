@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user.username %>,</p>
+    <p>
+		Another user has ranked a job you're interested in with Job ID <%= @postRanking.job.jobId %> - <%= @postRanking.job.position %> at <%= @postRanking.job.company %>. Visit uwranks.com to see the updates!
+    </p>
+    <p>Good Luck!</p>
+    <p>The UWRanks Team</p>
+  </body>
+</html>

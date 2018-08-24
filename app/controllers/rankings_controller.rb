@@ -11,6 +11,11 @@ class RankingsController < ApplicationController
   def create
     @ranking = Ranking.new(ranking_params_create)
     @ranking.save
+    @ranking.job.rankings.each do |jobRanking|
+      if jobRanking.user != current_user
+        ApplicationMailer.ranking_email(jobRanking.user, jobRanking).deliver
+      end
+    end
     respond_to do |format|
       format.js
     end
