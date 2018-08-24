@@ -4,9 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.username %></h1>
+    <p>Hi <%= @user.username %>,</p>
     <p>
-      Sample mail sent using smtp.
+		Another user has commented on a job you're interested in with Job ID <%= @postRanking.job.jobId %> - <%= @postRanking.job.position %> at <%= @postRanking.job.company %>. Visit uwranks.com to see the updates!
     </p>
+    <p>Good Luck!</p>
+    <p>The UWRanks Team</p>
   </body>
 </html>
