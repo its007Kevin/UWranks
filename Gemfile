@@ -57,7 +57,13 @@ gem 'redis', '~> 3.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use to store configs in config/application.yml
 gem "figaro"
+
+# Used to delay sending email notifications
+gem 'delayed_job_active_record'
+
+gem 'daemons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -13,7 +13,8 @@ class RankingsController < ApplicationController
     @ranking.save
     @ranking.job.rankings.each do |jobRanking|
       if jobRanking.user != current_user
-        ApplicationMailer.ranking_email(jobRanking.user, jobRanking).deliver
+        SendEmailJob.set(wait: 20.seconds).perform_later(jobRanking.user, jobRanking)
+        #ApplicationMailer.ranking_email(jobRanking.user, jobRanking).deliver
       end
     end
     respond_to do |format|
