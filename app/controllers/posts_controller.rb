@@ -12,7 +12,9 @@ class PostsController < ApplicationController
 	    @postRankings.each do |postRanking| 
 	      if postRanking.user != current_user	
 	        Notification.create(recipient: postRanking.user, actor: current_user, action: "commented on your ranking for " + @post.job.company + ", Job ID - " + @post.job.jobId, notifiable: @post)
-	  	  	SendEmailJob.set(wait: 20.seconds).perform_later(postRanking.user, postRanking)
+	  	  	#SendEmailJob.set(wait: 20.seconds).perform_later(postRanking.user, postRanking)
+	  	  	ApplicationMailer.delay.comment_email(postRanking.user, postRanking)
+
 	  	  end
 	    end
 
