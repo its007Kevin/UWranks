@@ -18,6 +18,7 @@
             <th>Job<br />ID</th>
             <th>Company</th>
             <th>Position</th>
+            <th>Openings</th>
             <th>Location</th>
             <th colspan="2">Ranking</th>
           </tr>
@@ -46,10 +47,13 @@
             <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
 
             <%= form.label :company, :class => "label" %>
-            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company' %>
+            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
 
             <%= form.label :position, :class => "label" %>
             <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position' %>
+
+            <%= form.label :openings, :class => "label" %>
+            <%= form.text_field :openings, :class => "input control jobForm", :value => "1", id: 'add_openings' %>
 
             <%= form.label :location, :class => "label" %>
             <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'locationTextField' %>
@@ -69,6 +73,7 @@
               <th>Job<br />ID</th>
               <th>Company</th>
               <th>Position</th>
+              <th>Openings</th>
               <th>Location</th>
               <th>Employer<br />Rank</th>
               <th>Your<br /> Rank</th>

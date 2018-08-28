@@ -6,6 +6,14 @@
     <div class="button is-light is-rounded bottom-margin"><%= job.jobId %></div>
     <div class="button is-light is-rounded bottom-margin multiline-button"><%= job.position %></div>
     <div class="button is-light is-rounded bottom-margin">
+      <%= job.openings %>
+      <% if job.openings == 1 %>
+        Opening
+      <% else %>
+        Openings
+      <% end %>
+    </div>
+    <div class="button is-light is-rounded bottom-margin">
       <%= link_to controller: "pages", search: job.location do %>
         <i class="fa fa-map-marker" style="color: #358BF2"></i><%= job.location %>
       <% end %>

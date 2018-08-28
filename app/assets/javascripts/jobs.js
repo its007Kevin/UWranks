@@ -16,4 +16,5 @@ function closeModal() {
   $('#addJobForm').removeClass('is-active');
   $('#error_messages').empty();
   $('.jobForm').val('');	
+  $('#add_openings').val(1);
 }
