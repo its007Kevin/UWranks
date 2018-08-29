@@ -30,38 +30,14 @@
     </div>
     <small class="faded" style="margin-left: 10px">Job not listed?</small>
     <br>
-    <a class="button is-success is-rounded" id="addJob">Add Job</a>
-    <br>
+    <%= link_to "Add Job", new_job_path, class: "button is-success is-rounded", remote: true %> 
     <br>
   <% end %>
-  <div id="addJobForm" class="modal">
-    <div class="modal-background" id="background"></div>
+  <div id="jobModal" class="modal">
+    <div class="modal-background"></div>
     <div class="modal-content">
-      <button class="modal-close is-large" id="closeModal"></button>
-      <div class="box">
-        <span id="error_messages"></span>
-        <div class="field">
-          <p class="header">Add Job</p>
-          <%= form_with model: @job, url: jobs_path, remote: true, html: { autocomplete: 'off' } do |form| %>
-            <%= form.label :"Job Id", :class => "label" %>
-            <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
-
-            <%= form.label :company, :class => "label" %>
-            <%= form.text_field :company, :class => "input control jobForm", id: 'add_company', data: { autocomplete_source: autocompleteJobs_path } %>
-
-            <%= form.label :position, :class => "label" %>
-            <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer", id: 'add_position' %>
-
-            <%= form.label :openings, :class => "label" %>
-            <%= form.text_field :openings, :class => "input control jobForm", :value => "1", id: 'add_openings' %>
-
-            <%= form.label :location, :class => "label" %>
-            <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'locationTextField' %>
-            <br><br>
-            <%= form.submit "Add", :class => "button is-success", id: "submitJob" %>
-          <% end %>
-        </div>
-      </div>
+      <button class="modal-close is-large"></button>
+      <div id="jobModalContent"></div>
     </div>
   </div>
   <br>
@@ -89,10 +65,3 @@
   <br>
   <br>
 </div>
-<script>
-  function init() {
-      var input = document.getElementById('locationTextField');
-      var autocomplete = new google.maps.places.Autocomplete(input);
-  }
-  google.maps.event.addDomListener(window, 'load', init);
-</script>

@@ -34,7 +34,6 @@ class RankingsController < ApplicationController
     end
   end
 
-
   def destroy
     @ranking = Ranking.find(params[:id])
     @ranking.destroy

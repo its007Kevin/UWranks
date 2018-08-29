@@ -1,8 +1,9 @@
-<tr>
-  <td><%= job.jobId %></td>
-  <td><%= job.company %></td>
-  <td><%= job.position %></td>
-  <td><%= job.openings %></td>
-  <td><%= job.location %></td>
+<tr id="job_<%= job.id %>">
+  <td id="jobId"><%= job.jobId %></td>
+  <td id="company"><%= job.company %></td>
+  <td id="position"><%= job.position %></td>
+  <td id="openings"><%= job.openings %></td>
+  <td id="location"><%= job.location %></td>
   <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
+  <td><%= link_to "Edit", edit_job_path(job), class: "button is-primary is-rounded", remote: true %></td>
 </tr>

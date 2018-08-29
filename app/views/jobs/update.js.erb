@@ -1,0 +1,12 @@
+<% if @job.errors.any? %>
+	$('#error_messages').html("<div class='notification is-danger'><%= @job.errors.full_messages.join('<br>').html_safe %></div>");
+<% else %>
+    $('#jobModal').removeClass('is-active');
+    $('#error_messages').empty();
+    $('.jobForm').val('');	
+    $('#job_<%= @job.id %>').find('#jobId').html('<%= @job.jobId %>');
+    $('#job_<%= @job.id %>').find('#company').html('<%= @job.company %>');
+    $('#job_<%= @job.id %>').find('#position').html('<%= @job.position %>');
+    $('#job_<%= @job.id %>').find('#openings').html('<%= @job.openings %>');
+    $('#job_<%= @job.id %>').find('#location').html('<%= @job.location %>');
+<% end %>

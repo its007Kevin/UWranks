@@ -1,0 +1,4 @@
+$('#jobModal').find('.modal-content').find('#jobModalContent').html('<%= j render "modal", title: "Add" %>');
+$('#jobModal').addClass('is-active');
+var input = document.getElementById('locationTextField');
+var autocomplete = new google.maps.places.Autocomplete(input); 

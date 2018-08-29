@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   # get '/autocompleteUser' => 'inbox#autocompleteUser'
 
   # For custom jobs index paths
-  post '/jobs' => 'jobs#create'
+  post '/jobs/new' => 'jobs#create'
   post '/rankings/new' => 'rankings#new'
 end

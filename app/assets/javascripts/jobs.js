@@ -1,8 +1,5 @@
 $(function () {
-  $('#addJob').click(function () {
-    $('#addJobForm').addClass('is-active');
-  });
-  $('#closeModal, #background').click(function () {
+  $('.modal-close, .modal-background').click(function () {
     closeModal();
   });
   $(document).keyup(function(e) {
@@ -13,8 +10,7 @@ $(function () {
 });
 
 function closeModal() {
-  $('#addJobForm').removeClass('is-active');
-  $('#error_messages').empty();
+  $('#jobModal').removeClass('is-active');
+  $('.error_messages').empty();
   $('.jobForm').val('');	
-  $('#add_openings').val(1);
 }

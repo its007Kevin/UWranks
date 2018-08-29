@@ -27,8 +27,27 @@ class JobsController < ApplicationController
     end
   end
 
+  def edit
+    @job = Job.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    @job.update(job_params_update)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def job_params
       params.permit(:jobId, :company, :position, :location, :job_search, :openings)
+    end
+
+    def job_params_update
+      params.require(:job).permit(:jobId, :company, :position, :location, :job_search, :openings)
     end
 end
