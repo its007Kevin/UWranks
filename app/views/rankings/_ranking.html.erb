@@ -8,7 +8,7 @@
   <td id="yourRank_<%= ranking.id %>"><%= ranking.yourRank %></td>
   <td><%= render partial: 'rankings/edit', locals: { :ranking => ranking } %></td>
   <td>
-    <%= link_to ranking_path(ranking), method: :delete, :class => "red is-rounded is-small", remote: true do %>
+    <%= link_to ranking_path(ranking), method: :delete, :class => "cross is-rounded is-small", remote: true do %>
       <i class="fa fa-times"></i>
     <% end %>
   </td>

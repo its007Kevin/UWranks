@@ -5,5 +5,5 @@
   <td id="openings"><%= job.openings %></td>
   <td id="location"><%= job.location %></td>
   <td><%= render partial: 'rankings/new', locals: { :job => job } %></td>
-  <td><%= link_to "Edit", edit_job_path(job), class: "button is-primary is-rounded", remote: true %></td>
+  <td><%= link_to "Edit", edit_job_path(job), class: "button is-small is-primary is-rounded", remote: true %></td>
 </tr>

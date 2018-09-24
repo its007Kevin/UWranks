@@ -3,21 +3,21 @@
     <%= job.company %>
   </p>
   <div class="jobDesc">
-    <div class="button is-light is-rounded bottom-margin"><%= job.jobId %></div>
-    <div class="button is-light is-rounded bottom-margin multiline-button"><%= job.position %></div>
-    <div class="button is-light is-rounded bottom-margin">
+    <span class="grey-rounded-job-info"><%= job.jobId %></span>
+    <span class="grey-rounded-job-info"><%= job.position %></span>
+    <span class="grey-rounded-job-info">
       <%= job.openings %>
       <% if job.openings == 1 %>
         Opening
       <% else %>
         Openings
       <% end %>
-    </div>
-    <div class="button is-light is-rounded bottom-margin">
+    </span>
+    <span class="grey-rounded-job-info">
       <%= link_to controller: "pages", search: job.location do %>
         <i class="fa fa-map-marker" style="color: #358BF2"></i><%= job.location %>
       <% end %>
-    </div>
+    </span>
   </div>
   <div class="column is-12">
     <div class="columns is-multiline">

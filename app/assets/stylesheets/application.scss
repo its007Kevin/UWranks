@@ -42,7 +42,8 @@ ul {
 }
 
 a {
-	text-decoration: bold;
+  text-decoration: bold;
+  transition: color 0.3s ease-out;
 }
 
 td {
@@ -55,8 +56,43 @@ th {
   padding-right: 10px;
 }
 
+tr {
+  transition: background 0.3s ease-out;
+}
+
 i {
   margin-right: 8px;
+}
+
+input[type=search] {
+  background-color: #F5F5F5;
+  box-shadow: none;
+  border: none;
+
+  transition: background 0.2s ease-out;
+}
+
+input[type=text] {
+  border-color: rgb(224, 224, 224);
+  box-shadow: none;
+
+  transition: background 0.2s ease-out;
+}
+
+input[type=text]:hover {
+  border-color: rgb(224, 224, 224);
+}
+
+input[type=text]:focus {
+  border-color: rgb(224, 224, 224);
+}
+
+input[type=search]:hover {
+  background: #efefef;
+}
+
+input[type=search]:focus {
+  background-color: white;
 }
 
 .min-width {
@@ -66,12 +102,6 @@ i {
 .username_padding {
   padding-left: 2px;
   padding-right: 2px;
-}
-
-.multiline-button {
-  white-space: normal;
-  text-align: left;
-  height: 100%;
 }
 
 .comment_wrap {
@@ -113,11 +143,12 @@ i {
   padding: 10px 10px 10px 20px;
   text-decoration: none;
   color: #4B4B67;
+
+  transition: background 0.3s ease-out;
 }
 
 .user-dropdown:hover {
-  background-color: #358BF2;
-  color: white;
+  background-color: #efefef;
 }
 
 .search-icon-margin {
@@ -126,6 +157,15 @@ i {
 
 .rounded-corners {
 	border-radius: 15px;
+}
+
+.grey-rounded-job-info {
+  display: inline-block;
+
+  background-color: #F5F5F5;
+  border-radius: 30px;
+  padding: 5px 20px 5px 20px;
+  margin: 1px 1px 10px 1px;
 }
 
 .comment {
@@ -143,11 +183,13 @@ i {
   opacity: 0.6;
 }
 
-.red {
+.cross {
   color: lightgrey;
+
+  transition: color 0.2s ease-out;
 }
 
-.red:hover {
+.cross:hover {
   color: red;
 }
 
@@ -222,9 +264,8 @@ i {
     white-space: nowrap;
 
     &:hover, &.ui-state-focus, &.ui-state-active {
-      color: #ffffff;
       text-decoration: none;
-      background-color: #358BF2;
+      background-color: #efefef;
       border-radius: 0px;
       -webkit-border-radius: 0px;
       -moz-border-radius: 0px;

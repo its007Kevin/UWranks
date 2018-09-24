@@ -5,9 +5,6 @@
         <%= f.text_field :content, class: "input is-rounded", :placeholder => "Ask a question about this job", id: "posts_#{job_id}_form" %>
       </div>
       <%= f.hidden_field :job_id, :value => job_id %>
-      <div class="control">
-        <%= f.submit "Post", class: "button is-info is-rounded" %>
-      </div>
     </div>
   <% end %>
 </div>
