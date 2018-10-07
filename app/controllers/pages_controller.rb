@@ -34,19 +34,6 @@ class PagesController < ApplicationController
     session[:return_to] = request.fullpath
   end
 
-  def profile
-  	if (User.find_by_username(params[:id]))
-  		@username = params[:id]
-  	else
-  		redirect_to root_path, :notice => "User not found!"
-  	end
-
-  	@posts = Post.all.where("user_id = ?", User.find_by_username(params[:id]))
-    @rankings = Ranking.all.where("user_id = ?", User.find_by_username(params[:id]))
-    @newPosts = Post.new
-    session[:return_to] = request.fullpath
-  end
-
   def autocompleteJobs
     @jobs = Job.where('UPPER(company) LIKE UPPER(:search)', :search => "%#{params[:term]}%").select("DISTINCT(company)").limit(10)
     render json: @jobs.map(&:company)
