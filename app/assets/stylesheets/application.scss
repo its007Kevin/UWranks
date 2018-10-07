@@ -70,29 +70,36 @@ input[type=search] {
   border: none;
 
   transition: background 0.2s ease-out;
+
+  &:hover {
+    background: #efefef;
+  }
+  &:focus {
+    background-color: white;
+  }
 }
 
 input[type=text] {
   border-color: rgb(224, 224, 224);
   box-shadow: none;
 
-  transition: background 0.2s ease-out;
+  &:hover {
+    border-color: rgb(224, 224, 224);
+  }
+  &:focus {
+    border-color: rgb(224, 224, 224);
+  }
 }
 
-input[type=text]:hover {
-  border-color: rgb(224, 224, 224);
-}
+textarea {
+  box-shadow: none !important;
 
-input[type=text]:focus {
-  border-color: rgb(224, 224, 224);
-}
-
-input[type=search]:hover {
-  background: #efefef;
-}
-
-input[type=search]:focus {
-  background-color: white;
+  &:hover {
+    border-color: rgb(224, 224, 224) !important;
+  }
+  &:focus {
+    border-color: rgb(224, 224, 224) !important;
+  }
 }
 
 .min-width {
@@ -174,9 +181,11 @@ input[type=search]:focus {
 }
 
 .box {
-  -webkit-box-shadow: 0 0px 7px -2px #999;
-  -moz-box-shadow: 0 0px 7px -2px #999;
-  box-shadow: 0 0px 7px -2px #999;
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+
+  margin-bottom: 40px !important;
 }
 
 .faded {
