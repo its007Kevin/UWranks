@@ -3,6 +3,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  # Custom Redirect for unauthenticated users
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
   # CAS
   config.cas_base_url = "https://cas.uwaterloo.ca/cas"
   config.cas_login_url = "https://cas.uwaterloo.ca/cas/login"

@@ -28,11 +28,11 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'pages#sign_up'
+  root 'pages#landing'
 
+  get '/landing' => 'pages#landing'
   get '/home' => 'pages#home'
   get '/explore' => 'pages#explore'
-  # get '/user/:id' => 'pages#profile'
   get '/index' => 'pages#index'
   get '/redirect' => 'pages#redirect'
   # get '/conversations' => 'inbox#index'

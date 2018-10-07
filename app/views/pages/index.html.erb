@@ -9,6 +9,10 @@
     <br>
     <%= will_paginate @jobs %>
   <% else %>
-    <p>Sorry, no results.</p>
+    <article class="message">
+      <div class="message-body">
+        No results yet.
+      </div>
+    </article>
   <% end %>
 </div>

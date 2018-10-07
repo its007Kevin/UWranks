@@ -1,4 +1,4 @@
-class PagesController < ApplicationController  
+class PagesController < ApplicationController
   def index
     @num_rankings = Ranking.where("user_id = ?", current_user.id).count  
     redirect_to :redirect if @num_rankings == 0
@@ -32,6 +32,10 @@ class PagesController < ApplicationController
       format.html
     end
     session[:return_to] = request.fullpath
+  end
+
+  def landing
+    redirect_to :home if user_signed_in? 
   end
 
   def autocompleteJobs
