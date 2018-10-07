@@ -6,15 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 ruby "2.5.1"
-
 gem 'bullet', group: 'development'
-
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
-
 gem "font-awesome-rails"
-
 gem "brakeman"
-
 # Infinite Scrolling
 gem 'will_paginate'
 # Time Conversion
