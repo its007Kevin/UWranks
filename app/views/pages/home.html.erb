@@ -5,8 +5,12 @@
       <%= render partial: 'layouts/getRankings', locals: { :job => ranking.job } %>
     <% end %>
   <% else %>
-    <p>This is an empty looking home feed!</p>
-    <br>
-    <p>Go to your <%= link_to "Rankings", jobs_path %> page to add some jobs.</p>
+    <article class="message is-info">
+      <div class="message-body">
+        <p>This is an empty looking home feed!</p>
+        <br>
+        <p>Go to your <%= link_to "Rankings", jobs_path %> page to add some jobs.</p>
+      </div>
+    </article>
   <% end %>
 </div>

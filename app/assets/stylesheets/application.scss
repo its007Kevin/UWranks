@@ -175,6 +175,32 @@ textarea {
   margin: 1px 1px 10px 1px;
 }
 
+.offer {
+  display: inline-block;
+
+  color: white;
+  background-color: #23D160;
+  border-radius: 30px;
+  padding: 5px 20px 5px 20px;
+}
+
+.ranked {
+  display: inline-block;
+
+  color: white;
+  background-color: #209CEE;
+  border-radius: 30px;
+  padding: 5px 18px 5px 18px;
+}
+
+.ranked-num {
+  display: inline-block;
+
+  background-color: #F5F5F5;
+  border-radius: 30px;
+  padding: 5px 18px 5px 18px;
+}
+
 .comment {
   margin-top: 20px;
   margin-left: 40px;
@@ -184,8 +210,6 @@ textarea {
   -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-
-  margin-bottom: 40px !important;
 }
 
 .faded {
@@ -224,8 +248,8 @@ textarea {
 
 .margins {
   margin-top: 70px;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 12%;
+  padding-right: 12%;
 }
 
 .bottom-margin {

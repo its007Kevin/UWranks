@@ -26,7 +26,6 @@
     <div class="navbar-end">
       <a class="navbar-item" href="/home"><i class="fa fa-home"></i>Home</a>
       <a class="navbar-item" href="/explore"><i class="fa fa-globe"></i>Explore</a>
-
       <div class="navbar-item has-dropdown is-hoverable" data-behavior="notifications">
         <div class="navbar-link" data-behavior="notifications-link">
           <i class="fa fa-bell"></i>Notifications
@@ -36,7 +35,6 @@
           <div class='navbar-item'>
             <p>You have no new notifications</p>
           </div>
-          <!-- Will be populated through the notifications.js.coffee file -->
         </div>
       </div> 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -50,7 +48,7 @@
             <div class="user-dropdown"><i class="fa fa-list-ol"></i>Rankings</div>
           </a>
           <a href=<%= new_feedback_path %>>
-            <div class="user-dropdown"><i class="fa fa-bullhorn"></i>Feedback</div>
+            <div class="user-dropdown"><i class="fa fa-comment"></i>Send Feedback</div>
           </a>
           <hr class="navbar-divider">
           <a href=<%= destroy_user_session_path %> rel="nofollow" data-method="delete">

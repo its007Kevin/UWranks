@@ -25,7 +25,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'devise'
 gem 'devise_cas_authenticatable'
 # Bulma
-gem 'bulma-rails', '~> 0.6.2'
+gem 'bulma-rails', '~> 0.7.1'
 # jQuery
 gem 'jquery-rails'
 # jQuery UI

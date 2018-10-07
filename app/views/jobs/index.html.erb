@@ -28,6 +28,7 @@
         </tbody>
       </table>
     </div>
+    <br>
     <small class="faded" style="margin-left: 10px">Job not listed?</small>
     <br>
     <%= link_to "Add Job", new_job_path, class: "button is-success is-rounded", remote: true %> 
@@ -42,26 +43,25 @@
   </div>
   <br>
   <p class="header">Your Rankings</p>
-    <div style="overflow-x:auto;">
-        <table class="table is-hoverable is-fullwidth" id="rankings">
-          <thead>
-            <tr>
-              <th>Job ID</th>
-              <th>Company</th>
-              <th>Position</th>
-              <th>Openings</th>
-              <th>Location</th>
-              <th>Employer<br />Rank</th>
-              <th>Your<br /> Rank</th>
-              <th colspan="2">Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render @rankings %>
-          </tbody>
-        </table>
-    </div>
-    <%= link_to "Finish", home_path, :class => "button is-success is-rounded" %>
+  <div style="overflow-x:auto;">
+      <table class="table is-hoverable is-fullwidth" id="rankings">
+        <thead>
+          <tr>
+            <th>Job ID</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Openings</th>
+            <th>Location</th>
+            <th>Employer<br />Rank</th>
+            <th>Your<br /> Rank</th>
+            <th colspan="2">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @rankings %>
+        </tbody>
+      </table>
+  </div>
   <br>
-  <br>
+  <%= link_to "Finish", home_path, :class => "button is-success is-rounded" %>
 </div>

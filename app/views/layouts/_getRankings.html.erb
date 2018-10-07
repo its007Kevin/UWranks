@@ -34,11 +34,11 @@
                   <strong><%= Digest::SHA1.hexdigest(other.user.username)[0, 6] %></strong>
                   <br>
                   <% if other.employerRank == "Offer" %>
-                    <span class="button is-rounded is-success"><%= other.employerRank %></span>
+                    <span class="offer"><%= other.employerRank %></span>
                   <% else %>
-                    <span class="button is-rounded is-info"><%= other.employerRank %></span>
+                    <span class="ranked"><%= other.employerRank %></span>
                   <% end %>
-                  <span class="button is-rounded"><%= other.yourRank %></span>
+                  <span class="ranked-num"><%= other.yourRank %></span>
                   <br>
                   <div class="time-style faded">
                     <small><%= local_time_ago(other.updated_at) %></small><br />

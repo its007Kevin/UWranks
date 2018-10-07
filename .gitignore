@@ -2,6 +2,7 @@
 capybara-*.html
 .rspec
 .vscode
+.idea
 /log/*
 /tmp/*
 /db/*.sqlite3
