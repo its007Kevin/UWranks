@@ -207,9 +207,15 @@ textarea {
 }
 
 .box {
-  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.07);
+}
+
+.grey-box {
+  //background-color: #F5F5F5;
+  border: 2px solid #F5F5F5;
+  padding: 20px;
 }
 
 .faded {
@@ -320,8 +326,8 @@ textarea {
 @media (max-width: 480px) {
   .margins {
     margin-top: 70px;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .navbar {
     -webkit-box-shadow: 0 8px 6px -6px #999;

@@ -29,7 +29,7 @@
             <p class="subtitle is-6 faded" style="padding-left: 10px">Looks like only you've ranked this job so far.</p>
           <% elsif current_user.id != other.user.id %>
             <div class="column is-3">
-              <div class="box rounded-corners">
+              <div class="grey-box rounded-corners">
                 <p>
                   <strong><%= Digest::SHA1.hexdigest(other.user.username)[0, 6] %></strong>
                   <br>
