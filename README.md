@@ -2,9 +2,9 @@
 
 A social network for co op students at the University of Waterloo to discuss their rankings with each other.
 
-![](https://github.com/its007Kevin/UWranks/blob/master/sc1.png)
+![](https://github.com/its007Kevin/UWranks/blob/master/sc1.png)&nbsp;&nbsp;
 
-![](https://github.com/its007Kevin/UWranks/blob/master/sc2.png)
+![](https://github.com/its007Kevin/UWranks/blob/master/sc2.png)&nbsp;&nbsp;
 
 ![](https://github.com/its007Kevin/UWranks/blob/master/sc3.png)
 
