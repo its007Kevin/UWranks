@@ -4,11 +4,7 @@ A social network for co op students at the University of Waterloo to discuss the
 
 ![](https://github.com/its007Kevin/UWranks/blob/master/sc1.png)
 
----
-
 ![](https://github.com/its007Kevin/UWranks/blob/master/sc2.png)
-
----
 
 ![](https://github.com/its007Kevin/UWranks/blob/master/sc3.png)
 
@@ -16,7 +12,7 @@ A social network for co op students at the University of Waterloo to discuss the
 
 ### Requirements
 ```
-Ruby 2.5.0
+Ruby 2.5.1
 Rails 5.1.4
 Postgres 9.5
 ```
