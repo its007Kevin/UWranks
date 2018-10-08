@@ -5,7 +5,9 @@
         <a><i onclick="goBack()" class="fa fa-chevron-left"></i></a>
       </div>
       <div class="column is-11">
-        <h1 class="title is-4" style="text-align: center;"><%= Digest::SHA1.hexdigest(conversation.opposed_user(user).username)[0, 6] %></h1>
+        <h1 class="title is-4" style="text-align: center;">
+          <%= Digest::SHA1.hexdigest(conversation.opposed_user(user).username)[0, 6] %>
+        </h1>
       </div>
     </div>
     <div class="messages-list">
@@ -17,7 +19,7 @@
     <form class="new_message">
       <input name="conversation_id" type="hidden" value="<%= conversation.id %>">
       <input name="user_id" type="hidden" value="<%= user.id %>">
-      <input name="body" class="input is-rounded" id="msg" placeholder="Send a Message"></input>
+      <input name="body" type="text" class="input is-rounded" id="msg" placeholder="Send a Message"></input>
     </form>
   </div>
 </li>
