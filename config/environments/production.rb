@@ -1,4 +1,4 @@
-Rails.application.configure do    
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.force_ssl = true
   # Code is not reloaded between requests.
@@ -57,7 +57,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
-  config.web_socket_server_url = "wss://uwranks.com" 
+  config.web_socket_server_url = "wss://uwranks.com"
 
   config.action_cable.allowed_request_origins = ['https://uwranks.com', 'http://uwranks.com']
 
@@ -104,6 +104,6 @@ Rails.application.configure do
   :enable_starttls_auto => true
   }
 
-  config.active_job.queue_adapter = :delayed_job
+  SendEmailJob.queue_adapter = :delayed_job
 
 end
