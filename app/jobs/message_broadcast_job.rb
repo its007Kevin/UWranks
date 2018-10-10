@@ -1,4 +1,4 @@
-class MessageBroadcastJob < ApplicationJob
+class MessageBroadcastJob < ActiveJob::Base
   queue_as :default
 
   def perform(message)
@@ -8,7 +8,7 @@ class MessageBroadcastJob < ApplicationJob
     broadcast_to_sender(sender, message)
     broadcast_to_recipient(recipient, message)
 
-  
+
     Notification.create(recipient: recipient, actor: sender, action: "messaged", notifiable: message.conversation)
     @sender_id = sender.id
     @recipient_id = recipient.id
