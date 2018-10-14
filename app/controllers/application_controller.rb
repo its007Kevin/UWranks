@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :except => [:landing]
 
   def banned?
-    if current_user.present? && current_user.banned?
+    if user_signed_in? && current_user.banned?
       sign_out current_user
       flash[:error] = "Your account has been suspended. Please email uwranks@gmail.com for further assistance."
       root_path
