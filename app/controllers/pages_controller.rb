@@ -39,17 +39,17 @@ class PagesController < ApplicationController
   end
 
   def autocompleteJobs
-    @jobs = Job.where('UPPER(company) LIKE UPPER(:search)', :search => "%#{params[:term]}%").select("DISTINCT(company)").limit(10)
+    @jobs = Job.where('UPPER(company) LIKE UPPER(:search)', :search => "#{params[:term]}%").select("DISTINCT(company)").limit(10)
     render json: @jobs.map(&:company)
   end
 
   def autocompleteLocation
-    @locations = Job.where('UPPER(location) LIKE UPPER(:search)', :search => "%#{params[:term]}%").distinct.limit(5)
+    @locations = Job.where('UPPER(location) LIKE UPPER(:search)', :search => "#{params[:term]}%").distinct.limit(5)
     render json: @locations.map(&:location)
   end
 
   def autocompletePosition
-    @positions = Job.select(:position).where('UPPER(position) LIKE UPPER(:search)', :search => "%#{params[:term]}%").distinct.limit(5)
+    @positions = Job.select(:position).where('UPPER(position) LIKE UPPER(:search)', :search => "#{params[:term]}%").distinct.limit(5)
     render json: @positions.map(&:position)
   end
 end
