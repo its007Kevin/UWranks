@@ -3,22 +3,24 @@
     <div class="field">
         <p class="header"><%= title %> Job</p>
         <%= form_with model: @job, remote: true, html: { autocomplete: 'off' } do |form| %>
-        <%= form.label :"Job Id", :class => "label" %>
-        <%= form.text_field :jobId, :class=> "input control jobForm", maxlength: "5" %>
+        <%= form.label :"Job Id", class: "label" %>
+        <%= form.text_field :jobId, class: "input control jobForm", maxlength: "5" %>
 
-        <%= form.label :company, :class => "label" %>
-        <%= form.text_field :company, :class => "input control jobForm" %>
+        <%= form.label :company, class: "label" %>
+        <%= form.text_field :company, class: "input control jobForm", id: 'add_company', 
+            data: { autocomplete_source: autocompleteJobs_path } %>
 
-        <%= form.label :position, :class => "label" %>
-        <%= form.text_field :position, :class => "input control jobForm", :placeholder => "ex. Software Developer" %>
+        <%= form.label :position, class: "label" %>
+        <%= form.text_field :position, class: "input control jobForm", placeholder: "ex. Software Developer",
+            id: 'add_position', data: { autocomplete_source: autocompletePosition_path } %>
 
-        <%= form.label :openings, :class => "label" %>
-        <%= form.text_field :openings, :class => "input control jobForm", :placeholder => "1" %>
+        <%= form.label :openings, class: "label" %>
+        <%= form.text_field :openings, class: "input control jobForm", placeholder: "1" %>
 
-        <%= form.label :location, :class => "label" %>
-        <%= form.text_field :location, :class => "input control jobForm", :placeholder => "City, Province/State", id: 'locationTextField' %>
+        <%= form.label :location, class: "label" %>
+        <%= form.text_field :location, class: "input control jobForm", placeholder: "City, Province/State", id: 'locationTextField' %>
         <br><br>
-        <%= form.submit "Save", :class => "button is-success" %>
+        <%= form.submit "Save", class: "button is-success" %>
         <% end %>
     </div>
 </div>
