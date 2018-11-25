@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.5.1"
+ruby "2.5.3"
 gem 'bullet', group: 'development'
 gem 'rubycas-client', :git => 'git://github.com/rubycas/rubycas-client.git'
 gem "font-awesome-rails"
