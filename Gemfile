@@ -32,7 +32,7 @@ gem 'pg', '~> 0.18'
 # Heroku Requirements
 gem 'rails_12factor', group: :production # only use on heroku production environment
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
